@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86e68b6c-a6b9-4782-9304-cc8d97a1080d" name="Default" comment="Second Commit">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/semantic/Author.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/core/DataManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/remote/RemoteManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/utility_files/describe.person.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/javadoc_arq.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/utility_files/querys.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Author-Name-Disambiguation-Algorithm.iml" afterPath="$PROJECT_DIR$/Author-Name-Disambiguation-Algorithm.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/utility_files/select.person.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/console/Commands.java" afterPath="$PROJECT_DIR$/src/console/Commands.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utility_files/querys.txt" afterPath="$PROJECT_DIR$/src/utility_files/querys.txt" />
     </list>
     <ignored path="Author-Name-Disambiguation-Algorithm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,18 +44,28 @@
       <file leaf-file-name="describe.person.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utility_files/describe.person.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.730769" vertical-offset="135744" max-vertical-offset="136289">
+            <state vertical-scroll-proportion="-27.076923" vertical-offset="135449" max-vertical-offset="136289">
               <caret line="8009" column="50" selection-start-line="8009" selection-start-column="14" selection-end-line="8009" selection-end-column="50" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="querys.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="querys.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utility_files/querys.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.687067" vertical-offset="0" max-vertical-offset="866">
-              <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="358" max-vertical-offset="1224">
+              <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="66" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="select.person.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/utility_files/select.person.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8766626" vertical-offset="141395" max-vertical-offset="142222">
+              <caret line="8360" column="1" selection-start-line="8360" selection-start-column="1" selection-end-line="8360" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -112,8 +116,8 @@
       <file leaf-file-name="Commands.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/console/Commands.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="58" max-vertical-offset="765">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
+              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#451#452#0" expanded="true" />
@@ -143,9 +147,10 @@
         <option value="$PROJECT_DIR$/src/utility_files/describe.person.json" />
         <option value="$PROJECT_DIR$/src/semantic/Author.java" />
         <option value="$PROJECT_DIR$/src/core/DataManager.java" />
-        <option value="$PROJECT_DIR$/src/console/Commands.java" />
         <option value="$PROJECT_DIR$/src/remote/RemoteManager.java" />
+        <option value="$PROJECT_DIR$/src/console/Commands.java" />
         <option value="$PROJECT_DIR$/src/utility_files/querys.txt" />
+        <option value="$PROJECT_DIR$/src/utility_files/select.person.json" />
       </list>
     </option>
   </component>
@@ -549,7 +554,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1026" extended-state="1" />
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -842,18 +847,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/console/Commands.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="58" max-vertical-offset="765">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#451#452#0" expanded="true" />
-            <element signature="e#498#499#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/console/Console.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="320" max-vertical-offset="1224">
@@ -882,9 +875,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/console/Commands.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#451#452#0" expanded="true" />
+            <element signature="e#498#499#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/utility_files/describe.person.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.730769" vertical-offset="135744" max-vertical-offset="136289">
+        <state vertical-scroll-proportion="-27.076923" vertical-offset="135449" max-vertical-offset="136289">
           <caret line="8009" column="50" selection-start-line="8009" selection-start-column="14" selection-end-line="8009" selection-end-column="50" />
           <folding />
         </state>
@@ -892,8 +897,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utility_files/querys.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.687067" vertical-offset="0" max-vertical-offset="866">
-          <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="358" max-vertical-offset="1224">
+          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="66" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utility_files/select.person.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8766626" vertical-offset="141395" max-vertical-offset="142222">
+          <caret line="8360" column="1" selection-start-line="8360" selection-start-column="1" selection-end-line="8360" selection-end-column="1" />
           <folding />
         </state>
       </provider>

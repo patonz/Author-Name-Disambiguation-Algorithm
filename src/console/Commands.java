@@ -31,7 +31,7 @@ public class Commands {
     }
 
     public void print() {
-        System.out.println("Gesu");
+        System.out.println("a Print");
     }
 
     public void exit() {

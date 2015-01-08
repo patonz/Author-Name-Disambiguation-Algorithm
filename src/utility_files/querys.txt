@@ -34,3 +34,34 @@ WHERE {
 }
 GROUP BY ?person ?label ?givenName ?familyName
 LIMIT 10
+
+
+///
+
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX pro: <http://purl.org/spar/pro/>
+PREFIX rdsf: <http://www.w3.org/2000/01/rdf-schema>
+PREFIX frbr: <http://purl.org/vocab/frbr/core#>
+SELECT DISTINCT
+ ?person ?label ?givenName ?familyName
+ (GROUP_CONCAT(DISTINCT ?role ; separator = " ; ") AS ?rolelist)
+(GROUP_CONCAT(DISTINCT ?relates; separator = " ; ") AS ?relateslist)
+(GROUP_CONCAT(DISTINCT ?creator; separator = " ; ") AS ?creatorlist)
+(GROUP_CONCAT(DISTINCT ?coauthor; separator = " ; ") AS ?coathorlist)
+WHERE {
+ ?person a foaf:Person ;
+  foaf:givenName ?givenName;
+  foaf:familyName ?familyName;
+
+  pro:holdsRoleInTime ?role  .
+
+ ?role pro:relatesToDocument ?relates .
+
+ ?relates frbr:creator ?creator .
+
+ ?coauthor pro:relatesToDocument ?relates .
+
+
+}
+GROUP BY ?person ?label ?givenName ?familyName ?ciccio
+LIMIT 100
