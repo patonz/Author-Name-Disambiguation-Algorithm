@@ -8,12 +8,14 @@ import java.util.Optional;
 public class Author {
 
 
-    private String id;
-    private String type;
-    private String[] holdsRoleInTime;
-    private String label;
-    private String familyName;
-    private String givenName;
+    private Person person;
+    private Coauthor[] coauthorlist;
+    private Label label;
+    private FamilyName familyName;
+    private GivenName givenName;
+    private Creator[] creatorlist;
+    private Role[] rolelist;
+    private Relates[] relateslist;
 
 
     public Author(){

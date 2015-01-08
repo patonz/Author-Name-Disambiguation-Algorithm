@@ -10,12 +10,23 @@ import java.util.Scanner;
  */
 public class Commands {
 
+    public void exit() {
+        System.exit(0);
+    }
+
+
+    public void help() {
+        Console.getInstance().help();
+    }
+
+    public void print() {
+        System.out.println("a Print");
+    }
 
     public void lf() {
         System.out.println("Insert the Path of File");
         Scanner scan = new Scanner(System.in);
         DataManager.getInstance().loadDataFromJson(scan.nextLine());
-        System.out.println("file loaded");
     }
 
 
@@ -30,16 +41,11 @@ public class Commands {
 
     }
 
-    public void print() {
-        System.out.println("a Print");
-    }
 
-    public void exit() {
-        System.exit(0);
+    public void setup(){
+        DataManager.getInstance().loadDataFromJson("data.json");
     }
 
 
-    public void help() {
-        Console.getInstance().help();
-    }
+
 }

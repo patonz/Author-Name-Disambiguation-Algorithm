@@ -34,6 +34,7 @@ public class DataManager {
 
                 this.json = json + line;
             }
+            System.out.println("data loaded");
         } catch (IOException e) {
             System.out.println(e.toString());
         }
