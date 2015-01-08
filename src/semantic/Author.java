@@ -9,18 +9,54 @@ public class Author {
 
 
     public Person person;
-    public Creator coauthorlist;
+    public Coauthor coauthors;
     public Label label;
     public FamilyName familyName;
     public GivenName givenName;
-    public Creator creatorlist;
-    public Creator rolelist;
-    public Creator relateslist;
+    public Creator creators;
+    public Role roles;
+    public Relates relates;
+
+    private String[] coauthorlist;
+    private String[] creatorlist;
+    private String[] rolelist;
+    private String[] relateslist;
+
 
 
     public Author() {
 
     }
 
+    public String[] getCoauthorlist() {
+        return coauthorlist;
+    }
 
+    public void setCoauthorlist(String[] coauthorlist) {
+        this.coauthorlist = coauthorlist;
+    }
+
+    public String[] getCreatorlist() {
+        return creatorlist;
+    }
+
+    public void setCreatorlist(String[] creatorlist) {
+        this.creatorlist = creatorlist;
+    }
+
+    public String[] getRolelist() {
+        return rolelist;
+    }
+
+    public void setRolelist(String[] rolelist) {
+        this.rolelist = rolelist;
+    }
+
+    public String[] getRelateslist() {
+        return relateslist;
+    }
+
+    public void setRelateslist(String[] relateslist) {
+        this.relateslist = relateslist;
+    }
 }
