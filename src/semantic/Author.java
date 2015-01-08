@@ -1,7 +1,5 @@
 package semantic;
 
-import java.util.Optional;
-
 /**
  * Created by Leonardo on 07/01/2015.
  */
@@ -18,10 +16,9 @@ public class Author {
     private Relates[] relateslist;
 
 
-    public Author(){
+    public Author() {
 
     }
-
 
 
 }

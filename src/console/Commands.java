@@ -46,6 +46,8 @@ public class Commands {
         DataManager.getInstance().loadDataFromJson("data.json");
     }
 
-
+    public void count(){
+        System.out.println("Authors count: "+ DataManager.getInstance().data.buildings.length);
+    }
 
 }

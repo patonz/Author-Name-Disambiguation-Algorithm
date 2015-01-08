@@ -1,3 +1,4 @@
+import console.Commands;
 import console.Console;
 
 /**
@@ -7,6 +8,8 @@ public class Main {
 
 
     public static void main(String[] args){
+        System.out.println("Processing the first setup..");
+        new Commands().setup();
         Console.getInstance().run();
     }
 }
