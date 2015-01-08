@@ -1,0 +1,36 @@
+
+////////////
+
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX pro: <http://purl.org/spar/pro/>
+
+SELECT DISTINCT
+ ?person
+ (GROUP_CONCAT(DISTINCT ?role ; separator = " ; ") AS ?rolelist)
+ ?id
+WHERE {
+ ?person a foaf:Person ;
+  pro:holdsRoleInTime ?role ;
+
+}
+GROUP BY ?person
+LIMIT 10
+
+
+
+////////
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX pro: <http://purl.org/spar/pro/>
+PREFIX rdsf: <http://www.w3.org/2000/01/rdf-schema>
+
+SELECT DISTINCT
+ ?person ?label ?givenName ?familyName
+ (GROUP_CONCAT(DISTINCT ?role ; separator = " ; ") AS ?rolelist)
+WHERE {
+ ?person a foaf:Person ;
+  foaf:givenName ?givenName;
+  foaf:familyName ?familyName;
+  pro:holdsRoleInTime ?role  .
+}
+GROUP BY ?person ?label ?givenName ?familyName
+LIMIT 10
