@@ -26,6 +26,7 @@ public class Commands {
     public void lf() {
         System.out.println("Insert the Path of File");
         Scanner scan = new Scanner(System.in);
+        System.out.println("Processing...");
         DataManager.getInstance().loadDataFromJson(scan.nextLine());
     }
 
@@ -43,11 +44,11 @@ public class Commands {
 
 
     public void setup(){
-        DataManager.getInstance().loadDataFromJson("data.json");
+        DataManager.getInstance().loadDataFromJson("DataLimited.json");
     }
 
     public void count(){
-        System.out.println("Authors count: "+ DataManager.getInstance().data.buildings.length);
+        System.out.println("Authors count: "+ DataManager.getInstance().data.bindings.size());
     }
 
 }

@@ -2,6 +2,7 @@ package core;
 
 import semantic.Author;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -11,5 +12,5 @@ public class Data {
 
 
 
-    public Author[] buildings;
+    public List<Author> bindings;
 }

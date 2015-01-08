@@ -2,18 +2,19 @@ package core;
 
 
 import com.google.gson.Gson;
+import org.json.JSONObject;
 import semantic.Author;
 
+import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.util.Scanner;
 
 /**
  * Created by Leonardo on 07/01/2015.
  */
 public class DataManager {
 
-    private String json;
+    private JSONObject json;
     public Author[] author_list;
     public Data data;
     private static DataManager ourInstance = new DataManager();
@@ -29,13 +30,14 @@ public class DataManager {
 
 
     public void loadDataFromJson(String filepath){
-
+        String  str = new String();
 
         try {
-            for (String line : Files.readAllLines(Paths.get(filepath))) {
+            Scanner scan = new Scanner(new File(filepath));
 
-                this.json = json + line;
-            }
+            while (scan.hasNext())
+                str += scan.nextLine();
+            scan.close();
             System.out.println("data loaded");
 
 
@@ -44,9 +46,16 @@ public class DataManager {
             System.out.println(e.toString());
         }
 
-        Gson gson = new Gson();
+        JSONObject obj = new JSONObject(str);
 
-        data = gson.fromJson(json, Data.class);
+        json = obj.getJSONObject("results");
+
+
+        Gson gson = new Gson();
+        data = gson.fromJson(json.toString(), Data.class);
+
+
+     
 
 
     }

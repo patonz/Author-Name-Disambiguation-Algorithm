@@ -1,19 +1,21 @@
 package semantic;
 
+import java.util.List;
+
 /**
  * Created by Leonardo on 07/01/2015.
  */
 public class Author {
 
 
-    private Person person;
-    private Coauthor[] coauthorlist;
-    private Label label;
-    private FamilyName familyName;
-    private GivenName givenName;
-    private Creator[] creatorlist;
-    private Role[] rolelist;
-    private Relates[] relateslist;
+    public Person person;
+    public Creator coauthorlist;
+    public Label label;
+    public FamilyName familyName;
+    public GivenName givenName;
+    public Creator creatorlist;
+    public Creator rolelist;
+    public Creator relateslist;
 
 
     public Author() {
