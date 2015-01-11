@@ -1,5 +1,7 @@
 package console;
 
+import core.DataAuthor;
+import core.DataJournalArticle;
 import core.DataManager;
 import remote.RemoteManager;
 
@@ -26,8 +28,16 @@ public class Commands {
     public void lf() {
         System.out.println("Insert the Path of File");
         Scanner scan = new Scanner(System.in);
-        System.out.println("Processing...");
-        DataManager.getInstance().loadDataFromJson(scan.nextLine());
+        String path = scan.nextLine();
+        System.out.println("Insert the class of Data (core.DataAuthor, core.DataJournalArticle)");
+        try {
+            Class c = Class.forName(scan.nextLine());
+            System.out.println("Processing...");
+            DataManager.getInstance().loadDataFromJson(path, c);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 
 
@@ -43,12 +53,13 @@ public class Commands {
     }
 
 
-    public void setup(){
-        DataManager.getInstance().loadDataFromJson("DataLimited.json");
+    public void setup() {
+        DataManager.getInstance().loadDataFromJson("DataLimited.json", DataAuthor.class);
+        DataManager.getInstance().loadDataFromJson("JournalArticleLimited.json", DataJournalArticle.class);
     }
 
-    public void count(){
-        System.out.println("Authors count: "+ DataManager.getInstance().data.bindings.size());
+    public void count() {
+        System.out.println("Authors count: " + DataManager.getInstance().dataAuthor.bindings.size());
     }
 
 }

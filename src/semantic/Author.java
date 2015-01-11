@@ -1,14 +1,12 @@
 package semantic;
 
-import java.util.List;
-
 /**
  * Created by Leonardo on 07/01/2015.
  */
 public class Author {
 
 
-    public Person person;
+    public SemanticUri person;
     public Coauthor coauthors;
     public Label label;
     public FamilyName familyName;
@@ -16,12 +14,13 @@ public class Author {
     public Creator creators;
     public Role roles;
     public Relates relates;
+    public Realization realizations;
 
     private String[] coauthorlist;
     private String[] creatorlist;
     private String[] rolelist;
     private String[] relateslist;
-
+    private String[] realizationlist;
 
 
     public Author() {
@@ -58,5 +57,13 @@ public class Author {
 
     public void setRelateslist(String[] relateslist) {
         this.relateslist = relateslist;
+    }
+
+    public String[] getRealizationlist() {
+        return realizationlist;
+    }
+
+    public void setRealizationlist(String[] realizationlist) {
+        this.realizationlist = realizationlist;
     }
 }

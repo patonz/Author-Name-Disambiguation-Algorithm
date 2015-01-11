@@ -1,6 +1,5 @@
 package console;
 
-import javax.annotation.PostConstruct;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Scanner;
@@ -11,20 +10,19 @@ import java.util.Scanner;
  */
 public class Console {
 
-    Commands commands = new Commands();
     private static Console ourInstance = new Console();
-
-    public static Console getInstance() {
-        return ourInstance;
-    }
+    Commands commands = new Commands();
 
     private Console() {
 
 
     }
 
+    public static Console getInstance() {
+        return ourInstance;
+    }
 
-    public void run(){
+    public void run() {
         Scanner scan = new Scanner(System.in);
 
         while (true) {
@@ -35,6 +33,7 @@ public class Console {
 
         }
     }
+
     public void print() {
         System.out.println();
     }
@@ -60,9 +59,9 @@ public class Console {
 
         System.out.println("list of Commands:");
         for (Method method : commands.getClass().getDeclaredMethods()) {
-           // if (method.getAnnotation(PostConstruct.class) != null) {
-                System.out.println("-"+method.getName());
-          //  }
+            // if (method.getAnnotation(PostConstruct.class) != null) {
+            System.out.println("-" + method.getName());
+            //  }
         }
     }
 

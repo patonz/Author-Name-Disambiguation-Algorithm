@@ -31,7 +31,7 @@ public class RemoteManager {
     }
 
 
-    public static void executeQuery(String query){
+    public static void executeQuery(String query) {
         try {
 
 
@@ -45,7 +45,7 @@ public class RemoteManager {
             QueryExecution x = QueryExecutionFactory.sparqlService(ontology_service, myquery);
             ResultSet results = x.execSelect();
             ResultSetFormatter.out(System.out, results);
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

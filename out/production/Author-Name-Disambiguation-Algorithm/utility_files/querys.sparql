@@ -36,7 +36,7 @@ GROUP BY ?person ?label ?givenName ?familyName
 LIMIT 10
 
 
-///
+///PERSON
 
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX pro: <http://purl.org/spar/pro/>
@@ -48,6 +48,7 @@ SELECT DISTINCT
 (GROUP_CONCAT(DISTINCT ?relate; separator = " ; ") AS ?relates)
 (GROUP_CONCAT(DISTINCT ?creator; separator = " ; ") AS ?creators)
 (GROUP_CONCAT(DISTINCT ?coauthor; separator = " ; ") AS ?coauthors)
+(GROUP_CONCAT(DISTINCT ?realization; separator = " ; ") AS ?realizations)
 WHERE {
  ?person a foaf:Person ;
   foaf:givenName ?givenName;
@@ -58,12 +59,38 @@ WHERE {
 
  ?role pro:relatesToDocument ?relate .
 
+ ?relate frbr:realization ?realization .
+
  ?relate frbr:creator ?creator .
 
  ?coauthor pro:relatesToDocument ?relate .
+
 
 
 }
 GROUP BY ?person ?label ?givenName ?familyName
 LIMIT 10
 
+////JournalArticle
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX pro: <http://purl.org/spar/pro/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX frbr: <http://purl.org/vocab/frbr/core#>
+PREFIX prism: <http://prismstandard.org/namespaces/basic/2.0/>
+PREFIX fabio: <http://purl.org/spar/fabio/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX cito: <http://purl.org/spar/cito/>
+SELECT DISTINCT
+?article ?title ?publicationYear
+(GROUP_CONCAT(DISTINCT ?cito; separator = " ; ") AS ?cities)
+WHERE {
+
+?article a fabio:JournalArticle ;
+      dcterms:title ?title ;
+      fabio:hasPublicationYear ?publicationYear ;
+      cito:cites ?cito .
+
+
+}
+GROUP BY ?article ?title ?publicationYear
+LIMIT 10

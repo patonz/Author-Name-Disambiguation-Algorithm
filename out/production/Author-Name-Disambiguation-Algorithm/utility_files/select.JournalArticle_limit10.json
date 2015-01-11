@@ -1,0 +1,204 @@
+{
+  "head": {
+    "vars": [
+      "article",
+      "title",
+      "publicationYear",
+      "cites"
+    ]
+  },
+  "results": {
+    "bindings": [
+      {
+        "article": {
+          "type": "uri",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826807000492/version-of-record"
+        },
+        "title": {
+          "type": "literal",
+          "value": "A method for computing lexical semantic distance using linear functionals"
+        },
+        "publicationYear": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#gYear",
+          "type": "typed-literal",
+          "value": "2008"
+        },
+        "cites": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/2-s2.0-84880451555/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0004289791/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0000600219/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0000363537/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0002622179/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-34248833974/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0041178226/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-43049145625/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0003756370/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-43049088252/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0030656848/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0003447189/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-19944411181/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-35048820500/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33745795187/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33749060503/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-43049138182/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0034593050/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0035556942/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0024480920/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0001922337/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-8644292630/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0141607824/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0034785423/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-43049143673/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0002218516/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33646760990/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0003553119/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-43049083842/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33746059304/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33745620975/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-43049100900/version-of-record"
+        }
+      },
+      {
+        "article": {
+          "type": "uri",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000493/version-of-record"
+        },
+        "title": {
+          "type": "literal",
+          "value": "Constructing composite web services from natural language requests"
+        },
+        "publicationYear": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#gYear",
+          "type": "typed-literal",
+          "value": "2010"
+        },
+        "cites": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/2-s2.0-0030880616/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0031774361/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33847215098/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0019523098/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-51049093196/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-77949882440/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-67849093885/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0033289469/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-47349101228/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0033693821/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0027161745/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0018637119/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33646588982/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-66949117381/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0344825816/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33947713272/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0026716292/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0036185244/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-43449097570/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33645221483/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0037651115/version-of-record"
+        }
+      },
+      {
+        "article": {
+          "type": "uri",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S157082681200056X/version-of-record"
+        },
+        "title": {
+          "type": "literal",
+          "value": "Community analysis through semantic rules and role composition derivation"
+        },
+        "publicationYear": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#gYear",
+          "type": "typed-literal",
+          "value": "2013"
+        },
+        "cites": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826806000552/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-32544446344/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0030287048/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-72149100535/version-of-record ; http://www.semanticlancet.eu/resource/1-s2.0-S074756320900137X/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0020102027/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0003912113/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84873296007/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84873324011/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-79960049412/version-of-record ; http://www.semanticlancet.eu/resource/1-s2.0-S0957417410010080/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33749597137/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-34250644400/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-70849116833/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-80053166832/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-80055030677/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84873292390/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84873293436/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-26444535767/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33749613819/version-of-record"
+        }
+      },
+      {
+        "article": {
+          "type": "uri",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826806000564/version-of-record"
+        },
+        "title": {
+          "type": "literal",
+          "value": "Provenance-based validation of e-science experiments"
+        },
+        "publicationYear": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#gYear",
+          "type": "typed-literal",
+          "value": "2007"
+        },
+        "cites": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/2-s2.0-0035455653/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-1342302594/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0033881261/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33847208029/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33646436547/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33847190576/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0001091476/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0346801873/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84902962508/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33847185109/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0032647604/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33847199237/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-27544479640/version-of-record ; http://www.semanticlancet.eu/resource/1-s2.0-S0020019001001624/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33847218177/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0036039907/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-31444456909/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-12944300194/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0037410107/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-24344453002/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-4344583983/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33847203893/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33847216789/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33847180410/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-10744228053/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33847222982/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-2542455855/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33744484995/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33847241738/version-of-record"
+        }
+      },
+      {
+        "article": {
+          "type": "uri",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826813000218/version-of-record"
+        },
+        "title": {
+          "type": "literal",
+          "value": "Repeatable and reliable semantic search evaluation"
+        },
+        "publicationYear": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#gYear",
+          "type": "typed-literal",
+          "value": "2013"
+        },
+        "cites": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000213/version-of-record ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826811000758/version-of-record ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000648/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84880451555/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0002622179/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33846260106/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-56349145233/version-of-record ; http://www.semanticlancet.eu/resource/doi%3A10.1145%2F361219.361220/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-77954592965/version-of-record ; http://www.semanticlancet.eu/resource/doi%3A10.1145%2F383952.384019/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-74749083475/version-of-record ; http://www.semanticlancet.eu/resource/doi%3A10.1017%2FCBO9780511809071/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33750315239/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-80052127659/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84860844992/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-65249129950/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-80053402398/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-8644262918/version-of-record ; http://www.semanticlancet.eu/resource/doi%3A10.3115%2F1220575.1220589/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84867481137/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84861077540/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84884287780/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0001769424/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84884291507/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84884286179/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-52649173148/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-57349188929/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-77952357661/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-63449086637/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-80052130098/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-8844267001/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-51749107030/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0004607469/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84875704610/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84884284617/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84884279668/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0003394494/version-of-record ; http://www.semanticlancet.eu/resource/doi%3A10.1007%2F978-3-540-78646-7_38/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-78651279591/version-of-record ; http://www.semanticlancet.eu/resource/doi%3A10.1561%2F1500000019/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-45449114312/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84884285477/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-77954593246/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-77952314447/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-70449657723/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84884285493/version-of-record"
+        }
+      },
+      {
+        "article": {
+          "type": "uri",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826811000783/version-of-record"
+        },
+        "title": {
+          "type": "literal",
+          "value": "Challenges for the multilingual Web of Data"
+        },
+        "publicationYear": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#gYear",
+          "type": "typed-literal",
+          "value": "2012"
+        },
+        "cites": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S157082680800019X/version-of-record ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000892/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-79551602978/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-34548612300/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-52449092863/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-77957962063/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-77954405070/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-70349101440/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-57349126359/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84857789807/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84857784610/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84857793396/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-80053358975/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84857792447/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-80053387871/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84857785540/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84857784605/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-79960052570/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84857784606/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33746044232/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-78649897242/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84857783228/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84857784604/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84857785457/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84857784602/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84857784601/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84857793394/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84857785458/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84857784609/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-62949112208/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84857784608/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84857785459/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84857784600/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-79958809896/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84857793327/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84857793395/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84857784603/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84857784607/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84857791352/version-of-record"
+        }
+      },
+      {
+        "article": {
+          "type": "uri",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000838/version-of-record"
+        },
+        "title": {
+          "type": "literal",
+          "value": "OWLS-MX: A hybrid Semantic Web service matchmaker for OWL-S services"
+        },
+        "publicationYear": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#gYear",
+          "type": "typed-literal",
+          "value": "2009"
+        },
+        "cites": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/2-s2.0-84880469088/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84864486684/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0004217877/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-67349282797/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-52149100555/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-67349270381/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-67349210449/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-52149086760/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-67349115793/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84880461885/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84876806665/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-67349132934/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33645624467/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-35348909817/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-67349264960/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-67349119305/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-34047142715/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-34247249522/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-67349211584/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84891460070/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-67349131680/version-of-record"
+        }
+      },
+      {
+        "article": {
+          "type": "uri",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000250/version-of-record"
+        },
+        "title": {
+          "type": "literal",
+          "value": "From keywords to semantic queries\u2014Incremental query construction on the semantic web"
+        },
+        "publicationYear": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#gYear",
+          "type": "typed-literal",
+          "value": "2009"
+        },
+        "cites": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826807000145/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-1342316299/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0003037529/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84859172690/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33750732368/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-79953128707/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-16244409471/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-71149083213/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-71149119677/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-69849109341/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-71149092557/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-70849111170/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-70749100028/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-71149110925/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-71149120074/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-71149099199/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-34250330057/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-42149107797/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-71149102510/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-71149103771/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-71149111330/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-71149112870/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-71149120868/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-71149119278/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-71149099769/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0345205922/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-71149114339/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-71149116458/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33746090545/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-71149095333/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-71149122054/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-71149084252/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-71149116650/version-of-record"
+        }
+      },
+      {
+        "article": {
+          "type": "uri",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826805000314/version-of-record"
+        },
+        "title": {
+          "type": "literal",
+          "value": "Combining OWL ontologies using E-Connections"
+        },
+        "publicationYear": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#gYear",
+          "type": "typed-literal",
+          "value": "2006"
+        },
+        "cites": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826803000027/version-of-record ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826803000052/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0007904166/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0001473852/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-84880874673/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0001656132/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0242308061/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-28044441239/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-30544454702/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-30544437249/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-6344271958/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-29844456046/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33746357010/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-26444494928/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0032592917/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-30544439448/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-34548272754/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-30544454447/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-20844452507/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-30544447364/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-30544438007/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33750240343/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-10044271907/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0003662314/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0012265833/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-30544451914/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-4544311630/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-27144558208/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-30544446872/version-of-record ; http://www.semanticlancet.eu/resource/1-s2.0-S0004370204000244/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-30544435561/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-1642485949/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-30544448062/version-of-record"
+        }
+      },
+      {
+        "article": {
+          "type": "uri",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826806000187/version-of-record"
+        },
+        "title": {
+          "type": "literal",
+          "value": "SWAN: A distributed knowledge infrastructure for Alzheimer disease research"
+        },
+        "publicationYear": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#gYear",
+          "type": "typed-literal",
+          "value": "2006"
+        },
+        "cites": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/2-s2.0-0003483795/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33748447418/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-2142675119/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33748457409/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0142056858/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33750951496/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-0037462510/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33748440685/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33748459690/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33748458188/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33748455388/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33748465836/version-of-record ; http://www.semanticlancet.eu/resource/2-s2.0-33748446861/version-of-record"
+        }
+      }
+    ]
+  }
+}

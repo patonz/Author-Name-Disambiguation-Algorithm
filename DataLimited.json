@@ -1,108 +1,398 @@
 {
   "head": {
-    "vars": [ "person" , "label" , "givenName" , "familyName" , "roles" , "relates" , "creators" , "coauthors" ]
-  } ,
+    "vars": [
+      "person",
+      "label",
+      "givenName",
+      "familyName",
+      "roles",
+      "relates",
+      "creators",
+      "coauthors",
+      "realizations"
+    ]
+  },
   "results": {
     "bindings": [
       {
-        "person": { "type": "uri" , "value": "http://www.semanticlancet.eu/resource/person/bernhard-schueler" } ,
-        "label": { "type": "literal" , "value": "Bernhard Schueler" } ,
-        "givenName": { "type": "literal" , "value": "Bernhard" } ,
-        "familyName": { "type": "literal" , "value": "Schueler" } ,
-        "roles": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000237/author/bernhard-schueler-as-author" } ,
-        "relates": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000237" } ,
-        "creators": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000237/author-list" } ,
-        "coauthors": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000237/author/renata-dividino-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000237/author/sergej-sizov-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000237/author/bernhard-schueler-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000237/author/steffen-staab-as-author" }
-      } ,
+        "person": {
+          "type": "uri",
+          "value": "http://www.semanticlancet.eu/resource/person/bernhard-schueler"
+        },
+        "label": {
+          "type": "literal",
+          "value": "Bernhard Schueler"
+        },
+        "givenName": {
+          "type": "literal",
+          "value": "Bernhard"
+        },
+        "familyName": {
+          "type": "literal",
+          "value": "Schueler"
+        },
+        "roles": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000237/author/bernhard-schueler-as-author"
+        },
+        "relates": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000237"
+        },
+        "creators": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000237/author-list"
+        },
+        "coauthors": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000237/author/renata-dividino-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000237/author/sergej-sizov-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000237/author/bernhard-schueler-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000237/author/steffen-staab-as-author"
+        },
+        "realizations": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000237/version-of-record"
+        }
+      },
       {
-        "person": { "type": "uri" , "value": "http://www.semanticlancet.eu/resource/person/matthew-simpson" } ,
-        "label": { "type": "literal" , "value": "Matthew Simpson" } ,
-        "givenName": { "type": "literal" , "value": "Matthew" } ,
-        "familyName": { "type": "literal" , "value": "Simpson" } ,
-        "roles": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000235/author/matthew-simpson-as-author" } ,
-        "relates": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000235" } ,
-        "creators": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000235/author-list" } ,
-        "coauthors": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000235/author/matthew-simpson-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000235/author/george-r-thoma-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000235/author/glenn-ford-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000235/author/dina-demner-fushman-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000235/author/michael-chung-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000235/author/sameer-antani-as-author" }
-      } ,
+        "person": {
+          "type": "uri",
+          "value": "http://www.semanticlancet.eu/resource/person/matthew-simpson"
+        },
+        "label": {
+          "type": "literal",
+          "value": "Matthew Simpson"
+        },
+        "givenName": {
+          "type": "literal",
+          "value": "Matthew"
+        },
+        "familyName": {
+          "type": "literal",
+          "value": "Simpson"
+        },
+        "roles": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000235/author/matthew-simpson-as-author"
+        },
+        "relates": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000235"
+        },
+        "creators": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000235/author-list"
+        },
+        "coauthors": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000235/author/matthew-simpson-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000235/author/george-r-thoma-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000235/author/glenn-ford-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000235/author/dina-demner-fushman-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000235/author/michael-chung-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000235/author/sameer-antani-as-author"
+        },
+        "realizations": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000235/version-of-record"
+        }
+      },
       {
-        "person": { "type": "uri" , "value": "http://www.semanticlancet.eu/resource/person/robert-isele" } ,
-        "label": { "type": "literal" , "value": "Robert Isele" } ,
-        "givenName": { "type": "literal" , "value": "Robert" } ,
-        "familyName": { "type": "literal" , "value": "Isele" } ,
-        "roles": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826813000231/author/robert-isele-as-author" } ,
-        "relates": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826813000231" } ,
-        "creators": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826813000231/author-list" } ,
-        "coauthors": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826813000231/author/christian-bizer-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826813000231/author/robert-isele-as-author" }
-      } ,
+        "person": {
+          "type": "uri",
+          "value": "http://www.semanticlancet.eu/resource/person/robert-isele"
+        },
+        "label": {
+          "type": "literal",
+          "value": "Robert Isele"
+        },
+        "givenName": {
+          "type": "literal",
+          "value": "Robert"
+        },
+        "familyName": {
+          "type": "literal",
+          "value": "Isele"
+        },
+        "roles": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826813000231/author/robert-isele-as-author"
+        },
+        "relates": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826813000231"
+        },
+        "creators": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826813000231/author-list"
+        },
+        "coauthors": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826813000231/author/christian-bizer-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826813000231/author/robert-isele-as-author"
+        },
+        "realizations": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826813000231/version-of-record"
+        }
+      },
       {
-        "person": { "type": "uri" , "value": "http://www.semanticlancet.eu/resource/person/nenad-stojanovic" } ,
-        "label": { "type": "literal" , "value": "Nenad Stojanovic" } ,
-        "givenName": { "type": "literal" , "value": "Nenad" } ,
-        "familyName": { "type": "literal" , "value": "Stojanovic" } ,
-        "roles": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826803000295/author/nenad-stojanovic-as-author" } ,
-        "relates": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826803000295" } ,
-        "creators": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826803000295/author-list" } ,
-        "coauthors": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826803000295/author/steffen-staab-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826803000295/author/raphael-volz-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826803000295/author/siegfried-handschuh-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826803000295/author/ljiljana-stojanovic-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826803000295/author/nenad-stojanovic-as-author" }
-      } ,
+        "person": {
+          "type": "uri",
+          "value": "http://www.semanticlancet.eu/resource/person/nenad-stojanovic"
+        },
+        "label": {
+          "type": "literal",
+          "value": "Nenad Stojanovic"
+        },
+        "givenName": {
+          "type": "literal",
+          "value": "Nenad"
+        },
+        "familyName": {
+          "type": "literal",
+          "value": "Stojanovic"
+        },
+        "roles": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826803000295/author/nenad-stojanovic-as-author"
+        },
+        "relates": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826803000295"
+        },
+        "creators": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826803000295/author-list"
+        },
+        "coauthors": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826803000295/author/steffen-staab-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826803000295/author/raphael-volz-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826803000295/author/siegfried-handschuh-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826803000295/author/ljiljana-stojanovic-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826803000295/author/nenad-stojanovic-as-author"
+        },
+        "realizations": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826803000295/version-of-record"
+        }
+      },
       {
-        "person": { "type": "uri" , "value": "http://www.semanticlancet.eu/resource/person/iris-reinhartz-berger" } ,
-        "label": { "type": "literal" , "value": "Iris Reinhartz-Berger" } ,
-        "givenName": { "type": "literal" , "value": "Iris" } ,
-        "familyName": { "type": "literal" , "value": "Reinhartz-Berger" } ,
-        "roles": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000818/author/iris-reinhartz-berger-as-author" } ,
-        "relates": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000818" } ,
-        "creators": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000818/author-list" } ,
-        "coauthors": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000818/author/eran-toch-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000818/author/dov-dori-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000818/author/iris-reinhartz-berger-as-author" }
-      } ,
+        "person": {
+          "type": "uri",
+          "value": "http://www.semanticlancet.eu/resource/person/iris-reinhartz-berger"
+        },
+        "label": {
+          "type": "literal",
+          "value": "Iris Reinhartz-Berger"
+        },
+        "givenName": {
+          "type": "literal",
+          "value": "Iris"
+        },
+        "familyName": {
+          "type": "literal",
+          "value": "Reinhartz-Berger"
+        },
+        "roles": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000818/author/iris-reinhartz-berger-as-author"
+        },
+        "relates": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000818"
+        },
+        "creators": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000818/author-list"
+        },
+        "coauthors": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000818/author/eran-toch-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000818/author/dov-dori-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000818/author/iris-reinhartz-berger-as-author"
+        },
+        "realizations": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826810000818/version-of-record"
+        }
+      },
       {
-        "person": { "type": "uri" , "value": "http://www.semanticlancet.eu/resource/person/floris-bex" } ,
-        "label": { "type": "literal" , "value": "Floris Bex" } ,
-        "givenName": { "type": "literal" , "value": "Floris" } ,
-        "familyName": { "type": "literal" , "value": "Bex" } ,
-        "roles": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826814000079/author/floris-bex-as-author" } ,
-        "relates": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826814000079" } ,
-        "creators": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826814000079/author-list" } ,
-        "coauthors": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826814000079/author/john-lawrence-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826814000079/author/chris-reed-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826814000079/author/floris-bex-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826814000079/author/mark-snaith-as-author" }
-      } ,
+        "person": {
+          "type": "uri",
+          "value": "http://www.semanticlancet.eu/resource/person/floris-bex"
+        },
+        "label": {
+          "type": "literal",
+          "value": "Floris Bex"
+        },
+        "givenName": {
+          "type": "literal",
+          "value": "Floris"
+        },
+        "familyName": {
+          "type": "literal",
+          "value": "Bex"
+        },
+        "roles": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826814000079/author/floris-bex-as-author"
+        },
+        "relates": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826814000079"
+        },
+        "creators": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826814000079/author-list"
+        },
+        "coauthors": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826814000079/author/john-lawrence-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826814000079/author/chris-reed-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826814000079/author/floris-bex-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826814000079/author/mark-snaith-as-author"
+        },
+        "realizations": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826814000079/version-of-record"
+        }
+      },
       {
-        "person": { "type": "uri" , "value": "http://www.semanticlancet.eu/resource/person/tobias-burger" } ,
-        "label": { "type": "literal" , "value": "Tobias Bürger" } ,
-        "givenName": { "type": "literal" , "value": "Tobias" } ,
-        "familyName": { "type": "literal" , "value": "Bürger" } ,
-        "roles": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000753/author/tobias-burger-as-author" } ,
-        "relates": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000753" } ,
-        "creators": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000753/author-list" } ,
-        "coauthors": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000753/author/tobias-burger-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000753/author/stephan-worgl-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000753/author/elena-simperl-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000753/author/igor-popov-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000753/author/simon-hangl-as-author" }
-      } ,
+        "person": {
+          "type": "uri",
+          "value": "http://www.semanticlancet.eu/resource/person/tobias-burger"
+        },
+        "label": {
+          "type": "literal",
+          "value": "Tobias Bürger"
+        },
+        "givenName": {
+          "type": "literal",
+          "value": "Tobias"
+        },
+        "familyName": {
+          "type": "literal",
+          "value": "Bürger"
+        },
+        "roles": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000753/author/tobias-burger-as-author"
+        },
+        "relates": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000753"
+        },
+        "creators": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000753/author-list"
+        },
+        "coauthors": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000753/author/tobias-burger-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000753/author/stephan-worgl-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000753/author/elena-simperl-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000753/author/igor-popov-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000753/author/simon-hangl-as-author"
+        },
+        "realizations": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000753/version-of-record"
+        }
+      },
       {
-        "person": { "type": "uri" , "value": "http://www.semanticlancet.eu/resource/person/dimitris-kontokostas" } ,
-        "label": { "type": "literal" , "value": "Dimitris Kontokostas" } ,
-        "givenName": { "type": "literal" , "value": "Dimitris" } ,
-        "familyName": { "type": "literal" , "value": "Kontokostas" } ,
-        "roles": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/dimitris-kontokostas-as-author" } ,
-        "relates": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030" } ,
-        "creators": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author-list" } ,
-        "coauthors": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/sebastian-hellmann-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/dimitris-kontokostas-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/george-metakides-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/soren-auer-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/ioannis-antoniou-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/charalampos-bratsas-as-author" }
-      } ,
+        "person": {
+          "type": "uri",
+          "value": "http://www.semanticlancet.eu/resource/person/dimitris-kontokostas"
+        },
+        "label": {
+          "type": "literal",
+          "value": "Dimitris Kontokostas"
+        },
+        "givenName": {
+          "type": "literal",
+          "value": "Dimitris"
+        },
+        "familyName": {
+          "type": "literal",
+          "value": "Kontokostas"
+        },
+        "roles": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/dimitris-kontokostas-as-author"
+        },
+        "relates": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030"
+        },
+        "creators": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author-list"
+        },
+        "coauthors": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/sebastian-hellmann-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/dimitris-kontokostas-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/george-metakides-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/soren-auer-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/ioannis-antoniou-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/charalampos-bratsas-as-author"
+        },
+        "realizations": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/version-of-record"
+        }
+      },
       {
-        "person": { "type": "uri" , "value": "http://www.semanticlancet.eu/resource/person/alia-amin" } ,
-        "label": { "type": "literal" , "value": "Alia Amin" } ,
-        "givenName": { "type": "literal" , "value": "Alia" } ,
-        "familyName": { "type": "literal" , "value": "Amin" } ,
-        "roles": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author/alia-amin-as-author" } ,
-        "relates": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620" } ,
-        "creators": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author-list" } ,
-        "coauthors": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author/jacco-van-osenbruggen-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author/victor-de-boer-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author/lora-aroyo-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author/guus-schreiber-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author/alia-amin-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author/bob-wielinga-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author/lynda-hardman-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author/anna-tordai-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author/mark-van-assem-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author/borys-omelayenko-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author/michiel-hildebrand-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author/jan-wielemaker-as-author" }
-      } ,
+        "person": {
+          "type": "uri",
+          "value": "http://www.semanticlancet.eu/resource/person/alia-amin"
+        },
+        "label": {
+          "type": "literal",
+          "value": "Alia Amin"
+        },
+        "givenName": {
+          "type": "literal",
+          "value": "Alia"
+        },
+        "familyName": {
+          "type": "literal",
+          "value": "Amin"
+        },
+        "roles": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author/alia-amin-as-author"
+        },
+        "relates": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620"
+        },
+        "creators": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author-list"
+        },
+        "coauthors": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author/jacco-van-osenbruggen-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author/victor-de-boer-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author/lora-aroyo-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author/guus-schreiber-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author/alia-amin-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author/bob-wielinga-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author/lynda-hardman-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author/anna-tordai-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author/mark-van-assem-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author/borys-omelayenko-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author/michiel-hildebrand-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/author/jan-wielemaker-as-author"
+        },
+        "realizations": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826808000620/version-of-record"
+        }
+      },
       {
-        "person": { "type": "uri" , "value": "http://www.semanticlancet.eu/resource/person/sebastian-hellmann" } ,
-        "label": { "type": "literal" , "value": "Sebastian Hellmann" } ,
-        "givenName": { "type": "literal" , "value": "Sebastian" } ,
-        "familyName": { "type": "literal" , "value": "Hellmann" } ,
-        "roles": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000225/author/sebastian-hellmann-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/sebastian-hellmann-as-author" } ,
-        "relates": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000225 ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030" } ,
-        "creators": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000225/author-list ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author-list" } ,
-        "coauthors": { "type": "literal" , "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000225/author/richard-cyganiak-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000225/author/christian-bizer-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000225/author/soren-auer-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000225/author/sebastian-hellmann-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000225/author/christian-becker-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000225/author/jens-lehmann-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000225/author/georgi-kobilarov-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/sebastian-hellmann-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/dimitris-kontokostas-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/george-metakides-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/soren-auer-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/ioannis-antoniou-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/charalampos-bratsas-as-author" }
+        "person": {
+          "type": "uri",
+          "value": "http://www.semanticlancet.eu/resource/person/sebastian-hellmann"
+        },
+        "label": {
+          "type": "literal",
+          "value": "Sebastian Hellmann"
+        },
+        "givenName": {
+          "type": "literal",
+          "value": "Sebastian"
+        },
+        "familyName": {
+          "type": "literal",
+          "value": "Hellmann"
+        },
+        "roles": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000225/author/sebastian-hellmann-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/sebastian-hellmann-as-author"
+        },
+        "relates": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000225 ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030"
+        },
+        "creators": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000225/author-list ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author-list"
+        },
+        "coauthors": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000225/author/richard-cyganiak-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000225/author/christian-bizer-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000225/author/soren-auer-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000225/author/sebastian-hellmann-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000225/author/christian-becker-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000225/author/jens-lehmann-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000225/author/georgi-kobilarov-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/sebastian-hellmann-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/dimitris-kontokostas-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/george-metakides-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/soren-auer-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/ioannis-antoniou-as-author ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/author/charalampos-bratsas-as-author"
+        },
+        "realizations": {
+          "type": "literal",
+          "value": "http://www.semanticlancet.eu/resource/1-s2.0-S1570826809000225/version-of-record ; http://www.semanticlancet.eu/resource/1-s2.0-S1570826812000030/version-of-record"
+        }
       }
     ]
   }
