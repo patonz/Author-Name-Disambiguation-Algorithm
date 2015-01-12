@@ -42,7 +42,7 @@ public class DataManager {
                 str += scan.nextLine();
             scan.close();
             System.out.println("data loaded");
-
+            scan = null;
 
         } catch (IOException e) {
             System.out.println(e.toString());
@@ -65,6 +65,8 @@ public class DataManager {
             valueJournalArticleFormatter();
         }
 
+
+        gson = null;
 
     }
 
@@ -109,6 +111,15 @@ public class DataManager {
         }
 
         return arrLis.toArray(new String[0]);
+    }
+
+    public void clean(){
+
+        this.jsonAuthor = null;
+        this.jsonJournalArticle = null;
+        this.dataAuthor = null;
+        this.dataJournalArticle = null;
+        System.gc();
     }
 
 

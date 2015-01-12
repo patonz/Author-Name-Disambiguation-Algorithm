@@ -3,6 +3,7 @@ package console;
 import core.DataAuthor;
 import core.DataJournalArticle;
 import core.DataManager;
+import core.SearchManager;
 import remote.RemoteManager;
 
 import java.util.Scanner;
@@ -21,8 +22,8 @@ public class Commands {
         Console.getInstance().help();
     }
 
-    public void print() {
-        System.out.println("a Print");
+    public void printSearch() {
+        SearchManager.getInstance().printAllSearchResult();
     }
 
     public void lf() {
@@ -60,6 +61,16 @@ public class Commands {
 
     public void count() {
         System.out.println("Authors count: " + DataManager.getInstance().dataAuthor.bindings.size());
+    }
+
+    public void newSearch(){
+        System.out.println("Insert the parameter");
+        Scanner scan = new Scanner(System.in);
+        SearchManager.getInstance().newSearch(scan.nextLine());
+    }
+
+    public void clean(){
+        DataManager.getInstance().clean();
     }
 
 }
