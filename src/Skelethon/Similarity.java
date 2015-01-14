@@ -10,5 +10,5 @@ public interface Similarity {
 
 
 
-    public double Similarity(Key obj);
+    public double Similarity(Object obj);
 }

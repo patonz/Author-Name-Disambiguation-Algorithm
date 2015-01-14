@@ -55,8 +55,8 @@ public class Commands {
 
 
     public void setup() {
-        DataManager.getInstance().loadDataFromJson("data.json", DataAuthor.class);
-        DataManager.getInstance().loadDataFromJson("JournalArticle.json", DataJournalArticle.class);
+        DataManager.getInstance().loadDataFromJson("configuration/data.json", DataAuthor.class);
+        DataManager.getInstance().loadDataFromJson("configuration/JournalArticle.json", DataJournalArticle.class);
     }
 
     public void count() {
