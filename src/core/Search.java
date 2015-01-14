@@ -29,12 +29,12 @@ public class Search {
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy h:mm:ss a");
         this.timestamp = sdf.format(date);
 
-        for (Author author : DataManager.getInstance().dataAuthor.bindings) {
+     /*   for (Author author : DataManager.getInstance().dataAuthor.bindings) {
             if (author.label.value.toLowerCase().contains(this.input.toLowerCase()) || author.familyName.value.toLowerCase().contains(this.input.toLowerCase()) || author.givenName.value.toLowerCase().contains(this.input.toLowerCase())) {
                 this.result.add(author);
             }
 
-        }
+        }*/
     }
 
 
@@ -49,7 +49,7 @@ public class Search {
             }
             System.out.println("Authors found: "+result.size());
             for (int i = 0; i< result.size(); i++) {
-                System.out.println(i+")"+result.get(i).label.value);
+           //     System.out.println(i+")"+result.get(i).label.value);
             }
             System.out.println();
         } else {

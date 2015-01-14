@@ -65,12 +65,12 @@ public class ElaborateManager {
                 ArrayList<Combination> combinations = new ArrayList<Combination>();
 
 
-                combinations.add(new Combination(a.familyName, b.familyName,10));
-                combinations.add(new Combination(a.givenName, b.givenName, 4));
-                combinations.add(new Combination(a.label,b.label, 1));
+               // combinations.add(new Combination(a.familyName, b.familyName,10));
+               // combinations.add(new Combination(a.givenName, b.givenName, 4));
+               // combinations.add(new Combination(a.label,b.label, 1));
 
 
-                System.out.println("A = "+a.label.value+" B = "+b.label.value);
+             //   System.out.println("A = "+a.label.value+" B = "+b.label.value);
                 calculateSimilarity(combinations);
 
 

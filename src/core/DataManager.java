@@ -4,12 +4,9 @@ package core;
 import com.google.gson.Gson;
 import org.json.JSONObject;
 import semantic.Author;
-import semantic.JournalArticle;
-import semantic.Key;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.StringTokenizer;
@@ -22,7 +19,7 @@ public class DataManager {
     private static DataManager ourInstance = new DataManager();
     public Author[] author_list;
     public DataAuthor dataAuthor;
-    public DataJournalArticle dataJournalArticle;
+   // public DataJournalArticle dataJournalArticle;
     private JSONObject jsonAuthor;
     private JSONObject jsonJournalArticle;
 
@@ -60,12 +57,12 @@ public class DataManager {
 
             valueAuthorFormatter();
         }
-        if (c == DataJournalArticle.class) {
+      /*  if (c == DataJournalArticle.class) {
             jsonJournalArticle = obj.getJSONObject("results");
             dataJournalArticle = gson.fromJson(jsonJournalArticle.toString(), DataJournalArticle.class);
 
             valueJournalArticleFormatter();
-        }
+        }*/
 
 
         gson = null;
@@ -75,14 +72,14 @@ public class DataManager {
 
     public void valueAuthorFormatter() {
 
-        System.out.println("generating Author list...");
+      /*  System.out.println("generating Author list...");
         for (Author author : dataAuthor.bindings) {
             author.setCoauthorlist(SplitUsingTokenizer(author.coauthors.value, " ; "));
             author.setCreatorlist(SplitUsingTokenizer(author.creators.value, " ; "));
             author.setRolelist(SplitUsingTokenizer(author.roles.value, " ; "));
             author.setRelateslist(SplitUsingTokenizer(author.relates.value, " ; "));
             author.setRealizationlist(SplitUsingTokenizer(author.realizations.value, " ; "));
-        }
+        }*/
 
 
         System.out.println("done");
@@ -93,10 +90,10 @@ public class DataManager {
     public void valueJournalArticleFormatter() {
 
         System.out.println("generating JournalArticle list...");
-        for (JournalArticle journalArticle : dataJournalArticle.bindings) {
+     /*   for (JournalArticle journalArticle : dataJournalArticle.bindings) {
             journalArticle.setCiteslist(SplitUsingTokenizer(journalArticle.cites.value, " ; "));
 
-        }
+        }*/
 
 
         System.out.println("done");
@@ -109,10 +106,10 @@ public class DataManager {
         StringTokenizer strTkn = new StringTokenizer(subject, delimiters);
         ArrayList arrLis = new ArrayList(subject.length());
 
-        while (strTkn.hasMoreTokens()) {
+      /*  while (strTkn.hasMoreTokens()) {
             arrLis.add(new Key(strTkn.nextToken()) {
             });
-        }
+        }*/
 
         return arrLis;
     }
@@ -122,7 +119,7 @@ public class DataManager {
         this.jsonAuthor = null;
         this.jsonJournalArticle = null;
         this.dataAuthor = null;
-        this.dataJournalArticle = null;
+       // this.dataJournalArticle = null;
         System.gc();
     }
 

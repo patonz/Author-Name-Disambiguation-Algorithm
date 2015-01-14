@@ -1,7 +1,7 @@
 package console;
 
+import builder.BuilderManager;
 import core.DataAuthor;
-import core.DataJournalArticle;
 import core.DataManager;
 import core.ElaborateManager;
 import remote.RemoteManager;
@@ -55,8 +55,8 @@ public class Commands {
 
 
     public void setup() {
-        DataManager.getInstance().loadDataFromJson("configuration/data.json", DataAuthor.class);
-        DataManager.getInstance().loadDataFromJson("configuration/JournalArticle.json", DataJournalArticle.class);
+      //  DataManager.getInstance().loadDataFromJson("configuration/data.json", DataAuthor.class);
+      //  DataManager.getInstance().loadDataFromJson("configuration/JournalArticle.json", DataJournalArticle.class);
     }
 
     public void count() {
@@ -77,4 +77,12 @@ public class Commands {
         DataManager.getInstance().clean();
     }
 
+
+    public void classTry(){
+        try {
+            BuilderManager.getInstance().newClassThenInvoke();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
