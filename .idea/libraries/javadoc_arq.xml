@@ -2,13 +2,13 @@
   <library name="javadoc-arq">
     <CLASSES />
     <JAVADOC>
-      <root url="file://$USER_HOME$/Desktop/apache-jena-2.12.1/javadoc-arq" />
-      <root url="file://$USER_HOME$/Desktop/apache-jena-2.12.1/javadoc-core" />
-      <root url="file://$USER_HOME$/Desktop/apache-jena-2.12.1/javadoc-sdb" />
-      <root url="file://$USER_HOME$/Desktop/apache-jena-2.12.1/javadoc-tdb" />
+      <root url="file://$PROJECT_DIR$/apache-jena-2.12.1/javadoc-arq" />
+      <root url="file://$PROJECT_DIR$/apache-jena-2.12.1/javadoc-core" />
+      <root url="file://$PROJECT_DIR$/apache-jena-2.12.1/javadoc-sdb" />
+      <root url="file://$PROJECT_DIR$/apache-jena-2.12.1/javadoc-tdb" />
     </JAVADOC>
     <SOURCES>
-      <root url="file://$USER_HOME$/Desktop/apache-jena-2.12.1/src-examples" />
+      <root url="file://$PROJECT_DIR$/apache-jena-2.12.1/src-examples" />
     </SOURCES>
   </library>
 </component>

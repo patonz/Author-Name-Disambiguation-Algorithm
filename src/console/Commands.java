@@ -3,7 +3,7 @@ package console;
 import core.DataAuthor;
 import core.DataJournalArticle;
 import core.DataManager;
-import core.SearchManager;
+import core.ElaborateManager;
 import remote.RemoteManager;
 
 import java.util.Scanner;
@@ -23,7 +23,7 @@ public class Commands {
     }
 
     public void printSearch() {
-        SearchManager.getInstance().printAllSearchResult();
+        ElaborateManager.getInstance().printAllSearchResult();
     }
 
     public void lf() {
@@ -55,8 +55,8 @@ public class Commands {
 
 
     public void setup() {
-        DataManager.getInstance().loadDataFromJson("DataLimited.json", DataAuthor.class);
-        DataManager.getInstance().loadDataFromJson("JournalArticleLimited.json", DataJournalArticle.class);
+        DataManager.getInstance().loadDataFromJson("data.json", DataAuthor.class);
+        DataManager.getInstance().loadDataFromJson("JournalArticle.json", DataJournalArticle.class);
     }
 
     public void count() {
@@ -66,7 +66,11 @@ public class Commands {
     public void newSearch(){
         System.out.println("Insert the parameter");
         Scanner scan = new Scanner(System.in);
-        SearchManager.getInstance().newSearch(scan.nextLine());
+        ElaborateManager.getInstance().newSearch(scan.nextLine());
+    }
+
+    public void elaborate(){
+        ElaborateManager.getInstance().elaborateDisambiguationOnData();
     }
 
     public void clean(){

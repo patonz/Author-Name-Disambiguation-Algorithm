@@ -9,3 +9,19 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+apache-jena-2.12.1/bat
+apache-jena-2.12.1/bin
+apache-jena-2.12.1/javadoc-arq
+apache-jena-2.12.1/javadoc-core
+apache-jena-2.12.1/javadoc-sdb
+apache-jena-2.12.1/javadoc-tdb
+apache-jena-2.12.1/lib-src
+apache-jena-2.12.1/src-examples
+apache-jena-2.12.1/ReleaseNotes-ARQ.txt
+apache-jena-2.12.1/README
+apache-jena-2.12.1/LICENSE
+apache-jena-2.12.1/NOTICE
+apache-jena-2.12.1/jena-log4j.properties
+apache-jena-2.12.1/ReleaseNotes-Jena.txt
+apache-jena-2.12.1/ReleaseNotes-TDB.txt

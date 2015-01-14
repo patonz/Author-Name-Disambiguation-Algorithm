@@ -1,10 +1,16 @@
 package semantic;
 
+import Skelethon.Similarity;
+
 /**
  * Created by Leonardo on 07/01/2015.
  */
-public class Author {
+public class Author implements Similarity {
 
+    @Override
+    public double Similarity(Key obj) {
+        return 0;
+    }
 
     public SemanticUri person;
     public Coauthor coauthors;

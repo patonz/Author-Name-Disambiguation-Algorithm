@@ -11,20 +11,39 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="file://$USER_HOME$/Desktop/apache-jena-2.12.1/lib" />
+          <root url="jar://$MODULE_DIR$/json-20141113.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
-        <jarDirectory url="file://$USER_HOME$/Desktop/apache-jena-2.12.1/lib" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES />
+        <JAVADOC>
+          <root url="file://$MODULE_DIR$/apache-jena-2.12.1/javadoc-arq" />
+          <root url="file://$MODULE_DIR$/apache-jena-2.12.1/javadoc-core" />
+          <root url="file://$MODULE_DIR$/apache-jena-2.12.1/javadoc-sdb" />
+          <root url="file://$MODULE_DIR$/apache-jena-2.12.1/javadoc-tdb" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/apache-jena-2.12.1/src-examples" />
+        </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/json-20141113.jar!/" />
+          <root url="file://$MODULE_DIR$/apache-jena-2.12.1/lib" />
+          <root url="file://$MODULE_DIR$" />
+          <root url="file://$MODULE_DIR$" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/src" />
+        </SOURCES>
+        <jarDirectory url="file://$MODULE_DIR$" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/apache-jena-2.12.1/lib" recursive="false" />
       </library>
     </orderEntry>
   </component>
