@@ -2,6 +2,8 @@ package semantic;
 
 import Skelethon.Similarity;
 
+import java.util.ArrayList;
+
 /**
  * Created by Leonardo on 07/01/2015.
  */
@@ -22,54 +24,54 @@ public class Author implements Similarity {
     public Relates relates;
     public Realization realizations;
 
-    private String[] coauthorlist;
-    private String[] creatorlist;
-    private String[] rolelist;
-    private String[] relateslist;
-    private String[] realizationlist;
+    private ArrayList<Coauthor> coauthorlist;
+    private ArrayList<Creator> creatorlist;
+    private ArrayList<Role> rolelist;
+    private ArrayList<Relates> relateslist;
+    private ArrayList<Realization> realizationlist;
 
 
     public Author() {
 
     }
 
-    public String[] getCoauthorlist() {
+    public ArrayList<Coauthor> getCoauthorlist() {
         return coauthorlist;
     }
 
-    public void setCoauthorlist(String[] coauthorlist) {
+    public void setCoauthorlist(ArrayList<Coauthor> coauthorlist) {
         this.coauthorlist = coauthorlist;
     }
 
-    public String[] getCreatorlist() {
+    public ArrayList<Creator> getCreatorlist() {
         return creatorlist;
     }
 
-    public void setCreatorlist(String[] creatorlist) {
+    public void setCreatorlist(ArrayList<Creator> creatorlist) {
         this.creatorlist = creatorlist;
     }
 
-    public String[] getRolelist() {
+    public ArrayList<Role> getRolelist() {
         return rolelist;
     }
 
-    public void setRolelist(String[] rolelist) {
+    public void setRolelist(ArrayList<Role> rolelist) {
         this.rolelist = rolelist;
     }
 
-    public String[] getRelateslist() {
+    public ArrayList<Relates> getRelateslist() {
         return relateslist;
     }
 
-    public void setRelateslist(String[] relateslist) {
+    public void setRelateslist(ArrayList<Relates> relateslist) {
         this.relateslist = relateslist;
     }
 
-    public String[] getRealizationlist() {
+    public ArrayList<Realization> getRealizationlist() {
         return realizationlist;
     }
 
-    public void setRealizationlist(String[] realizationlist) {
+    public void setRealizationlist(ArrayList<Realization> realizationlist) {
         this.realizationlist = realizationlist;
     }
 }

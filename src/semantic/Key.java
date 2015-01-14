@@ -5,7 +5,7 @@ import Skelethon.Similarity;
 /**
  * Created by Leonardo on 08/01/2015.
  */
-public abstract class Key implements Similarity {
+public class Key implements Similarity {
 
     public String type;
     public String value;
@@ -17,5 +17,10 @@ public abstract class Key implements Similarity {
     public Key(String value) {
         this.type = "literal";
         this.value = value;
+    }
+
+    @Override
+    public double Similarity(Key obj) {
+        return 0;
     }
 }

@@ -55,7 +55,7 @@ public class ElaborateManager {
 
         for(int i = 0; i <localauthorlist.size(); i++){
 
-                Author a = localauthorlist.get(i);
+                Author a = localauthorlist.get(535);
 
                 localauthorlist.remove(i);
 
@@ -65,16 +65,20 @@ public class ElaborateManager {
                 ArrayList<Combination> combinations = new ArrayList<Combination>();
 
 
-                combinations.add(new Combination(a.familyName, b.familyName));
+                combinations.add(new Combination(a.familyName, b.familyName,10));
+                combinations.add(new Combination(a.givenName, b.givenName, 4));
+                combinations.add(new Combination(a.label,b.label, 1));
 
 
+                System.out.println("A = "+a.label.value+" B = "+b.label.value);
                 calculateSimilarity(combinations);
+
 
 
 
             }
 
-            break;
+            break; // ciclo solo un autore, testing
 
 
         }
@@ -84,12 +88,18 @@ public class ElaborateManager {
 
 
 
-
+        Double totalgrade = 0.0;
+        Double totalweight = 0.0;
         for(int i = 0; i< combination.size(); i++){
-            System.out.println(combination.get(i).A.Similarity(combination.get(i).B)+"%");
+
+            totalgrade += combination.get(i).getFinalgrade();
+            totalweight += combination.get(i).getWeight();
+            System.out.println(combination.get(i).A.getClass()+" "+combination.get(i).getGrade()+"% with Weight = "+combination.get(i).getWeight());
         }
 
+        System.out.println("Similarity of "+totalgrade / totalweight+"%");
 
+        System.out.println();
 
     }
 

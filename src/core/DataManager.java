@@ -5,9 +5,11 @@ import com.google.gson.Gson;
 import org.json.JSONObject;
 import semantic.Author;
 import semantic.JournalArticle;
+import semantic.Key;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.StringTokenizer;
@@ -102,15 +104,17 @@ public class DataManager {
 
     }
 
-    public String[] SplitUsingTokenizer(String subject, String delimiters) {
+    public ArrayList SplitUsingTokenizer(String subject, String delimiters) {
+
         StringTokenizer strTkn = new StringTokenizer(subject, delimiters);
-        ArrayList<String> arrLis = new ArrayList<String>(subject.length());
+        ArrayList arrLis = new ArrayList(subject.length());
 
         while (strTkn.hasMoreTokens()) {
-            arrLis.add(new String(strTkn.nextToken()));
+            arrLis.add(new Key(strTkn.nextToken()) {
+            });
         }
 
-        return arrLis.toArray(new String[0]);
+        return arrLis;
     }
 
     public void clean(){

@@ -1,5 +1,7 @@
 package semantic;
 
+import java.util.ArrayList;
+
 /**
  * Created by Leonardo on 11/01/2015.
  */
@@ -11,17 +13,17 @@ public class JournalArticle {
     public Title title;
     public Cites cites;
 
-    private String[] citeslist;
+    private ArrayList<Cites> citeslist;
 
     public JournalArticle() {
     }
 
 
-    public String[] getCiteslist() {
+    public ArrayList<Cites> getCiteslist() {
         return citeslist;
     }
 
-    public void setCiteslist(String[] citeslist) {
+    public void setCiteslist(ArrayList<Cites> citeslist) {
         this.citeslist = citeslist;
     }
 }

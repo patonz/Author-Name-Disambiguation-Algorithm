@@ -1,7 +1,5 @@
 package semantic;
 
-import Skelethon.Similarity;
-
 /**
  * Created by Leonardo on 11/01/2015.
  */
