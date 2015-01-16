@@ -1,7 +1,15 @@
 package core;
 
+import builder.BuilderManager;
+import builder.model.Builder;
+import builder.model.Resource;
+import javassist.ClassPool;
+import javassist.CtClass;
+import javassist.CtField;
+import javassist.NotFoundException;
 import semantic.Author;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 /**
@@ -50,31 +58,42 @@ public class ElaborateManager {
     }
 
 
-    public void elaborateDisambiguationOnData(){
+    public void elaborateDisambiguationOnData() throws NotFoundException, NoSuchFieldException {
         ArrayList<Author> localauthorlist = (ArrayList<Author>)DataManager.getInstance().dataAuthor.bindings;
 
+        ClassPool classPool = ClassPool.getDefault();
         for(int i = 0; i <localauthorlist.size(); i++){
 
                 Author a = localauthorlist.get(535);
 
                 localauthorlist.remove(i);
 
-            for(int k = 0; k< localauthorlist.size();k++){
+            for(int k = 0; k< localauthorlist.size();k++) {
                 Author b = localauthorlist.get(k);
 
                 ArrayList<Combination> combinations = new ArrayList<Combination>();
 
 
-               // combinations.add(new Combination(a.familyName, b.familyName,10));
-               // combinations.add(new Combination(a.givenName, b.givenName, 4));
-               // combinations.add(new Combination(a.label,b.label, 1));
+
+                Object A = BuilderManager.getInstance().getField(a,"Person");
+
+                    Object B = BuilderManager.getInstance().getField(b, "Person");
+                    System.out.println(A.getClass());
+                  //  Builder firstparam = (Aclass.getClass())(A.get(a));
+                          //  Builder secondparam = (Resource)
+                         //   combinations.add(new Combination(firstparam,secondparam, 2));
 
 
-             //   System.out.println("A = "+a.label.value+" B = "+b.label.value);
+                // combinations.add(new Combination(a.familyName, b.familyName,10));
+                // combinations.add(new Combination(a.givenName, b.givenName, 4));
+                // combinations.add(new Combination(a.label,b.label, 1));
+
+
+                //   System.out.println("A = "+a.label.value+" B = "+b.label.value);
                 calculateSimilarity(combinations);
 
 
-
+break;
 
             }
 

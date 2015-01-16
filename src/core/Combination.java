@@ -1,5 +1,6 @@
 package core;
 
+import builder.model.Builder;
 import semantic.Key;
 
 /**
@@ -7,14 +8,14 @@ import semantic.Key;
  */
 public class Combination {
 
-    public Key A;
-    public Key B;
+    public Builder A;
+    public Builder B;
 
     private double weight;
     private double grade;
     private double finalgrade;
 
-    public Combination(Key a, Key b, double weight){
+    public Combination(Builder a, Builder b, double weight){
         A = a;
         B = b;
         this.weight = weight;

@@ -8,6 +8,11 @@ import exception.SimilarTypeNotFoundException;
 public abstract class Resource extends Builder {
 
 
+    public String value;
+    public String type;
+
+
+
     @Override
     public double Similarity(Object obj) {
 

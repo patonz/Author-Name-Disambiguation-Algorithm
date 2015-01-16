@@ -1,34 +1,10 @@
 {
   "configuration": [
     {
-      "key": "value",
-      "type": "value",
-      "weight": "value",
-      "delimiter":"value"
-    },
-    {
-      "key": "value",
-      "type": "value",
-      "weight": "value",
-      "delimiter":"value"
-    },
-    {
-      "key": "value",
-      "type": "value",
-      "weight": "value",
-      "delimiter":"value"
-    },
-    {
-      "key": "value",
-      "type": "value",
-      "weight": "value",
-      "delimiter":"value"
-    },
-    {
-      "key": "value",
-      "type": "value",
-      "weight": "value",
-      "delimiter":"value"
+      "key": "Person",
+      "type": "Resource",
+      "weight": "10",
+      "delimiter":" ; "
     }
   ]
 }

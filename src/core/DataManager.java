@@ -31,7 +31,7 @@ public class DataManager {
         return ourInstance;
     }
 
-    public void loadDataFromJson(String filepath, Class c) {
+    public void loadDataFromJson(String filepath) {
         String str = new String();
         System.out.println("Reading file '" + filepath + "'");
         try {
@@ -51,12 +51,12 @@ public class DataManager {
 
 
         Gson gson = new Gson();
-        if (c == DataAuthor.class) {
+
             jsonAuthor = obj.getJSONObject("results");
             dataAuthor = gson.fromJson(jsonAuthor.toString(), DataAuthor.class);
 
             valueAuthorFormatter();
-        }
+
       /*  if (c == DataJournalArticle.class) {
             jsonJournalArticle = obj.getJSONObject("results");
             dataJournalArticle = gson.fromJson(jsonJournalArticle.toString(), DataJournalArticle.class);

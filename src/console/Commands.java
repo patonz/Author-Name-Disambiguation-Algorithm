@@ -4,6 +4,7 @@ import builder.BuilderManager;
 import core.DataAuthor;
 import core.DataManager;
 import core.ElaborateManager;
+import javassist.NotFoundException;
 import remote.RemoteManager;
 
 import java.util.Scanner;
@@ -34,7 +35,7 @@ public class Commands {
         try {
             Class c = Class.forName(scan.nextLine());
             System.out.println("Processing...");
-            DataManager.getInstance().loadDataFromJson(path, c);
+            DataManager.getInstance().loadDataFromJson(path);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -57,6 +58,8 @@ public class Commands {
     public void setup() {
       //  DataManager.getInstance().loadDataFromJson("configuration/data.json", DataAuthor.class);
       //  DataManager.getInstance().loadDataFromJson("configuration/JournalArticle.json", DataJournalArticle.class);
+        BuilderManager.getInstance().createDynamicClassFromConfig("src/configuration/config.json");
+        DataManager.getInstance().loadDataFromJson("src/configuration/data.json");
     }
 
     public void count() {
@@ -70,7 +73,13 @@ public class Commands {
     }
 
     public void elaborate(){
-        ElaborateManager.getInstance().elaborateDisambiguationOnData();
+        try {
+            ElaborateManager.getInstance().elaborateDisambiguationOnData();
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
     }
 
     public void clean(){
