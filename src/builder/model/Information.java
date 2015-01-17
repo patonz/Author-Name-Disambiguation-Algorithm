@@ -5,7 +5,19 @@ import exception.SimilarTypeNotFoundException;
 /**
  * Created by Leonardo on 14/01/2015.
  */
-public abstract class Information extends Builder {
+public class Information extends Builder {
+
+
+
+    public Information(String value){
+        super(value);
+    }
+
+
+    public Information(){
+
+    }
+
 
 
     @Override
@@ -18,6 +30,6 @@ public abstract class Information extends Builder {
         return 0;
     }
 
-    public abstract String getValue();
+
 
 }

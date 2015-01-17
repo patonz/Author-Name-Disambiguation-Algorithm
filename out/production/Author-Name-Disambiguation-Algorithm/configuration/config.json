@@ -1,7 +1,7 @@
 {
   "configuration": [
     {
-      "key": "Person",
+      "key": "person",
       "type": "Resource",
       "weight": "10",
       "delimiter":" ; "

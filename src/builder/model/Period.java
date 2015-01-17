@@ -7,9 +7,18 @@ import java.util.Date;
 /**
  * Created by Leonardo on 14/01/2015.
  */
-public abstract class Period extends Builder {
+public  class Period extends Builder {
 
 
+
+    public Period(String value){
+        super(value);
+    }
+
+
+    public Period(){
+
+    }
 
     @Override
     public double Similarity(Object obj) {
@@ -22,5 +31,5 @@ public abstract class Period extends Builder {
     }
 
 
-    public abstract Date getValue();
+
 }

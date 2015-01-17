@@ -1,7 +1,11 @@
 package core;
 
 
+import builder.BuilderManager;
+import builder.model.*;
 import com.google.gson.Gson;
+import configuration.Setting;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import semantic.Author;
 
@@ -19,12 +23,13 @@ public class DataManager {
     private static DataManager ourInstance = new DataManager();
     public Author[] author_list;
     public DataAuthor dataAuthor;
-   // public DataJournalArticle dataJournalArticle;
+    // public DataJournalArticle dataJournalArticle;
     private JSONObject jsonAuthor;
     private JSONObject jsonJournalArticle;
 
     private DataManager() {
 
+        dataAuthor = new DataAuthor();
     }
 
     public static DataManager getInstance() {
@@ -41,7 +46,7 @@ public class DataManager {
                 str += scan.nextLine();
             scan.close();
             System.out.println("data loaded");
-            scan = null;
+
 
         } catch (IOException e) {
             System.out.println(e.toString());
@@ -52,20 +57,58 @@ public class DataManager {
 
         Gson gson = new Gson();
 
-            jsonAuthor = obj.getJSONObject("results");
-            dataAuthor = gson.fromJson(jsonAuthor.toString(), DataAuthor.class);
+        jsonAuthor = obj.getJSONObject("results");
 
-            valueAuthorFormatter();
+        JSONArray jarray = jsonAuthor.getJSONArray("bindings");
 
-      /*  if (c == DataJournalArticle.class) {
-            jsonJournalArticle = obj.getJSONObject("results");
-            dataJournalArticle = gson.fromJson(jsonJournalArticle.toString(), DataJournalArticle.class);
+        for (int i = 0; i < jarray.length(); i++) {
+            JSONObject temp = (JSONObject) jarray.get(i);
+            Author a = new Author();
+            for (Setting setting : BuilderManager.getInstance().settings.configuration) {
 
-            valueJournalArticleFormatter();
-        }*/
+                switch (setting.type) {
 
 
-        gson = null;
+                    case "Resource":
+                        Resource res = gson.fromJson(temp.get(setting.key).toString(), Resource.class);
+                        ArrayList<String> stringresources = SplitUsingTokenizer(res, setting);
+                        ArrayList<Resource> resourceslist = new ArrayList<>();
+                        for (String s : stringresources) {
+                            resourceslist.add(new Resource(s));
+                        }
+                        a.resources.put(setting.key, new ResourcesHandler(resourceslist));
+                        break;
+                    case "Information":
+                        Information info = gson.fromJson(temp.get(setting.key).toString(), Information.class);
+                        ArrayList<String> stringinformation = SplitUsingTokenizer(info, setting);
+                        ArrayList<Resource> informationlist = new ArrayList<>();
+                        for (String s : stringinformation) {
+                            informationlist.add(new Resource(s));
+                        }
+                        a.resources.put(setting.key, new ResourcesHandler(informationlist));
+                        break;
+                    case "Period":
+                        Period per = gson.fromJson(temp.get(setting.key).toString(), Period.class);
+                        ArrayList<String> stringperiod = SplitUsingTokenizer(per, setting);
+                        ArrayList<Resource> periodlist = new ArrayList<>();
+                        for (String s : stringperiod) {
+                            periodlist.add(new Resource(s));
+                        }
+                        a.resources.put(setting.key, new ResourcesHandler(periodlist));
+                        break;
+                    default:
+                        break;
+
+                }
+                temp.get(setting.key).toString();
+
+
+            }
+
+            this.dataAuthor.authorlist.add(a);
+
+        }
+
 
     }
 
@@ -101,25 +144,29 @@ public class DataManager {
 
     }
 
-    public ArrayList SplitUsingTokenizer(String subject, String delimiters) {
+    public ArrayList<String> SplitUsingTokenizer(Builder builder, Setting setting) {
 
-        StringTokenizer strTkn = new StringTokenizer(subject, delimiters);
-        ArrayList arrLis = new ArrayList(subject.length());
+        StringTokenizer strTkn = new StringTokenizer(builder.value, setting.delimiter);
+        ArrayList<String> arrLis = new ArrayList<>();
 
-      /*  while (strTkn.hasMoreTokens()) {
-            arrLis.add(new Key(strTkn.nextToken()) {
-            });
-        }*/
+
+        while (strTkn.hasMoreTokens()) {
+
+
+            arrLis.add(strTkn.nextToken());
+
+
+        }
+
 
         return arrLis;
     }
 
-    public void clean(){
+    public void clean() {
 
         this.jsonAuthor = null;
         this.jsonJournalArticle = null;
         this.dataAuthor = null;
-       // this.dataJournalArticle = null;
         System.gc();
     }
 

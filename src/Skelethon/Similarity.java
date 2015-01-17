@@ -5,10 +5,10 @@ import semantic.Key;
 /**
  * Created by Leonardo on 14/01/2015.
  */
-public interface Similarity {
+public interface Similarity<T> {
 
 
 
 
-    public double Similarity(Object obj);
+    public double Similarity(T t);
 }

@@ -1,23 +1,16 @@
 package builder;
 
 import builder.model.Builder;
-import builder.model.Resource;
 import com.google.gson.Gson;
-import com.hp.hpl.jena.sparql.sse.builders.BuilderExpr;
 import configuration.Setting;
 import configuration.Settings;
 import javassist.*;
-import javassist.bytecode.SignatureAttribute;
 import org.json.JSONObject;
-import semantic.Author;
-import sun.net.www.content.text.Generic;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -26,8 +19,9 @@ import java.util.Scanner;
  */
 public class BuilderManager {
 
-    Class c;
-    ArrayList<Class> mypool = new ArrayList<Class>();
+    public Settings settings;
+    public ArrayList<Class> mypool = new ArrayList<Class>();
+
 
     private static BuilderManager ourInstance = new BuilderManager();
 
@@ -37,7 +31,7 @@ public class BuilderManager {
 
     private BuilderManager() {
 
-        CtClass.debugDump = "src\\builder\\debug";
+     //   CtClass.debugDump = "src\\builder\\debug";
     }
 
 
@@ -69,9 +63,11 @@ public class BuilderManager {
 
 
             authorClass.addMethod(CtMethod.make("public "+setting.key + " "+"get"+setting.key+"(){ return "+setting.key.toLowerCase()+"; }", authorClass));
+            authorClass.setGenericSignature("runtime.Author");
             mypool.add(clazz.getClass());
 
-
+            Loader loader = new Loader(ClassPool.getDefault());
+            loader.loadClass("semantic.Author");
 
             System.out.println(clazz.toString());
             System.out.println(authorClass.toString());
@@ -80,6 +76,8 @@ public class BuilderManager {
         } catch (CannotCompileException e) {
             e.printStackTrace();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
 
@@ -131,26 +129,15 @@ public class BuilderManager {
 
 
 
-        Settings settings = gson.fromJson(obj.toString(), Settings.class);
+        settings = gson.fromJson(obj.toString(), Settings.class);
 
         for(int i =0; i< settings.configuration.size(); i++){
 
 
             System.out.println(settings.configuration.get(i).key);
 
-
-            injectionNewParam(settings.configuration.get(i));
-
-
-
-
-
-
-
-
-
-
-
+            // NON CREAO PIU CLASSI DINAMICHE
+          //  injectionNewParam(settings.configuration.get(i));
 
         }
 
@@ -165,24 +152,22 @@ public class BuilderManager {
 
         Object value = new Object();
         try {
-            CtClass cc = pool.getCtClass("semantic.Author");
+          /*  CtClass cc = pool.getCtClass("semantic.Author");
             System.out.println(cc.toString());
             for(CtMethod m : cc.getDeclaredMethods()){
                 System.out.println(m.getName());
-            }
+            }*/
 
+            for(Method m : a.getClass().getDeclaredMethods()){
+                System.out.println(m.getName());
 
-            //Class temp = cc.toClass();
-        Method method = cc.getClass().getDeclaredMethod("getPerson");
-       value = method.invoke(a);
+                if(m.getName() == "getPerson"){
+        Method method = m;
+       value = method.invoke(a);}}
 
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (NotFoundException e) {
             e.printStackTrace();
         }
 

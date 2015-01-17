@@ -10,7 +10,23 @@ import semantic.Key;
 
 
     public double weight;
+    public String value;
+    public String type;
 
 
+    public Builder(){
+
+    }
+
+    public Builder(String value){
+        this.value = value;
+    }
+
+
+
+    public Builder setValue(String value){
+        this.value = value;
+        return this;
+    }
 
 }

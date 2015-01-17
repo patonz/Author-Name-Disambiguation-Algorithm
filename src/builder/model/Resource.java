@@ -5,12 +5,17 @@ import exception.SimilarTypeNotFoundException;
 /**
  * Created by Leonardo on 14/01/2015.
  */
-public abstract class Resource extends Builder {
+public class Resource extends Builder {
 
 
-    public String value;
-    public String type;
+    public Resource(String value){
+        super(value);
+    }
 
+
+    public Resource(){
+
+    }
 
 
     @Override
@@ -24,5 +29,5 @@ public abstract class Resource extends Builder {
     }
 
 
-    public abstract String getValue();
+
 }

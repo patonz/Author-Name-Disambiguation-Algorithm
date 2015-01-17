@@ -18,7 +18,6 @@ public class Commands {
         System.exit(0);
     }
 
-
     public void help() {
         Console.getInstance().help();
     }
@@ -56,14 +55,12 @@ public class Commands {
 
 
     public void setup() {
-      //  DataManager.getInstance().loadDataFromJson("configuration/data.json", DataAuthor.class);
-      //  DataManager.getInstance().loadDataFromJson("configuration/JournalArticle.json", DataJournalArticle.class);
         BuilderManager.getInstance().createDynamicClassFromConfig("src/configuration/config.json");
         DataManager.getInstance().loadDataFromJson("src/configuration/data.json");
     }
 
     public void count() {
-        System.out.println("Authors count: " + DataManager.getInstance().dataAuthor.bindings.size());
+        System.out.println("Authors count: " + DataManager.getInstance().dataAuthor.authorlist.size());
     }
 
     public void newSearch(){
@@ -73,13 +70,9 @@ public class Commands {
     }
 
     public void elaborate(){
-        try {
+
             ElaborateManager.getInstance().elaborateDisambiguationOnData();
-        } catch (NotFoundException e) {
-            e.printStackTrace();
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-        }
+
     }
 
     public void clean(){

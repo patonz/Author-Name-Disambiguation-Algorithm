@@ -1,7 +1,13 @@
 package core;
 
+import builder.BuilderManager;
+import javassist.ClassPool;
+import javassist.CtClass;
+import javassist.NotFoundException;
 import semantic.Author;
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,5 +16,14 @@ import java.util.List;
 public class DataAuthor {
 
 
-    public List<Author> bindings;
+
+
+    public ArrayList<Author> authorlist = new ArrayList<>();
+
+
+    public DataAuthor() {
+
+
+
+    }
 }
