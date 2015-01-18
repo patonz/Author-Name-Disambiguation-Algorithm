@@ -8,6 +8,7 @@ import Skelethon.Similarity;
 public abstract class BuildersHandler implements Similarity {
 
     public String delimiter;
+    public Double weight;
 
 
 

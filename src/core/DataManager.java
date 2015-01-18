@@ -12,6 +12,7 @@ import semantic.Author;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.DoubleSummaryStatistics;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -76,25 +77,25 @@ public class DataManager {
                         for (String s : stringresources) {
                             resourceslist.add(new Resource(s));
                         }
-                        a.resources.put(setting.key, new ResourcesHandler(resourceslist));
+                        a.resources.put(setting.key, new ResourcesHandler(resourceslist, Double.parseDouble(setting.weight)));
                         break;
                     case "Information":
                         Information info = gson.fromJson(temp.get(setting.key).toString(), Information.class);
                         ArrayList<String> stringinformation = SplitUsingTokenizer(info, setting);
-                        ArrayList<Resource> informationlist = new ArrayList<>();
+                        ArrayList<Information> informationlist = new ArrayList<>();
                         for (String s : stringinformation) {
-                            informationlist.add(new Resource(s));
+                            informationlist.add(new Information(s));
                         }
-                        a.resources.put(setting.key, new ResourcesHandler(informationlist));
+                        a.informations.put(setting.key, new InformationsHandler(informationlist, Double.parseDouble(setting.weight)));
                         break;
                     case "Period":
                         Period per = gson.fromJson(temp.get(setting.key).toString(), Period.class);
                         ArrayList<String> stringperiod = SplitUsingTokenizer(per, setting);
-                        ArrayList<Resource> periodlist = new ArrayList<>();
+                        ArrayList<Period> periodlist = new ArrayList<>();
                         for (String s : stringperiod) {
-                            periodlist.add(new Resource(s));
+                            periodlist.add(new Period(s));
                         }
-                        a.resources.put(setting.key, new ResourcesHandler(periodlist));
+                        a.periods.put(setting.key, new PeriodsHandler(periodlist, Double.parseDouble(setting.weight)));
                         break;
                     default:
                         break;

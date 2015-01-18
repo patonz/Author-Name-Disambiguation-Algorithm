@@ -13,8 +13,9 @@ public class InformationsHandler extends BuildersHandler {
     public ArrayList<Information> informations;
 
 
-    public InformationsHandler(ArrayList informations) {
+    public InformationsHandler(ArrayList informations, Double weight) {
         this.informations = informations;
+        this.weight = weight;
     }
 
 

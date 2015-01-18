@@ -12,8 +12,9 @@ public class PeriodsHandler extends BuildersHandler {
     public ArrayList<Information> periods;
 
 
-    public PeriodsHandler(ArrayList periods) {
+    public PeriodsHandler(ArrayList periods, Double weight) {
         this.periods = periods;
+        this.weight = weight;
     }
 
 

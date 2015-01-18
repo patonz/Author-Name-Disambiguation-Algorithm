@@ -15,8 +15,9 @@ public  class ResourcesHandler extends BuildersHandler {
 
 
 
-    public ResourcesHandler(ArrayList resources){
+    public ResourcesHandler(ArrayList resources, Double weight){
         this.resources = resources;
+        this.weight = weight;
     }
 
 
@@ -27,8 +28,18 @@ public  class ResourcesHandler extends BuildersHandler {
             throw new SimilarTypeNotFoundException();
         }
 
+        int check = 0;
+        double totalcheck = resources.size() * ((ResourcesHandler) obj).resources.size();
 
-        return 0;
+        for(Resource resA : resources){
+            for(Resource resB : ((ResourcesHandler) obj).resources){
+              check +=   resA.Similarity(resB);
+            }
+        }
+
+
+
+        return (check * 100)/ totalcheck;
     }
 
 
