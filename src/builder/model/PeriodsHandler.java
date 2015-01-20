@@ -19,12 +19,12 @@ public class PeriodsHandler extends BuildersHandler {
 
 
     @Override
-    public double Similarity(Object obj) {
+    public Object Similarity(Object obj) {
         if (!(obj instanceof PeriodsHandler)) {
             throw new SimilarTypeNotFoundException();
         }
 
 
-        return 0;
+        return 0.0;
     }
 }

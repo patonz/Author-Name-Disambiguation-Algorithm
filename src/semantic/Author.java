@@ -3,7 +3,9 @@ package semantic;
 import Skelethon.Similarity;
 import builder.BuilderManager;
 import builder.model.*;
+import com.github.jsonldjava.utils.Obj;
 import configuration.Setting;
+import core.Result;
 import exception.SimilarTypeNotFoundException;
 
 import java.util.HashMap;
@@ -27,7 +29,7 @@ public class Author implements Similarity {
     }
 
     @Override
-    public double Similarity(Object o) {
+    public Object Similarity(Object o) {
         if (!(o instanceof Author)) {
             throw new SimilarTypeNotFoundException();
         }
@@ -37,25 +39,27 @@ public class Author implements Similarity {
         Double periodsgrade = 0.0;
         Double gradewighted = 0.0;
         Double weights = 0.0;
+        String authorresult = "";
         for (Setting s : BuilderManager.getInstance().settings.configuration) {
             Double partialgrade = 0.0;
             if (this.resources.get(s.key) != null) {
-                partialgrade = this.resources.get(s.key).Similarity(((Author) o).resources.get(s.key));
-                System.out.println(s.key + " grade = " + partialgrade + " with weight= "+s.weight);
+                partialgrade = (double)this.resources.get(s.key).Similarity(((Author) o).resources.get(s.key));
+                authorresult += s.key + " grade = " + partialgrade + " with weight= "+s.weight+"\n";
                 resourcesgrade += partialgrade;
                 weights += Double.parseDouble(s.weight);
                 gradewighted += ((partialgrade  * Double.parseDouble(s.weight)));
             }
             if (this.informations.get(s.key) != null) {
-                partialgrade = this.informations.get(s.key).Similarity(((Author) o).informations.get(s.key));
-                System.out.println(s.key + " grade = " + partialgrade + " with weight= "+s.weight);
+                Result result = (Result)this.informations.get(s.key).Similarity(((Author) o).informations.get(s.key));
+                partialgrade = result.grade;
+                authorresult+=s.key + " grade = " + partialgrade + " with weight= "+s.weight + " "+result.description+"\n";
                 informationsgrade += partialgrade;
                 weights += Double.parseDouble(s.weight);
                 gradewighted += (partialgrade * Double.parseDouble(s.weight));
             }
             if (this.periods.get(s.key) != null) {
-                partialgrade = this.periods.get(s.key).Similarity(((Author) o).periods.get(s.key));
-                System.out.println(s.key + " grade = " + partialgrade + " with weight= "+s.weight);
+                partialgrade = (double)this.periods.get(s.key).Similarity(((Author) o).periods.get(s.key));
+                authorresult+=s.key + " grade = " + partialgrade + " with weight= "+s.weight+"\n";
                 periodsgrade += partialgrade;
                 weights += Double.parseDouble(s.weight);
                 gradewighted += (partialgrade * Double.parseDouble(s.weight));
@@ -63,7 +67,8 @@ public class Author implements Similarity {
         }
 
 
-        return gradewighted / weights;
+        authorresult+= "Similarity of Calculated SimilarityCascade "+(gradewighted / weights)+"\n";
+        return new Result(gradewighted / weights, authorresult);
     }
 
     public void printAuthor() {

@@ -54,19 +54,19 @@ public class ElaborateManager {
 
     }
 
-    public void elaborateDisambiguationOnData() {
+    public void elaborateDisambiguationOnData(Double threshold) {
         ArrayList<Author> localauthorlist = (ArrayList<Author>) DataManager.getInstance().dataAuthor.authorlist;
 
 
         for (int i = 0; i < localauthorlist.size(); i++) {
 
-            Author a = localauthorlist.get(76);
+            Author a = localauthorlist.get(i);
 
            // localauthorlist.remove(i);
 
             for (int k = 0; k < localauthorlist.size(); k++) {
 
-                System.out.println("Author A n°"+76+" : Author B n°"+k);
+
                 Author b = localauthorlist.get(k);
 
                 ArrayList<Combination> combinations = new ArrayList<Combination>();
@@ -81,33 +81,22 @@ public class ElaborateManager {
 
 
                 //   System.out.println("A = "+a.label.value+" B = "+b.label.value);
-                calculateSimilarity(a,b);
 
-
-
+               Result result = (Result)a.Similarity(b);
+                if(result.grade >= threshold){
+                    System.out.println("Author A n°"+i+" : Author B n°"+k);
+                    System.out.println(result.description);
+                }
 
             }
 
-            break; // ciclo solo un autore, testing
+            break;
+             // ciclo solo un autore, testing
 
 
         }
     }
 
-    public void calculateSimilarity(Author A, Author B) {
 
-
-        Double totalgrade = 0.0;
-        Double totalweight = 0.0;
-
-
-
-
-
-        System.out.println("Similarity of Calculated SimilarityCascade "+A.Similarity(B) );
-
-        System.out.println();
-
-    }
 
 }

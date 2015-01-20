@@ -22,7 +22,7 @@ public class Information extends Builder {
 
 
     @Override
-    public double Similarity(Object obj) {
+    public Object Similarity(Object obj) {
 
         if(!(obj instanceof Information)){
             throw new SimilarTypeNotFoundException();

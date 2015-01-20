@@ -21,13 +21,13 @@ public  class Period extends Builder {
     }
 
     @Override
-    public double Similarity(Object obj) {
+    public Object Similarity(Object obj) {
 
         if(!(obj instanceof Period)){
             throw new SimilarTypeNotFoundException();
         }
 
-        return 0;
+        return 0.0;
     }
 
 

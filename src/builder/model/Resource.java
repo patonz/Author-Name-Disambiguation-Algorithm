@@ -20,7 +20,7 @@ public class Resource extends Builder {
 
 
     @Override
-    public double Similarity(Object obj) {
+    public Object Similarity(Object obj) {
 
         if(!(obj instanceof Resource)){
             throw new SimilarTypeNotFoundException();

@@ -1,5 +1,6 @@
 package builder.model;
 
+import core.Result;
 import exception.SimilarTypeNotFoundException;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class InformationsHandler extends BuildersHandler {
 
 
     @Override
-    public double Similarity(Object obj) {
+    public Object Similarity(Object obj) {
         if (!(obj instanceof InformationsHandler)) {
             throw new SimilarTypeNotFoundException();
         }
@@ -56,8 +57,8 @@ public class InformationsHandler extends BuildersHandler {
 
         }
         int maxchar = Math.max(infomatchedA.value.length(), infomatchedB.value.length());
-                System.out.println("max match found: \"" + infomatchedA.value + "\" & \"" + infomatchedB.value + "\" with distance = " + distance);
-        return (maxchar >= distance) ? ((maxchar-distance) * 100)/ maxchar : 0.0;
+
+        return new Result((maxchar >= distance) ? ((maxchar-distance) * 100)/ maxchar : 0.0,"max match found: \"" + infomatchedA.value + "\" & \"" + infomatchedB.value + "\" with distance = " + distance );
     }
 
 

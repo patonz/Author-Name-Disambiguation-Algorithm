@@ -26,7 +26,7 @@ public class Combination {
 
     private void calculateFinalGrade(){
 
-        this.grade = A.Similarity(B);
+        this.grade = (double)A.Similarity(B);
         this.finalgrade = this.grade * this.weight;
     }
 

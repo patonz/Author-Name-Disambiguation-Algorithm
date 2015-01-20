@@ -23,7 +23,7 @@ public  class ResourcesHandler extends BuildersHandler {
 
 
     @Override
-    public double Similarity(Object obj) {
+    public Object Similarity(Object obj) {
         if(!(obj instanceof ResourcesHandler)){
             throw new SimilarTypeNotFoundException();
         }
@@ -33,8 +33,8 @@ public  class ResourcesHandler extends BuildersHandler {
 
         for(Resource resA : resources){
             for(Resource resB : ((ResourcesHandler) obj).resources){
-                if(resA.Similarity(resB)==1){
-                    check +=   resA.Similarity(resB);
+                if((int)resA.Similarity(resB)==1){
+                    check +=  (int) resA.Similarity(resB);
                     break;
                 }
 
