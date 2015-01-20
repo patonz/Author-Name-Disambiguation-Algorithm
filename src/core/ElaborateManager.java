@@ -85,6 +85,7 @@ public class ElaborateManager {
 
 
             // ciclo solo un autore, testing
+            // break;
 
 
         }

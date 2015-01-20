@@ -30,14 +30,9 @@ public class Commands {
         System.out.println("Insert the Path of File");
         Scanner scan = new Scanner(System.in);
         String path = scan.nextLine();
-        System.out.println("Insert the class of Data (core.DataAuthor, core.DataJournalArticle)");
-        try {
-            Class c = Class.forName(scan.nextLine());
-            System.out.println("Processing...");
-            DataManager.getInstance().loadDataFromJson(path);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+
+        System.out.println("Processing...");
+        DataManager.getInstance().loadDataFromJson(path);
 
     }
 
