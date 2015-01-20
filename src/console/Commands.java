@@ -90,11 +90,12 @@ public class Commands {
         try {
             double threshold = Double.parseDouble(input);
             if (threshold >= 0 && threshold <= 100) {
+                System.out.println("processing...");
                 Chronometer chronometer = new Chronometer();
                 chronometer.start();
                 ElaborateManager.getInstance().elaborateDisambiguationOnData(threshold);
                 chronometer.stop();
-                System.out.println("operation terminated in " + chronometer.getMilliseconds() + " ms");
+                System.out.println("operation terminated in " + chronometer.getMinutes() + " min");
             } else {
                 System.out.println("the Threshold input must be a number between 0 and 100");
             }

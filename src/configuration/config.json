@@ -10,19 +10,19 @@
       "key": "labelList",
       "type": "Information",
       "weight": "3",
-      "delimiter":"\\s;\\s"
+      "delimiter":";"
     },
     {
       "key": "givenNameList",
       "type": "Information",
       "weight": "2",
-      "delimiter":"\\s;\\s"
+      "delimiter":";"
     },
     {
       "key": "familyNameList",
       "type": "Information",
       "weight": "2",
-      "delimiter":"\\s;\\s"
+      "delimiter":";"
     },
     {
       "key": "coauthorList",

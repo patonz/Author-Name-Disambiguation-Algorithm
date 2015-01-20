@@ -57,13 +57,18 @@ public class ElaborateManager {
     public void elaborateDisambiguationOnData(Double threshold) {
         ArrayList<Author> localauthorlist = (ArrayList<Author>) DataManager.getInstance().dataAuthor.authorlist;
 
+        int maxsize = localauthorlist.size();
 
-        for (int i = 0; i < localauthorlist.size(); i++) {
+        for (int i = 0; i < maxsize; i++) {
 
-            Author a = localauthorlist.get(i);
+            Author a = localauthorlist.get(0);
 
-            // localauthorlist.remove(i);
+             localauthorlist.remove(0);
 
+            if(localauthorlist.size() == 0){
+                //condizione di arresto.
+                break;
+            }
             for (int k = 0; k < localauthorlist.size(); k++) {
 
 
@@ -78,7 +83,7 @@ public class ElaborateManager {
 
             }
 
-            break;
+
             // ciclo solo un autore, testing
 
 
