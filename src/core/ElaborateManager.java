@@ -60,11 +60,13 @@ public class ElaborateManager {
 
         for (int i = 0; i < localauthorlist.size(); i++) {
 
-            Author a = localauthorlist.get(535);
+            Author a = localauthorlist.get(76);
 
-            localauthorlist.remove(i);
+           // localauthorlist.remove(i);
 
             for (int k = 0; k < localauthorlist.size(); k++) {
+
+                System.out.println("Author A n°"+76+" : Author B n°"+k);
                 Author b = localauthorlist.get(k);
 
                 ArrayList<Combination> combinations = new ArrayList<Combination>();

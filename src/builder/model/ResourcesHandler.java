@@ -29,11 +29,15 @@ public  class ResourcesHandler extends BuildersHandler {
         }
 
         int check = 0;
-        double totalcheck = resources.size() * ((ResourcesHandler) obj).resources.size();
+        double totalcheck = resources.size();
 
         for(Resource resA : resources){
             for(Resource resB : ((ResourcesHandler) obj).resources){
-              check +=   resA.Similarity(resB);
+                if(resA.Similarity(resB)==1){
+                    check +=   resA.Similarity(resB);
+                    break;
+                }
+
             }
         }
 

@@ -94,3 +94,42 @@ WHERE {
 }
 GROUP BY ?article ?title ?publicationYear
 LIMIT 10
+
+
+
+/// last query used on data.json
+
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX pro: <http://purl.org/spar/pro/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX frbr: <http://purl.org/vocab/frbr/core#>
+PREFIX fabio: <http://purl.org/spar/fabio/>
+SELECT DISTINCT
+ ?person
+(GROUP_CONCAT(DISTINCT ?label; separator = " ; ") AS ?labelList)
+(GROUP_CONCAT(DISTINCT ?givenName; separator = " ; ") AS ?givenNameList)
+(GROUP_CONCAT(DISTINCT ?familyName; separator = " ; ") AS ?familyNameList)
+(GROUP_CONCAT(DISTINCT ?coauthor; separator = " ; ") AS ?coauthorList)
+(GROUP_CONCAT(DISTINCT ?publicationYear; separator = " ; ") AS ?publicationYearList)
+WHERE {
+ ?person a foaf:Person ;
+  foaf:givenName ?givenName;
+  foaf:familyName ?familyName;
+  rdfs:label ?label;
+
+  pro:holdsRoleInTime ?role  .
+
+ ?role pro:relatesToDocument ?relate .
+
+ ?relate frbr:realization ?realization .
+
+ ?coauthor pro:relatesToDocument ?relate .
+
+ ?realization a fabio:JournalArticle ;
+
+fabio:hasPublicationYear ?publicationYear .
+
+
+
+}
+GROUP BY ?person

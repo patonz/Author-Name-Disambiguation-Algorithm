@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class PeriodsHandler extends BuildersHandler {
 
-    public ArrayList<Information> periods;
+    public ArrayList<Period> periods;
 
 
     public PeriodsHandler(ArrayList periods, Double weight) {

@@ -1,5 +1,6 @@
 package builder.model;
 
+import core.Levenshtein;
 import exception.SimilarTypeNotFoundException;
 
 /**
@@ -27,7 +28,13 @@ public class Information extends Builder {
             throw new SimilarTypeNotFoundException();
         }
 
-        return 0;
+
+
+
+
+
+
+        return Levenshtein.distance(this.value, ((Information) obj).value);
     }
 
 

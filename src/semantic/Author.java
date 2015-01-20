@@ -2,9 +2,7 @@ package semantic;
 
 import Skelethon.Similarity;
 import builder.BuilderManager;
-import builder.model.InformationsHandler;
-import builder.model.PeriodsHandler;
-import builder.model.ResourcesHandler;
+import builder.model.*;
 import configuration.Setting;
 import exception.SimilarTypeNotFoundException;
 
@@ -58,6 +56,34 @@ public class Author implements Similarity {
 
 
         return 0;
+    }
+
+    public void printAuthor() {
+
+
+        for (Setting s : BuilderManager.getInstance().settings.configuration) {
+            System.out.println("-----------------------------------------------------------------------------------");
+            if (this.resources.get(s.key) != null) {
+                System.out.println("| " + s.key + " | ");
+                for (Resource res : this.resources.get(s.key).resources) {
+                    System.out.println("| - " + res.value);
+                }
+
+
+            }
+            if (this.informations.get(s.key) != null) {
+                System.out.println("| " + s.key + " | ");
+                for (Information info : this.informations.get(s.key).informations) {
+                    System.out.println("| - " + info.value);
+                }
+            }
+            if (this.periods.get(s.key) != null) {
+                System.out.println("| " + s.key + " | ");
+                for (Period per : this.periods.get(s.key).periods) {
+                    System.out.println("| - " + per.value);
+                }
+            }
+        }
     }
 
 

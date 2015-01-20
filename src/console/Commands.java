@@ -1,11 +1,13 @@
 package console;
 
 import builder.BuilderManager;
+import configuration.Setting;
 import core.DataAuthor;
 import core.DataManager;
 import core.ElaborateManager;
 import javassist.NotFoundException;
 import remote.RemoteManager;
+import semantic.Author;
 
 import java.util.Scanner;
 
@@ -63,6 +65,18 @@ public class Commands {
         System.out.println("Authors count: " + DataManager.getInstance().dataAuthor.authorlist.size());
     }
 
+    public void countAndPrint(){
+        count();
+        int index = 000;
+        for(Author a : DataManager.getInstance().dataAuthor.authorlist){
+            System.out.println("*********************************");
+            System.out.println("_________________");
+            System.out.println("| Author n°"+index+" | " );
+            a.printAuthor();
+
+            index++;
+        }
+    }
     public void newSearch(){
         System.out.println("Insert the parameter");
         Scanner scan = new Scanner(System.in);
