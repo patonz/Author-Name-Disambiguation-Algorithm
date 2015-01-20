@@ -104,7 +104,7 @@ public class ElaborateManager {
 
 
 
-        System.out.println("Similarity of " + totalgrade / totalweight + "% & Calculated SimilarityCascade "+A.Similarity(B) );
+        System.out.println("Similarity of Calculated SimilarityCascade "+A.Similarity(B) );
 
         System.out.println();
 

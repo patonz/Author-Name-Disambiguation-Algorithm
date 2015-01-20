@@ -3,37 +3,37 @@
     {
       "key": "person",
       "type": "Resource",
-      "weight": "10",
+      "weight": "4",
       "delimiter":" ; "
     },
     {
       "key": "labelList",
       "type": "Information",
-      "weight": "10",
+      "weight": "3",
       "delimiter":"\\s;\\s"
     },
     {
       "key": "givenNameList",
       "type": "Information",
-      "weight": "10",
+      "weight": "2",
       "delimiter":"\\s;\\s"
     },
     {
       "key": "familyNameList",
       "type": "Information",
-      "weight": "10",
+      "weight": "2",
       "delimiter":"\\s;\\s"
     },
     {
       "key": "coauthorList",
       "type": "Resource",
-      "weight": "10",
+      "weight": "4",
       "delimiter":" ; "
     },
     {
       "key": "publicationYearList",
       "type": "Period",
-      "weight": "10",
+      "weight": "0",
       "delimiter":" ; "
     }
 

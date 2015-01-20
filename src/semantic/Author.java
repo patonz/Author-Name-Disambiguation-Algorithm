@@ -35,27 +35,35 @@ public class Author implements Similarity {
         Double resourcesgrade = 0.0;
         Double informationsgrade = 0.0;
         Double periodsgrade = 0.0;
+        Double gradewighted = 0.0;
+        Double weights = 0.0;
         for (Setting s : BuilderManager.getInstance().settings.configuration) {
             Double partialgrade = 0.0;
             if (this.resources.get(s.key) != null) {
                 partialgrade = this.resources.get(s.key).Similarity(((Author) o).resources.get(s.key));
-                System.out.println(s.key + " grade = " + partialgrade);
+                System.out.println(s.key + " grade = " + partialgrade + " with weight= "+s.weight);
                 resourcesgrade += partialgrade;
+                weights += Double.parseDouble(s.weight);
+                gradewighted += ((partialgrade  * Double.parseDouble(s.weight)));
             }
             if (this.informations.get(s.key) != null) {
                 partialgrade = this.informations.get(s.key).Similarity(((Author) o).informations.get(s.key));
-                System.out.println(s.key + " grade = " + partialgrade);
+                System.out.println(s.key + " grade = " + partialgrade + " with weight= "+s.weight);
                 informationsgrade += partialgrade;
+                weights += Double.parseDouble(s.weight);
+                gradewighted += (partialgrade * Double.parseDouble(s.weight));
             }
             if (this.periods.get(s.key) != null) {
                 partialgrade = this.periods.get(s.key).Similarity(((Author) o).periods.get(s.key));
-                System.out.println(s.key + " grade = " + partialgrade);
+                System.out.println(s.key + " grade = " + partialgrade + " with weight= "+s.weight);
                 periodsgrade += partialgrade;
+                weights += Double.parseDouble(s.weight);
+                gradewighted += (partialgrade * Double.parseDouble(s.weight));
             }
         }
 
 
-        return 0;
+        return gradewighted / weights;
     }
 
     public void printAuthor() {
