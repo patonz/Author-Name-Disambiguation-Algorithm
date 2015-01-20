@@ -5,6 +5,7 @@ import core.DataManager;
 import core.ElaborateManager;
 import remote.RemoteManager;
 import semantic.Author;
+import util.Chronometer;
 
 import java.util.Scanner;
 
@@ -87,9 +88,17 @@ public class Commands {
         Scanner scan = new Scanner(System.in);
         String input = scan.nextLine();
         try {
-
-            ElaborateManager.getInstance().elaborateDisambiguationOnData(Double.parseDouble(input));
-        } catch (Exception e){
+            double threshold = Double.parseDouble(input);
+            if (threshold >= 0 && threshold <= 100) {
+                Chronometer chronometer = new Chronometer();
+                chronometer.start();
+                ElaborateManager.getInstance().elaborateDisambiguationOnData(threshold);
+                chronometer.stop();
+                System.out.println("operation terminated in " + chronometer.getMilliseconds() + " ms");
+            } else {
+                System.out.println("the Threshold input must be a number between 0 and 100");
+            }
+        } catch (Exception e) {
             System.out.println("the Threshold input must be a double");
         }
 

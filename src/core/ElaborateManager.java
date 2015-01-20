@@ -62,41 +62,28 @@ public class ElaborateManager {
 
             Author a = localauthorlist.get(i);
 
-           // localauthorlist.remove(i);
+            // localauthorlist.remove(i);
 
             for (int k = 0; k < localauthorlist.size(); k++) {
 
 
                 Author b = localauthorlist.get(k);
 
-                ArrayList<Combination> combinations = new ArrayList<Combination>();
 
-
-
-
-
-                // combinations.add(new Combination(a.familyName, b.familyName,10));
-                // combinations.add(new Combination(a.givenName, b.givenName, 4));
-                // combinations.add(new Combination(a.label,b.label, 1));
-
-
-                //   System.out.println("A = "+a.label.value+" B = "+b.label.value);
-
-               Result result = (Result)a.Similarity(b);
-                if(result.grade >= threshold){
-                    System.out.println("Author A n°"+i+" : Author B n°"+k);
+                Result result = (Result) a.Similarity(b);
+                if (result.grade >= threshold) {
+                    System.out.println("Author A n°" + i + " : Author B n°" + k);
                     System.out.println(result.description);
                 }
 
             }
 
             break;
-             // ciclo solo un autore, testing
+            // ciclo solo un autore, testing
 
 
         }
     }
-
 
 
 }

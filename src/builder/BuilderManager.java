@@ -1,6 +1,5 @@
 package builder;
 
-import builder.model.Builder;
 import com.google.gson.Gson;
 import configuration.Setting;
 import configuration.Settings;
@@ -19,21 +18,18 @@ import java.util.Scanner;
  */
 public class BuilderManager {
 
+    private static BuilderManager ourInstance = new BuilderManager();
     public Settings settings;
     public ArrayList<Class> mypool = new ArrayList<Class>();
 
+    private BuilderManager() {
 
-    private static BuilderManager ourInstance = new BuilderManager();
+        //   CtClass.debugDump = "src\\builder\\debug";
+    }
 
     public static BuilderManager getInstance() {
         return ourInstance;
     }
-
-    private BuilderManager() {
-
-     //   CtClass.debugDump = "src\\builder\\debug";
-    }
-
 
     public void injectionNewParam(Setting setting) {
 
@@ -42,18 +38,15 @@ public class BuilderManager {
 
             CtClass clazz = pool.makeClass(setting.key);
 
-            CtClass superclass = pool.getCtClass("builder.model."+setting.type);
+            CtClass superclass = pool.getCtClass("builder.model." + setting.type);
 
             clazz.setSuperclass(superclass);
 
 
-
-
-
             clazz.addField(
-                    CtField.make("public String "+setting.key.toLowerCase()+";", clazz));
+                    CtField.make("public String " + setting.key.toLowerCase() + ";", clazz));
 
-            clazz.addMethod(CtMethod.make("public String getValue(){ return "+setting.key.toLowerCase()+"; }", clazz));
+            clazz.addMethod(CtMethod.make("public String getValue(){ return " + setting.key.toLowerCase() + "; }", clazz));
 
 
             CtClass authorClass = pool.getCtClass("semantic.Author");
@@ -61,8 +54,7 @@ public class BuilderManager {
             clazz.writeFile("C:\\Users\\Leonardo\\Google Drive\\Tesi Triennale\\Class Injections");
 
 
-
-            authorClass.addMethod(CtMethod.make("public "+setting.key + " "+"get"+setting.key+"(){ return "+setting.key.toLowerCase()+"; }", authorClass));
+            authorClass.addMethod(CtMethod.make("public " + setting.key + " " + "get" + setting.key + "(){ return " + setting.key.toLowerCase() + "; }", authorClass));
             authorClass.setGenericSignature("runtime.Author");
             mypool.add(clazz.getClass());
 
@@ -84,7 +76,7 @@ public class BuilderManager {
 
     }
 
-    public void newClassThenInvoke() throws Exception{
+    public void newClassThenInvoke() throws Exception {
 
 
         ClassPool pool = ClassPool.getDefault();
@@ -101,10 +93,7 @@ public class BuilderManager {
     }
 
 
-
-
-
-    public void createDynamicClassFromConfig(String filepath){
+    public void createDynamicClassFromConfig(String filepath) {
 
         String str = new String();
         System.out.println("Reading file '" + filepath + "'");
@@ -116,7 +105,6 @@ public class BuilderManager {
             scan.close();
 
 
-
         } catch (IOException e) {
             System.out.println(e.toString());
         }
@@ -124,23 +112,20 @@ public class BuilderManager {
         JSONObject obj = new JSONObject(str);
 
 
-
         Gson gson = new Gson();
-
 
 
         settings = gson.fromJson(obj.toString(), Settings.class);
 
-        for(int i =0; i< settings.configuration.size(); i++){
+        for (int i = 0; i < settings.configuration.size(); i++) {
 
 
             System.out.println(settings.configuration.get(i).key);
 
             // NON CREAO PIU CLASSI DINAMICHE
-          //  injectionNewParam(settings.configuration.get(i));
+            //  injectionNewParam(settings.configuration.get(i));
 
         }
-
 
 
     }
@@ -158,12 +143,14 @@ public class BuilderManager {
                 System.out.println(m.getName());
             }*/
 
-            for(Method m : a.getClass().getDeclaredMethods()){
+            for (Method m : a.getClass().getDeclaredMethods()) {
                 System.out.println(m.getName());
 
-                if(m.getName() == "getPerson"){
-        Method method = m;
-       value = method.invoke(a);}}
+                if (m.getName() == "getPerson") {
+                    Method method = m;
+                    value = method.invoke(a);
+                }
+            }
 
         } catch (InvocationTargetException e) {
             e.printStackTrace();
