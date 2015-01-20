@@ -80,15 +80,15 @@ public class BuilderManager {
 
 
         ClassPool pool = ClassPool.getDefault();
-        CtClass cc = pool.makeClass("Bracci");
+        CtClass cc = pool.makeClass("MyClass");
         CtClass superclass = pool.getCtClass("builder.model.Resource");
         cc.setSuperclass(superclass);
-        CtMethod m = CtMethod.make("public void daje(){ System.out.println(\"Sono dio, zio pera\"); }", cc);
+        CtMethod m = CtMethod.make("public void provaMethod(){ System.out.println(\"prova prova\"); }", cc);
         cc.addMethod(m);
         cc.addMethod(CtMethod.make("public String getValue(){ return value; }", cc));
         Class c = cc.toClass();
         Object obj = c.newInstance();
-        Method method = c.getDeclaredMethod("daje");
+        Method method = c.getDeclaredMethod("provaMethod");
         method.invoke(obj);
     }
 
@@ -122,7 +122,7 @@ public class BuilderManager {
 
             System.out.println(settings.configuration.get(i).key);
 
-            // NON CREAO PIU CLASSI DINAMICHE
+            // NON CREO PIU CLASSI DINAMICHE
             //  injectionNewParam(settings.configuration.get(i));
 
         }
