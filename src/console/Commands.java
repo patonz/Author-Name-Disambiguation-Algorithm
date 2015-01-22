@@ -7,6 +7,9 @@ import remote.RemoteManager;
 import semantic.Author;
 import util.Chronometer;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -32,7 +35,7 @@ public class Commands {
         String path = scan.nextLine();
 
         System.out.println("Processing...");
-        DataManager.getInstance().loadDataFromJson(path);
+        DataManager.getInstance().createDatasetFromFile(path);
 
     }
 
@@ -48,9 +51,9 @@ public class Commands {
 
     }
 
-    public void remoteSetup(){
+    public void remoteSetup() {
         try {
-            DataManager.getInstance().loadDataFromURL();
+            DataManager.getInstance().createDatasetFromEndpoint();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -59,7 +62,10 @@ public class Commands {
 
     public void setup() {
         BuilderManager.getInstance().createDynamicClassFromConfig("src/configuration/config.json");
-        DataManager.getInstance().loadDataFromJson("src/configuration/data.json");
+
+
+        DataManager.getInstance().createDatasetFromEndpoint();
+        //DataManager.getInstance().loadDataFromJson("src/configuration/data.json");
     }
 
     public void count() {
@@ -93,16 +99,20 @@ public class Commands {
         try {
             double threshold = Double.parseDouble(input);
             if (threshold >= 0 && threshold <= 100) {
-                System.out.println("processing...");
+                DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+                Date dateobj = new Date();
+
+                System.out.println(df.format(dateobj) + ": processing...");
                 Chronometer chronometer = new Chronometer();
                 chronometer.start();
                 ElaborateManager.getInstance().elaborateDisambiguationOnData(threshold);
                 chronometer.stop();
-                System.out.println("operation terminated in " + chronometer.getMinutes() + " min");
+                System.out.println(df.format(new Date()) + ": operation terminated in " + chronometer.getMinutes() + " min");
             } else {
                 System.out.println("the Threshold input must be a number between 0 and 100");
             }
         } catch (Exception e) {
+            e.printStackTrace();
             System.out.println("the Threshold input must be a double");
         }
 

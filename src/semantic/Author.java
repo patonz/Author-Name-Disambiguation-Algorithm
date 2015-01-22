@@ -40,7 +40,7 @@ public class Author implements Similarity {
         Double gradewighted = 0.0;
         Double weights = 0.0;
         String authorresult = "";
-        for (Setting s : BuilderManager.getInstance().settings.configuration) {
+        for (Setting s : BuilderManager.getInstance().settings.param) {
             Double partialgrade = 0.0;
             if (this.resources.get(s.key) != null) {
                 partialgrade = (double)this.resources.get(s.key).Similarity(((Author) o).resources.get(s.key));
@@ -48,7 +48,7 @@ public class Author implements Similarity {
                 resourcesgrade += partialgrade;
                 weights += Double.parseDouble(s.weight);
                 gradewighted += ((partialgrade  * Double.parseDouble(s.weight)));
-            }
+            }else
             if (this.informations.get(s.key) != null) {
                 Result result = (Result)this.informations.get(s.key).Similarity(((Author) o).informations.get(s.key));
                 partialgrade = result.grade;
@@ -56,7 +56,7 @@ public class Author implements Similarity {
                 informationsgrade += partialgrade;
                 weights += Double.parseDouble(s.weight);
                 gradewighted += (partialgrade * Double.parseDouble(s.weight));
-            }
+            }else
             if (this.periods.get(s.key) != null) {
                 partialgrade = (double)this.periods.get(s.key).Similarity(((Author) o).periods.get(s.key));
                 authorresult+=s.key + " grade = " + partialgrade + " with weight= "+s.weight+"\n";
@@ -74,7 +74,7 @@ public class Author implements Similarity {
     public void printAuthor() {
 
 
-        for (Setting s : BuilderManager.getInstance().settings.configuration) {
+        for (Setting s : BuilderManager.getInstance().settings.param) {
             System.out.println("-----------------------------------------------------------------------------------");
             if (this.resources.get(s.key) != null) {
                 System.out.println("| " + s.key + " | ");

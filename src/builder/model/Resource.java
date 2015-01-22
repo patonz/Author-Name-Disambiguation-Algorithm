@@ -26,7 +26,7 @@ public class Resource extends Builder {
             throw new SimilarTypeNotFoundException();
         }
 
-        Levenshtein.distance(this.value, ((Resource) obj).value);
+
 
         return Levenshtein.distance(this.value, ((Resource) obj).value) == 0 ? 1 : 0;
     }

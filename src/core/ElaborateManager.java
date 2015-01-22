@@ -55,7 +55,8 @@ public class ElaborateManager {
     }
 
     public void elaborateDisambiguationOnData(Double threshold) {
-        ArrayList<Author> localauthorlist = (ArrayList<Author>) DataManager.getInstance().dataAuthor.authorlist;
+        ArrayList<Author> localauthorlist;
+        localauthorlist = (ArrayList<Author>) DataManager.getInstance().dataAuthor.authorlist.clone();
 
         int maxsize = localauthorlist.size();
 

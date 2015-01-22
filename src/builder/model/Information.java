@@ -1,5 +1,6 @@
 package builder.model;
 
+import core.ElaborateManager;
 import core.Levenshtein;
 import exception.SimilarTypeNotFoundException;
 
@@ -30,11 +31,17 @@ public class Information extends Builder {
 
 
 
+        int distance = Levenshtein.distance(this.value, ((Information) obj).value);
+        int miss = Math.max(this.value.length(),((Information) obj).value.length())- Math.min(this.value.length(), ((Information) obj).value.length());
+              int change = distance - miss;
+        double grade =  100.0 - (100.0 / (Math.max(this.value.length(), ((Information) obj).value.length()) )* distance + change);
 
 
 
 
-        return Levenshtein.distance(this.value, ((Information) obj).value);
+
+
+        return grade >= 0 ? grade : 0.0;
     }
 
 

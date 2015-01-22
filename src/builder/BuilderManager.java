@@ -112,15 +112,23 @@ public class BuilderManager {
         JSONObject obj = new JSONObject(str);
 
 
+
         Gson gson = new Gson();
 
 
         settings = gson.fromJson(obj.toString(), Settings.class);
 
-        for (int i = 0; i < settings.configuration.size(); i++) {
+
+        try {
+             settings.endpoint = obj.getString("endpoint");
+             settings.query = obj.getString("query");
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        for (int i = 0; i < settings.param.size(); i++) {
 
 
-            System.out.println(settings.configuration.get(i).key);
+            System.out.println("key: "+settings.param.get(i).key);
 
             // NON CREO PIU CLASSI DINAMICHE
             //  injectionNewParam(settings.configuration.get(i));

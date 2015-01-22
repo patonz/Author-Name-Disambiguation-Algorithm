@@ -7,7 +7,10 @@ import java.util.List;
  */
 public class Settings {
 
-    public List<Setting> configuration;
+    public String endpoint;
+    public String query;
+
+    public List<Setting> param;
 
 
 }

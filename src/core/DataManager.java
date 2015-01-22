@@ -29,7 +29,7 @@ public class DataManager {
     private final OkHttpClient client = new OkHttpClient();
     public Author[] author_list;
     public DataAuthor dataAuthor;
-    // public DataJournalArticle dataJournalArticle;
+
     private JSONObject jsonAuthor;
     private JSONObject jsonJournalArticle;
 
@@ -43,53 +43,21 @@ public class DataManager {
     }
 
 
-    public void loadDataFromURL() throws Exception {
+    public String downloadDataFromURL() throws Exception {
 
+        System.out.println("reading from endpoint...");
 
-        String query = "PREFIX foaf: <http://xmlns.com/foaf/0.1/> \n" +
-                "PREFIX pro: <http://purl.org/spar/pro/> \n" +
-                "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \n" +
-                "PREFIX frbr: <http://purl.org/vocab/frbr/core#> \n" +
-                "PREFIX fabio: <http://purl.org/spar/fabio/> \n" +
-                "SELECT DISTINCT \n" +
-                " ?person \n" +
-                "(GROUP_CONCAT(DISTINCT ?label; separator = \" ; \") AS ?labelList)\n" +
-                "(GROUP_CONCAT(DISTINCT ?givenName; separator = \" ; \") AS ?givenNameList)\n" +
-                "(GROUP_CONCAT(DISTINCT ?familyName; separator = \" ; \") AS ?familyNameList)\n" +
-                "(GROUP_CONCAT(DISTINCT ?coauthor; separator = \" ; \") AS ?coauthorList)\n" +
-                "(GROUP_CONCAT(DISTINCT ?publicationYear; separator = \" ; \") AS ?publicationYearList)\n" +
-                "WHERE {\n" +
-                " ?person a foaf:Person ;\n" +
-                " OPTIONAL { ?person foaf:givenName ?givenName } .\n" +
-                " OPTIONAL {?person foaf:familyName ?familyName } .\n" +
-                "  OPTIONAL {?person rdfs:label ?label } .\n" +
-                "\n" +
-                " OPTIONAL { ?person pro:holdsRoleInTime ?role }  .\n" +
-                "OPTIONAL { ?role pro:relatesToDocument ?relate } .\n" +
-                "\n" +
-                " OPTIONAL {?relate frbr:realization ?realization } .\n" +
-                "\n" +
-                " OPTIONAL {?coauthor pro:relatesToDocument ?relate } .\n" +
-                "\n" +
-                " OPTIONAL {?realization a fabio:JournalArticle } .\n" +
-                "\n" +
-                "OPTIONAL {?realization fabio:hasPublicationYear ?publicationYear } .\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "}\n" +
-                "GROUP BY ?person";
+        String endpoint = BuilderManager.getInstance().settings.endpoint;
+        String query = URLEncoder.encode(BuilderManager.getInstance().settings.query, "UTF-8");
+        String uri = endpoint + "/query?query=" + query + "&output=json&stylesheet=";
 
-
-        // MediaType sparql = MediaType.parse();
 
         Request request = new Request.Builder()
-                .url("http://two.eelst.cs.unibo.it:8181/data/query?query=" + URLEncoder.encode(query, "UTF-8") + "&output=json&stylesheet=")
-
+                .url(uri)
                 .build();
 
         Response response = client.newCall(request).execute();
-        System.out.println(response.body().string());
+        // System.out.println(response.body().string());
 
         if (!response.isSuccessful())
             throw new IOException("Unexpected code " + response);
@@ -97,14 +65,15 @@ public class DataManager {
 
         Headers responseHeaders = response.headers();
         for (int i = 0; i < responseHeaders.size(); i++) {
-            System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
+            //System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
         }
 
-
+        System.out.println("done");
+        return response.body().string();
     }
 
 
-    public void loadDataFromJson(String filepath) {
+    public String loadFile(String filepath) {
         String str = new String();
         System.out.println("Reading file '" + filepath + "'");
         try {
@@ -119,8 +88,14 @@ public class DataManager {
         } catch (IOException e) {
             System.out.println(e.toString());
         }
+        return str;
 
-        JSONObject obj = new JSONObject(str);
+    }
+
+    public void loadDataFromJson(String string) {
+
+
+        JSONObject obj = new JSONObject(string);
 
 
         Gson gson = new Gson();
@@ -132,7 +107,7 @@ public class DataManager {
         for (int i = 0; i < jarray.length(); i++) {
             JSONObject temp = (JSONObject) jarray.get(i);
             Author a = new Author();
-            for (Setting setting : BuilderManager.getInstance().settings.configuration) {
+            for (Setting setting : BuilderManager.getInstance().settings.param) {
 
                 switch (setting.type) {
 
@@ -180,37 +155,22 @@ public class DataManager {
 
     }
 
-
-    public void valueAuthorFormatter() {
-
-      /*  System.out.println("generating Author list...");
-        for (Author author : dataAuthor.bindings) {
-            author.setCoauthorlist(SplitUsingTokenizer(author.coauthors.value, " ; "));
-            author.setCreatorlist(SplitUsingTokenizer(author.creators.value, " ; "));
-            author.setRolelist(SplitUsingTokenizer(author.roles.value, " ; "));
-            author.setRelateslist(SplitUsingTokenizer(author.relates.value, " ; "));
-            author.setRealizationlist(SplitUsingTokenizer(author.realizations.value, " ; "));
-        }*/
-
-
-        System.out.println("done");
-
+    public void createDatasetFromFile(String pathfile) {
+        loadDataFromJson(loadFile(pathfile));
 
     }
 
-    public void valueJournalArticleFormatter() {
-
-        System.out.println("generating JournalArticle list...");
-     /*   for (JournalArticle journalArticle : dataJournalArticle.bindings) {
-            journalArticle.setCiteslist(SplitUsingTokenizer(journalArticle.cites.value, " ; "));
-
-        }*/
+    public void createDatasetFromEndpoint() {
 
 
-        System.out.println("done");
-
-
+        try {
+            loadDataFromJson(downloadDataFromURL());
+        } catch (Exception e) {
+            System.err.println("Cant download data from the Endpoint, check \"config.json\"");
+            // e.printStackTrace();
+        }
     }
+
 
     public ArrayList<String> SplitUsingTokenizer(Builder builder, Setting setting) {
 

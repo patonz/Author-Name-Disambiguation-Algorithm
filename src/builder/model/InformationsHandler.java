@@ -30,8 +30,8 @@ public class InformationsHandler extends BuildersHandler {
         Information infomatchedA = informations.get(0);
         Information infomatchedB = ((InformationsHandler) obj).informations.get(0);
 
-        int min = (int)infomatchedA.Similarity(infomatchedB);
-        int distance = 0;
+        double max = (double)infomatchedA.Similarity(infomatchedB);
+        double current = 0.0;
 
         outerloop:
         for (int i = 0; i < this.informations.size(); i++) {
@@ -40,25 +40,24 @@ public class InformationsHandler extends BuildersHandler {
 
                 Information infoB = ((InformationsHandler) obj).informations.get(k);
 
-                 distance = (int) infoA.Similarity(infoB);
-                if (distance == 0) {
+                 current = (double) infoA.Similarity(infoB);
+                if (current == 100.0) {
                     infomatchedA = infoA;
                     infomatchedB = infoB;
 
                     break outerloop;
                 }
-                 if(distance < min){
+                 if(current > max){
                     infomatchedA = infoA;
                     infomatchedB = infoB;
-                    min = distance;
+                    max = current;
                 }
 
             }
 
         }
-        int maxchar = Math.max(infomatchedA.value.length(), infomatchedB.value.length());
 
-        return new Result((maxchar >= distance) ? ((maxchar-distance) * 100)/ maxchar : 0.0,"max match found: \"" + infomatchedA.value + "\" & \"" + infomatchedB.value + "\" with distance = " + distance );
+        return new Result((max >= 0.0) ? max : 0.0,"max match found: \"" + infomatchedA.value + "\" & \"" + infomatchedB.value + "\"" );
     }
 
 
