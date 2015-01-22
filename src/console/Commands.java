@@ -48,6 +48,14 @@ public class Commands {
 
     }
 
+    public void remoteSetup(){
+        try {
+            DataManager.getInstance().loadDataFromURL();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void setup() {
         BuilderManager.getInstance().createDynamicClassFromConfig("src/configuration/config.json");

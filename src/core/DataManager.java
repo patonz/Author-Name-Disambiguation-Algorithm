@@ -4,6 +4,10 @@ package core;
 import builder.BuilderManager;
 import builder.model.*;
 import com.google.gson.Gson;
+import com.squareup.okhttp.Headers;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
 import configuration.Setting;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -11,6 +15,7 @@ import semantic.Author;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.StringTokenizer;
@@ -21,6 +26,7 @@ import java.util.StringTokenizer;
 public class DataManager {
 
     private static DataManager ourInstance = new DataManager();
+    private final OkHttpClient client = new OkHttpClient();
     public Author[] author_list;
     public DataAuthor dataAuthor;
     // public DataJournalArticle dataJournalArticle;
@@ -35,6 +41,68 @@ public class DataManager {
     public static DataManager getInstance() {
         return ourInstance;
     }
+
+
+    public void loadDataFromURL() throws Exception {
+
+
+        String query = "PREFIX foaf: <http://xmlns.com/foaf/0.1/> \n" +
+                "PREFIX pro: <http://purl.org/spar/pro/> \n" +
+                "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \n" +
+                "PREFIX frbr: <http://purl.org/vocab/frbr/core#> \n" +
+                "PREFIX fabio: <http://purl.org/spar/fabio/> \n" +
+                "SELECT DISTINCT \n" +
+                " ?person \n" +
+                "(GROUP_CONCAT(DISTINCT ?label; separator = \" ; \") AS ?labelList)\n" +
+                "(GROUP_CONCAT(DISTINCT ?givenName; separator = \" ; \") AS ?givenNameList)\n" +
+                "(GROUP_CONCAT(DISTINCT ?familyName; separator = \" ; \") AS ?familyNameList)\n" +
+                "(GROUP_CONCAT(DISTINCT ?coauthor; separator = \" ; \") AS ?coauthorList)\n" +
+                "(GROUP_CONCAT(DISTINCT ?publicationYear; separator = \" ; \") AS ?publicationYearList)\n" +
+                "WHERE {\n" +
+                " ?person a foaf:Person ;\n" +
+                " OPTIONAL { ?person foaf:givenName ?givenName } .\n" +
+                " OPTIONAL {?person foaf:familyName ?familyName } .\n" +
+                "  OPTIONAL {?person rdfs:label ?label } .\n" +
+                "\n" +
+                " OPTIONAL { ?person pro:holdsRoleInTime ?role }  .\n" +
+                "OPTIONAL { ?role pro:relatesToDocument ?relate } .\n" +
+                "\n" +
+                " OPTIONAL {?relate frbr:realization ?realization } .\n" +
+                "\n" +
+                " OPTIONAL {?coauthor pro:relatesToDocument ?relate } .\n" +
+                "\n" +
+                " OPTIONAL {?realization a fabio:JournalArticle } .\n" +
+                "\n" +
+                "OPTIONAL {?realization fabio:hasPublicationYear ?publicationYear } .\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "}\n" +
+                "GROUP BY ?person";
+
+
+        // MediaType sparql = MediaType.parse();
+
+        Request request = new Request.Builder()
+                .url("http://two.eelst.cs.unibo.it:8181/data/query?query=" + URLEncoder.encode(query, "UTF-8") + "&output=json&stylesheet=")
+
+                .build();
+
+        Response response = client.newCall(request).execute();
+        System.out.println(response.body().string());
+
+        if (!response.isSuccessful())
+            throw new IOException("Unexpected code " + response);
+
+
+        Headers responseHeaders = response.headers();
+        for (int i = 0; i < responseHeaders.size(); i++) {
+            System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
+        }
+
+
+    }
+
 
     public void loadDataFromJson(String filepath) {
         String str = new String();

@@ -1,5 +1,4 @@
 
-////////////
 
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX pro: <http://purl.org/spar/pro/>
@@ -113,23 +112,25 @@ SELECT DISTINCT
 (GROUP_CONCAT(DISTINCT ?publicationYear; separator = " ; ") AS ?publicationYearList)
 WHERE {
  ?person a foaf:Person ;
-  foaf:givenName ?givenName;
-  foaf:familyName ?familyName;
-  rdfs:label ?label;
+ OPTIONAL { ?person foaf:givenName ?givenName } .
+ OPTIONAL {?person foaf:familyName ?familyName } .
+  OPTIONAL {?person rdfs:label ?label } .
 
-  pro:holdsRoleInTime ?role  .
+ OPTIONAL { ?person pro:holdsRoleInTime ?role }  .
+OPTIONAL { ?role pro:relatesToDocument ?relate } .
 
- ?role pro:relatesToDocument ?relate .
+ OPTIONAL {?relate frbr:realization ?realization } .
 
- ?relate frbr:realization ?realization .
+ OPTIONAL {?coauthor pro:relatesToDocument ?relate } .
 
- ?coauthor pro:relatesToDocument ?relate .
+ OPTIONAL {?realization a fabio:JournalArticle } .
 
- ?realization a fabio:JournalArticle ;
-
-fabio:hasPublicationYear ?publicationYear .
+OPTIONAL {?realization fabio:hasPublicationYear ?publicationYear } .
 
 
 
 }
 GROUP BY ?person
+
+
+SELECT ?a ?b ?c WHERE { ?a ?b ?c} LIMIT 10
