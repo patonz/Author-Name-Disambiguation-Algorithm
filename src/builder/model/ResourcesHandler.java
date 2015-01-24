@@ -41,9 +41,9 @@ public  class ResourcesHandler extends BuildersHandler {
             }
         }
 
+        Double grade = (check * 100)/ totalcheck;
 
-
-        return (check * 100)/ totalcheck;
+        return (!Double.isNaN(grade))? grade : 0.0;
     }
 
 

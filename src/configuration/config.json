@@ -3,40 +3,58 @@
   "query": "PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX pro: <http://purl.org/spar/pro/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX frbr: <http://purl.org/vocab/frbr/core#> PREFIX fabio: <http://purl.org/spar/fabio/> SELECT DISTINCT ?person (GROUP_CONCAT(DISTINCT ?label; separator = \" ; \") AS ?labelList) (GROUP_CONCAT(DISTINCT ?givenName; separator = \" ; \") AS ?givenNameList)(GROUP_CONCAT(DISTINCT ?familyName; separator = \" ; \") AS ?familyNameList) (GROUP_CONCAT(DISTINCT ?coauthor; separator = \" ; \") AS ?coauthorList) (GROUP_CONCAT(DISTINCT ?publicationYear; separator = \" ; \") AS ?publicationYearList) WHERE{ ?person a foaf:Person ;OPTIONAL { ?person foaf:givenName ?givenName } .OPTIONAL {?person foaf:familyName ?familyName } .OPTIONAL {?person rdfs:label ?label } .OPTIONAL { ?person pro:holdsRoleInTime ?role }  .OPTIONAL { ?role pro:relatesToDocument ?relate } .OPTIONAL {?relate frbr:realization ?realization } .OPTIONAL {?coauthor pro:relatesToDocument ?relate } .OPTIONAL {?realization a fabio:JournalArticle } .OPTIONAL {?realization fabio:hasPublicationYear ?publicationYear } .}GROUP BY ?person",
   "param": [
     {
+      "key": "family_name",
+      "type": "Information",
+      "weight": "3",
+      "delimiter": " "
+    },
+    {
+      "key": "given_name",
+      "type": "Information",
+      "weight": "2",
+      "delimiter": " "
+    },
+    {
+      "key": "full_name",
+      "type": "Information",
+      "weight": "2",
+      "delimiter": " "
+    },
+    {
       "key": "person",
       "type": "Resource",
       "weight": "0",
-      "delimiter": " ; "
+      "delimiter": ";"
     },
     {
-      "key": "labelList",
-      "type": "Information",
+      "key": "publications",
+      "type": "Resource",
       "weight": "0",
       "delimiter": ";"
     },
     {
-      "key": "givenNameList",
-      "type": "Information",
-      "weight": "4",
-      "delimiter": ";"
-    },
-    {
-      "key": "familyNameList",
-      "type": "Information",
-      "weight": "6",
-      "delimiter": ";"
-    },
-    {
-      "key": "coauthorList",
+      "key": "publications_titles",
       "type": "Resource",
-      "weight": "4",
-      "delimiter": " ; "
+      "weight": "3",
+      "delimiter": "!|!"
     },
     {
-      "key": "publicationYearList",
+      "key": "publications_pub_years",
       "type": "Period",
       "weight": "0",
-      "delimiter": " ; "
+      "delimiter": ";"
+    },
+    {
+      "key": "publications_venues",
+      "type": "Resource",
+      "weight": "2",
+      "delimiter": "!|!"
+    },
+    {
+      "key": "publications_affiliations",
+      "type": "Resource",
+      "weight": "3",
+      "delimiter": "!|!"
     }
   ]
 }

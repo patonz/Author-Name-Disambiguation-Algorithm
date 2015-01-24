@@ -41,7 +41,7 @@ public class Information extends Builder {
 
 
 
-        return grade >= 0 ? grade : 0.0;
+        return (grade >= 0 && grade != Double.NaN) ? grade : 0.0;
     }
 
 

@@ -8,19 +8,21 @@ import configuration.Setting;
 import core.Result;
 import exception.SimilarTypeNotFoundException;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by Leonardo on 07/01/2015.
  */
-public class Author implements Similarity {
+public class Author implements Similarity, Runnable {
 
 
     public Map<String, ResourcesHandler> resources;
     public Map<String, InformationsHandler> informations;
     public Map<String, PeriodsHandler> periods;
-
+    public Author authorBrunnable;
+    public ArrayList<Result> results = new ArrayList<>();
 
     public Author() {
         resources = new HashMap<>();
@@ -44,6 +46,7 @@ public class Author implements Similarity {
             Double partialgrade = 0.0;
             if (this.resources.get(s.key) != null) {
                 partialgrade = (double)this.resources.get(s.key).Similarity(((Author) o).resources.get(s.key));
+
                 authorresult += s.key + " grade = " + partialgrade + " with weight= "+s.weight+"\n";
                 resourcesgrade += partialgrade;
                 weights += Double.parseDouble(s.weight);
@@ -68,7 +71,7 @@ public class Author implements Similarity {
 
 
         authorresult+= "Similarity of Calculated SimilarityCascade "+(gradewighted / weights)+"\n";
-        return new Result(gradewighted / weights, authorresult);
+        return (gradewighted> 0.0)? new Result(gradewighted / weights, authorresult): new Result(0.0, authorresult);
     }
 
     public void printAuthor() {
@@ -99,5 +102,14 @@ public class Author implements Similarity {
         }
     }
 
+    public void setAuthorBrunnable(Author authorBrunnable) {
+        this.authorBrunnable = authorBrunnable;
+    }
 
+    @Override
+    public void run() {
+
+
+        Similarity(authorBrunnable);
+    }
 }

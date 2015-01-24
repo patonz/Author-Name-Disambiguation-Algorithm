@@ -3,6 +3,8 @@ package core;
 import semantic.Author;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by Leonardo on 12/01/2015.
@@ -64,9 +66,9 @@ public class ElaborateManager {
 
             Author a = localauthorlist.get(0);
 
-             localauthorlist.remove(0);
+            localauthorlist.remove(0);
 
-            if(localauthorlist.size() == 0){
+            if (localauthorlist.size() == 0) {
                 //condizione di arresto.
                 break;
             }
@@ -77,6 +79,7 @@ public class ElaborateManager {
 
 
                 Result result = (Result) a.Similarity(b);
+
                 if (result.grade >= threshold) {
                     System.out.println("Author A n°" + i + " : Author B n°" + k);
                     System.out.println(result.description);
@@ -86,10 +89,51 @@ public class ElaborateManager {
 
 
             // ciclo solo un autore, testing
-            // break;
 
 
         }
+    }
+
+    public void elaborateDisambiguationOnDataWithThreadPool() {
+        ArrayList<Author> localauthorlist = (ArrayList<Author>) DataManager.getInstance().dataAuthor.authorlist.clone();
+
+        ExecutorService executor = Executors.newFixedThreadPool(50);
+
+
+
+        for (int i = 0; i < localauthorlist.size(); i++) {
+
+            Author a = localauthorlist.get(0);
+
+
+            for (int k = 0; k < localauthorlist.size(); k++) {
+
+
+                Author b = localauthorlist.get(k);
+
+                a.setAuthorBrunnable(b);
+                executor.execute(a);
+
+               /* if (result.grade >= threshold) {
+                    System.out.println("Author A n°" + i + " : Author B n°" + k);
+                    System.out.println(result.description);
+                }*/
+
+            }
+
+
+            // ciclo solo un autore, testing
+
+
+        }
+        executor.shutdown();
+
+        while (!executor.isTerminated()) {
+
+        }
+        System.out.println("Finished all threads");
+
+
     }
 
 

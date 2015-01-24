@@ -94,21 +94,51 @@ public class DataManager {
 
     }
 
-    public void loadDataFromJsonDebug(String string){
+    public void loadDataFromJsonDebug(String string) {
+
+       /* "head": {
+            "vars": [
+            "person",
+                    "label",
+                    "givenName",
+                    "familyName",
+                    "roles",
+                    "relates",
+                    "creators",
+                    "coauthors",
+                    "realizations"
+            ]
+        }*/
         JSONObject obj = new JSONObject(string);
+        JSONObject objconverted = new JSONObject();
         Gson gson = new Gson();
 
+        JSONArray vars = new JSONArray();
+        for (Setting s : BuilderManager.getInstance().settings.param)
+            vars.put(s.key);
+
+
+        objconverted.put("head", new JSONObject().put("vars", vars));
+
+
+        JSONArray author = new JSONArray();
+
+
+        System.out.println(objconverted);
         Iterator<String> iter = obj.keys();
         while (iter.hasNext()) {
             String key = iter.next();
             try {
                 Object value = obj.get(key);
+
+
             } catch (JSONException e) {
                 // Something went wrong!
                 System.err.println("problem with jsoniterator");
             }
         }
     }
+
     public void loadDataFromJson(String string) {
 
 
@@ -130,13 +160,21 @@ public class DataManager {
 
 
                     case "Resource":
-                        Resource res = gson.fromJson(temp.get(setting.key).toString(), Resource.class);
-                        ArrayList<String> stringresources = SplitUsingTokenizer(res, setting);
+
                         ArrayList<Resource> resourceslist = new ArrayList<>();
-                        for (String s : stringresources) {
-                            resourceslist.add(new Resource(s));
+                        if (temp.has(setting.key)) {
+
+
+                            Resource res = gson.fromJson(temp.get(setting.key).toString(), Resource.class);
+                            ArrayList<String> stringresources = SplitUsingTokenizer(res, setting);
+
+                            for (String s : stringresources) {
+                                resourceslist.add(new Resource(s));
+                            }
                         }
                         a.resources.put(setting.key, new ResourcesHandler(resourceslist, Double.parseDouble(setting.weight)));
+
+
                         break;
                     case "Information":
                         Information info = gson.fromJson(temp.get(setting.key).toString(), Information.class);
@@ -160,7 +198,7 @@ public class DataManager {
                         break;
 
                 }
-                temp.get(setting.key).toString();
+                //temp.get(setting.key).toString();
 
 
             }
@@ -177,7 +215,7 @@ public class DataManager {
 
     }
 
-    public void createDatasetFromDebugFile(String pathfile){
+    public void createDatasetFromDebugFile(String pathfile) {
         loadDataFromJsonDebug(loadFile(pathfile));
     }
 

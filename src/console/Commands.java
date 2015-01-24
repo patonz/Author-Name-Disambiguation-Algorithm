@@ -64,9 +64,9 @@ public class Commands {
         BuilderManager.getInstance().createDynamicClassFromConfig("src/configuration/config.json");
 
 
-       // DataManager.getInstance().createDatasetFromEndpoint();
-        //DataManager.getInstance().loadDataFromJson("src/configuration/data.json");
-        DataManager.getInstance().createDatasetFromDebugFile("src/builder/debug/authors_dataset.json");
+        // DataManager.getInstance().createDatasetFromEndpoint();
+        DataManager.getInstance().createDatasetFromFile("src/configuration/output.json");
+        //DataManager.getInstance().createDatasetFromDebugFile("src/builder/debug/authors_dataset.json");
     }
 
     public void count() {
@@ -108,7 +108,7 @@ public class Commands {
                 chronometer.start();
                 ElaborateManager.getInstance().elaborateDisambiguationOnData(threshold);
                 chronometer.stop();
-                System.out.println(df.format(new Date()) + ": operation terminated in " + chronometer.getMinutes() + " min");
+                System.out.println(df.format(new Date()) + ": operation terminated in " + chronometer.getSeconds() + "sec | " + chronometer.getMinutes() + " min | " + chronometer.getHours() + "h");
             } else {
                 System.out.println("the Threshold input must be a number between 0 and 100");
             }
@@ -116,6 +116,22 @@ public class Commands {
             e.printStackTrace();
             System.out.println("the Threshold input must be a double");
         }
+
+
+    }
+
+    public void et() {
+
+
+        DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+        Date dateobj = new Date();
+
+        System.out.println(df.format(dateobj) + ": processing...");
+        Chronometer chronometer = new Chronometer();
+        chronometer.start();
+        ElaborateManager.getInstance().elaborateDisambiguationOnDataWithThreadPool();
+        chronometer.stop();
+        System.out.println(df.format(new Date()) + ": operation terminated in " + chronometer.getSeconds() + "sec | " + chronometer.getMinutes() + " min | " + chronometer.getHours() + "h");
 
 
     }
