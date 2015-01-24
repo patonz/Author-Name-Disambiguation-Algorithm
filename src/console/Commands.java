@@ -64,8 +64,9 @@ public class Commands {
         BuilderManager.getInstance().createDynamicClassFromConfig("src/configuration/config.json");
 
 
-        DataManager.getInstance().createDatasetFromEndpoint();
+       // DataManager.getInstance().createDatasetFromEndpoint();
         //DataManager.getInstance().loadDataFromJson("src/configuration/data.json");
+        DataManager.getInstance().createDatasetFromDebugFile("src/builder/debug/authors_dataset.json");
     }
 
     public void count() {

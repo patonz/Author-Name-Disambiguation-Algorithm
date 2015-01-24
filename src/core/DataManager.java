@@ -10,6 +10,7 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 import configuration.Setting;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import semantic.Author;
 
@@ -17,6 +18,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -92,6 +94,21 @@ public class DataManager {
 
     }
 
+    public void loadDataFromJsonDebug(String string){
+        JSONObject obj = new JSONObject(string);
+        Gson gson = new Gson();
+
+        Iterator<String> iter = obj.keys();
+        while (iter.hasNext()) {
+            String key = iter.next();
+            try {
+                Object value = obj.get(key);
+            } catch (JSONException e) {
+                // Something went wrong!
+                System.err.println("problem with jsoniterator");
+            }
+        }
+    }
     public void loadDataFromJson(String string) {
 
 
@@ -158,6 +175,10 @@ public class DataManager {
     public void createDatasetFromFile(String pathfile) {
         loadDataFromJson(loadFile(pathfile));
 
+    }
+
+    public void createDatasetFromDebugFile(String pathfile){
+        loadDataFromJsonDebug(loadFile(pathfile));
     }
 
     public void createDatasetFromEndpoint() {
