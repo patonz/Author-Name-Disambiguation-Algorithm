@@ -6,54 +6,63 @@
       "key": "family_name",
       "type": "Information",
       "weight": "3",
+      "threshold":"60",
       "delimiter": " "
     },
     {
       "key": "given_name",
       "type": "Information",
       "weight": "2",
+      "threshold":"0",
       "delimiter": " "
     },
     {
       "key": "full_name",
       "type": "Information",
       "weight": "2",
+      "threshold":"60",
       "delimiter": " "
     },
     {
       "key": "person",
       "type": "Resource",
       "weight": "0",
+      "threshold":"0",
       "delimiter": ";"
     },
     {
       "key": "publications",
       "type": "Resource",
       "weight": "0",
+      "threshold":"60",
       "delimiter": ";"
     },
     {
       "key": "publications_titles",
       "type": "Resource",
       "weight": "3",
+      "threshold":"60",
       "delimiter": "!|!"
     },
     {
       "key": "publications_pub_years",
       "type": "Period",
       "weight": "0",
+      "threshold":"0",
       "delimiter": ";"
     },
     {
       "key": "publications_venues",
       "type": "Resource",
       "weight": "2",
+      "threshold":"60",
       "delimiter": "!|!"
     },
     {
       "key": "publications_affiliations",
       "type": "Resource",
       "weight": "3",
+      "threshold":"0",
       "delimiter": "!|!"
     }
   ]

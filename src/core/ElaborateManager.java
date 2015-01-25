@@ -12,6 +12,7 @@ import java.util.concurrent.Executors;
 public class ElaborateManager {
     private static ElaborateManager ourInstance = new ElaborateManager();
     private ArrayList<Search> searchlist = new ArrayList<Search>();
+    public ArrayList<Result> results = new ArrayList<>();
 
     private ArrayList<Author> authorlistelaborated;
 
@@ -60,6 +61,8 @@ public class ElaborateManager {
         ArrayList<Author> localauthorlist;
         localauthorlist = (ArrayList<Author>) DataManager.getInstance().dataAuthor.authorlist.clone();
 
+        int countResult = 0;
+        int countCombination = 0;
         int maxsize = localauthorlist.size();
 
         for (int i = 0; i < maxsize; i++) {
@@ -72,6 +75,7 @@ public class ElaborateManager {
                 //condizione di arresto.
                 break;
             }
+           // System.out.println(localauthorlist.size());
             for (int k = 0; k < localauthorlist.size(); k++) {
 
 
@@ -80,10 +84,16 @@ public class ElaborateManager {
 
                 Result result = (Result) a.Similarity(b);
 
-                if (result.grade >= threshold) {
+                if (result.grade >= threshold && result.check) {
                     System.out.println("Author A n°" + i + " : Author B n°" + k);
                     System.out.println(result.description);
+                    countCombination++;
                 }
+
+
+                //this.results.add(result);
+                countResult++;
+
 
             }
 
@@ -92,13 +102,14 @@ public class ElaborateManager {
 
 
         }
+
+        System.out.println(countCombination+" of "+countResult+"match founds");
     }
 
     public void elaborateDisambiguationOnDataWithThreadPool() {
-        ArrayList<Author> localauthorlist = (ArrayList<Author>) DataManager.getInstance().dataAuthor.authorlist.clone();
+        ArrayList<Author> localauthorlist = DataManager.getInstance().dataAuthor.authorlist;
 
-        ExecutorService executor = Executors.newFixedThreadPool(50);
-
+        ExecutorService executor = Executors.newFixedThreadPool(1);
 
 
         for (int i = 0; i < localauthorlist.size(); i++) {
@@ -123,7 +134,9 @@ public class ElaborateManager {
 
 
             // ciclo solo un autore, testing
-
+           /* if (i == 99) {
+                break;
+            }*/
 
         }
         executor.shutdown();

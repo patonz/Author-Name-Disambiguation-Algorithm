@@ -8,6 +8,7 @@ public class Setting {
     public String key;
     public String type;
     public String weight;
+    public String threshold;
     public String delimiter;
 
 

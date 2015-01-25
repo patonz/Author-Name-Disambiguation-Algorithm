@@ -3,6 +3,7 @@ package console;
 import builder.BuilderManager;
 import core.DataManager;
 import core.ElaborateManager;
+import core.Result;
 import remote.RemoteManager;
 import semantic.Author;
 import util.Chronometer;
@@ -86,6 +87,17 @@ public class Commands {
         }
     }
 
+    public void printResult(){
+        System.out.println(ElaborateManager.getInstance().results.size());
+        int i =0;
+        for(Result r : ElaborateManager.getInstance().results){
+            System.out.println(r.description+r.check+"\n");
+            i++;
+            if(i == 99){
+                break;
+            }
+        }
+    }
     public void newSearch() {
         System.out.println("Insert the parameter");
         Scanner scan = new Scanner(System.in);
