@@ -5,65 +5,73 @@
     {
       "key": "family_name",
       "type": "Information",
-      "weight": "3",
+      "weight": "5",
       "threshold":"60",
-      "delimiter": " "
+      "delimiter": "",
+      "id":"false"
     },
     {
       "key": "given_name",
       "type": "Information",
-      "weight": "2",
-      "threshold":"0",
-      "delimiter": " "
+      "weight": "1",
+      "threshold":"20",
+      "delimiter": "",
+      "id":"false"
     },
     {
       "key": "full_name",
       "type": "Information",
-      "weight": "2",
-      "threshold":"60",
-      "delimiter": " "
+      "weight": "2.5",
+      "threshold":"45",
+      "delimiter": "",
+      "id":"false"
     },
     {
       "key": "person",
       "type": "Resource",
       "weight": "0",
       "threshold":"0",
-      "delimiter": ";"
+      "delimiter": ";",
+      "id":"true"
     },
     {
       "key": "publications",
       "type": "Resource",
       "weight": "0",
-      "threshold":"60",
+      "threshold":"0",
       "delimiter": ";"
     },
     {
       "key": "publications_titles",
       "type": "Resource",
-      "weight": "3",
-      "threshold":"60",
-      "delimiter": "!|!"
+      "weight": "2.5",
+      "threshold":"0",
+      "delimiter": "!|!",
+      "id":"false"
     },
     {
       "key": "publications_pub_years",
-      "type": "Period",
-      "weight": "0",
+      "type": "Resource",
+      "weight": "2.5",
       "threshold":"0",
-      "delimiter": ";"
+      "delimiter": " ",
+      "id":"false"
     },
     {
       "key": "publications_venues",
       "type": "Resource",
-      "weight": "2",
-      "threshold":"60",
-      "delimiter": "!|!"
+      "weight": "2.5",
+      "threshold":"0",
+      "delimiter": "!|!",
+      "id":"false"
     },
     {
       "key": "publications_affiliations",
       "type": "Resource",
-      "weight": "3",
+      "weight": "0",
       "threshold":"0",
-      "delimiter": "!|!"
+      "delimiter": "!|!",
+      "id":"false"
     }
   ]
 }

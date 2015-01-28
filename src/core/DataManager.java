@@ -9,6 +9,7 @@ import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 import configuration.Setting;
+import exception.TypeNotFoundException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -45,7 +46,7 @@ public class DataManager {
     }
 
 
-    public String downloadDataFromURL() throws Exception {
+    public String downloadDataFromURL() throws IOException {
 
         System.out.println("reading from endpoint...");
 
@@ -96,19 +97,6 @@ public class DataManager {
 
     public void loadDataFromJsonDebug(String string) {
 
-       /* "head": {
-            "vars": [
-            "person",
-                    "label",
-                    "givenName",
-                    "familyName",
-                    "roles",
-                    "relates",
-                    "creators",
-                    "coauthors",
-                    "realizations"
-            ]
-        }*/
         JSONObject obj = new JSONObject(string);
         JSONObject objconverted = new JSONObject();
         Gson gson = new Gson();
@@ -177,25 +165,34 @@ public class DataManager {
 
                         break;
                     case "Information":
-                        Information info = gson.fromJson(temp.get(setting.key).toString(), Information.class);
-                        ArrayList<String> stringinformation = SplitUsingTokenizer(info, setting);
                         ArrayList<Information> informationlist = new ArrayList<>();
-                        for (String s : stringinformation) {
-                            informationlist.add(new Information(s));
+                        if (temp.has(setting.key)) {
+                            Information info = gson.fromJson(temp.get(setting.key).toString(), Information.class);
+                            ArrayList<String> stringinformation = SplitUsingTokenizer(info, setting);
+
+                            for (String s : stringinformation) {
+                                informationlist.add(new Information(s));
+                            }
                         }
                         a.informations.put(setting.key, new InformationsHandler(informationlist, Double.parseDouble(setting.weight)));
                         break;
                     case "Period":
-                        Period per = gson.fromJson(temp.get(setting.key).toString(), Period.class);
-                        ArrayList<String> stringperiod = SplitUsingTokenizer(per, setting);
                         ArrayList<Period> periodlist = new ArrayList<>();
-                        for (String s : stringperiod) {
-                            periodlist.add(new Period(s));
+                        if (temp.has(setting.key)) {
+
+
+                            Period per = gson.fromJson(temp.get(setting.key).toString(), Period.class);
+                            ArrayList<String> stringperiod = SplitUsingTokenizer(per, setting);
+
+                            for (String s : stringperiod) {
+                                periodlist.add(new Period(s));
+                            }
                         }
                         a.periods.put(setting.key, new PeriodsHandler(periodlist, Double.parseDouble(setting.weight)));
                         break;
                     default:
-                        break;
+                        throw new TypeNotFoundException(setting.key);
+
 
                 }
                 //temp.get(setting.key).toString();
@@ -224,9 +221,11 @@ public class DataManager {
 
         try {
             loadDataFromJson(downloadDataFromURL());
-        } catch (Exception e) {
+        } catch (IOException e) {
             System.err.println("Cant download data from the Endpoint, check \"config.json\"");
             // e.printStackTrace();
+        } catch (JSONException e) {
+            System.err.println("different keys found: keys on config.json and vars on query must be the same");
         }
     }
 

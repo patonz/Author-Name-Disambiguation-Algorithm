@@ -103,7 +103,7 @@ public class ElaborateManager {
 
         }
 
-        System.out.println(countCombination+" of "+countResult+"match founds");
+        System.out.println(countCombination+" of "+countResult+" match founds");
     }
 
     public void elaborateDisambiguationOnDataWithThreadPool() {

@@ -38,6 +38,7 @@ public class Commands {
         System.out.println("Processing...");
         DataManager.getInstance().createDatasetFromFile(path);
 
+        count();
     }
 
 
@@ -62,12 +63,18 @@ public class Commands {
 
 
     public void setup() {
-        BuilderManager.getInstance().createDynamicClassFromConfig("src/configuration/config.json");
+        try {
+            BuilderManager.getInstance().createDynamicClassFromConfig("src/configuration/config.json");
+
+        } catch (Exception e) {
+            System.err.println("config.json file missing / corrupted");
+        }
 
 
-        // DataManager.getInstance().createDatasetFromEndpoint();
-        DataManager.getInstance().createDatasetFromFile("src/configuration/output.json");
-        //DataManager.getInstance().createDatasetFromDebugFile("src/builder/debug/authors_dataset.json");
+       // DataManager.getInstance().createDatasetFromEndpoint();
+         DataManager.getInstance().createDatasetFromFile("src/configuration/output.json");
+
+        count();
     }
 
     public void count() {
@@ -87,17 +94,18 @@ public class Commands {
         }
     }
 
-    public void printResult(){
+    public void printResult() {
         System.out.println(ElaborateManager.getInstance().results.size());
-        int i =0;
-        for(Result r : ElaborateManager.getInstance().results){
-            System.out.println(r.description+r.check+"\n");
+        int i = 0;
+        for (Result r : ElaborateManager.getInstance().results) {
+            System.out.println(r.description + r.check + "\n");
             i++;
-            if(i == 99){
+            if (i == 99) {
                 break;
             }
         }
     }
+
     public void newSearch() {
         System.out.println("Insert the parameter");
         Scanner scan = new Scanner(System.in);
