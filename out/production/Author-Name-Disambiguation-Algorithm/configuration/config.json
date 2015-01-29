@@ -13,7 +13,7 @@
     {
       "key": "given_name",
       "type": "Information",
-      "weight": "1",
+      "weight": "4",
       "threshold":"20",
       "delimiter": "",
       "identifier":false
@@ -21,7 +21,7 @@
     {
       "key": "full_name",
       "type": "Information",
-      "weight": "2.5",
+      "weight": "0",
       "threshold":"45",
       "delimiter": "",
       "identifier":false
@@ -38,14 +38,14 @@
       "key": "publications",
       "type": "Resource",
       "weight": "0",
-      "threshold":"0",
+      "threshold":"50",
       "delimiter": ";",
       "identifier":false
     },
     {
       "key": "publications_titles",
       "type": "Resource",
-      "weight": "2.5",
+      "weight": "0",
       "threshold":"0",
       "delimiter": "!|!",
       "identifier":false
@@ -53,15 +53,15 @@
     {
       "key": "publications_pub_years",
       "type": "Resource",
-      "weight": "2.5",
+      "weight": "0",
       "threshold":"0",
-      "delimiter": " ",
+      "delimiter": ";",
       "identifier":false
     },
     {
       "key": "publications_venues",
       "type": "Resource",
-      "weight": "2.5",
+      "weight": "0",
       "threshold":"0",
       "delimiter": "!|!",
       "identifier":false
