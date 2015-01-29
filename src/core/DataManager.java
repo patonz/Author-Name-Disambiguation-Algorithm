@@ -4,6 +4,7 @@ package core;
 import builder.BuilderManager;
 import builder.model.*;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.squareup.okhttp.Headers;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
@@ -13,9 +14,9 @@ import exception.TypeNotFoundException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import semantic.Author;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class DataManager {
 
     private static DataManager ourInstance = new DataManager();
     private final OkHttpClient client = new OkHttpClient();
-    public Author[] author_list;
+    public semantic.Author[] author_list;
     public DataAuthor dataAuthor;
 
     private JSONObject jsonAuthor;
@@ -141,7 +142,7 @@ public class DataManager {
 
         for (int i = 0; i < jarray.length(); i++) {
             JSONObject temp = (JSONObject) jarray.get(i);
-            Author a = new Author();
+            semantic.Author a = new semantic.Author();
             for (Setting setting : BuilderManager.getInstance().settings.param) {
 
                 switch (setting.type) {
@@ -254,6 +255,23 @@ public class DataManager {
         this.jsonJournalArticle = null;
         this.dataAuthor = null;
         System.gc();
+    }
+
+
+    public void writeJson(JsonObject json) {
+        try {
+            FileWriter file = new FileWriter("result.json");
+
+            file.write(json.toString());
+            System.out.println("Successfully Copied JSON Object to File...");
+            System.out.println("\nJSON Object: " + json);
+            file.flush();
+            file.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
     }
 
 

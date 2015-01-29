@@ -8,7 +8,7 @@
       "weight": "5",
       "threshold":"60",
       "delimiter": "",
-      "id":"false"
+      "identifier":false
     },
     {
       "key": "given_name",
@@ -16,7 +16,7 @@
       "weight": "1",
       "threshold":"20",
       "delimiter": "",
-      "id":"false"
+      "identifier":false
     },
     {
       "key": "full_name",
@@ -24,7 +24,7 @@
       "weight": "2.5",
       "threshold":"45",
       "delimiter": "",
-      "id":"false"
+      "identifier":false
     },
     {
       "key": "person",
@@ -32,14 +32,15 @@
       "weight": "0",
       "threshold":"0",
       "delimiter": ";",
-      "id":"true"
+      "identifier":true
     },
     {
       "key": "publications",
       "type": "Resource",
       "weight": "0",
       "threshold":"0",
-      "delimiter": ";"
+      "delimiter": ";",
+      "identifier":false
     },
     {
       "key": "publications_titles",
@@ -47,7 +48,7 @@
       "weight": "2.5",
       "threshold":"0",
       "delimiter": "!|!",
-      "id":"false"
+      "identifier":false
     },
     {
       "key": "publications_pub_years",
@@ -55,7 +56,7 @@
       "weight": "2.5",
       "threshold":"0",
       "delimiter": " ",
-      "id":"false"
+      "identifier":false
     },
     {
       "key": "publications_venues",
@@ -63,7 +64,7 @@
       "weight": "2.5",
       "threshold":"0",
       "delimiter": "!|!",
-      "id":"false"
+      "identifier":false
     },
     {
       "key": "publications_affiliations",
@@ -71,7 +72,7 @@
       "weight": "0",
       "threshold":"0",
       "delimiter": "!|!",
-      "id":"false"
+      "identifier":false
     }
   ]
 }

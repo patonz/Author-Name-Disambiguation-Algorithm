@@ -3,12 +3,15 @@ package semantic;
 import Skelethon.Similarity;
 import builder.BuilderManager;
 import builder.model.*;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 import configuration.Setting;
-import core.ElaborateManager;
 import core.Result;
 import exception.SimilarTypeNotFoundException;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,19 +39,55 @@ public class Author implements Similarity, Runnable {
             throw new SimilarTypeNotFoundException();
         }
         boolean check = true;
+        JsonObject jsonObject = new JsonObject();
+
         Double gradewighted = 0.0;
         Double weights = 0.0;
         String authorresult = "";
+
+
+        JsonArray identifier = new JsonArray();
+        JsonObject params = new JsonObject();
+
+
         for (Setting s : BuilderManager.getInstance().settings.param) {
+
             Double partialgrade = 0.0;
             if (this.resources.get(s.key) != null) {
                 partialgrade = (double) this.resources.get(s.key).Similarity(((Author) o).resources.get(s.key));
 
                 authorresult += s.key + " grade = " + partialgrade + " with weight= " + s.weight + "\n";
+                JsonObject temp = new JsonObject();
+                temp.addProperty("grade", partialgrade);
+                temp.addProperty("weight", s.weight);
+                JsonArray valuesA = new JsonArray();
+
+                for (Resource r : this.resources.get(s.key).resources) {
+                    valuesA.add(new JsonPrimitive(r.value));
+                    if (s.identifier)
+                        identifier.add(new JsonPrimitive(r.value));
+
+                }
+                JsonArray valuesB = new JsonArray();
+                for (Resource r : ((Author) o).resources.get(s.key).resources) {
+                    valuesB.add(new JsonPrimitive(r.value));
+                    if (s.identifier)
+                        identifier.add(new JsonPrimitive(r.value));
+                }
+
+
+                JsonObject values = new JsonObject();
+                values.add("valuesA", valuesA);
+                values.add("valuesB", valuesB);
+
+                temp.add("values", values);
+
+
+                params.add(s.key, temp);
                 weights += Double.parseDouble(s.weight);
                 gradewighted += ((partialgrade * Double.parseDouble(s.weight)));
 
-                if(partialgrade < Double.parseDouble(s.threshold)){
+                if (partialgrade < Double.parseDouble(s.threshold)) {
                     check = false;
                     break;
                 }
@@ -57,9 +96,37 @@ public class Author implements Similarity, Runnable {
                 partialgrade = result.grade;
                 authorresult += s.key + " grade = " + partialgrade + " with weight= " + s.weight + " " + result.description + "\n";
 
+
+                JsonObject temp = new JsonObject();
+                temp.addProperty("grade", partialgrade);
+                temp.addProperty("weight", s.weight);
+                temp.addProperty("description", result.description);
+                JsonArray valuesA = new JsonArray();
+
+                for (Information r : this.informations.get(s.key).informations) {
+                    valuesA.add(new JsonPrimitive(r.value));
+                    if (s.identifier)
+                        identifier.add(new JsonPrimitive(r.value));
+
+                }
+                JsonArray valuesB = new JsonArray();
+                for (Information r : ((Author) o).informations.get(s.key).informations) {
+                    valuesB.add(new JsonPrimitive(r.value));
+                    if (s.identifier)
+                        identifier.add(new JsonPrimitive(r.value));
+                }
+
+
+                JsonObject values = new JsonObject();
+                values.add("valuesA", valuesA);
+                values.add("valuesB", valuesB);
+
+                temp.add("values", values);
+                params.add(s.key, temp);
+
                 weights += Double.parseDouble(s.weight);
                 gradewighted += (partialgrade * Double.parseDouble(s.weight));
-                if(partialgrade < Double.parseDouble(s.threshold)){
+                if (partialgrade < Double.parseDouble(s.threshold)) {
                     check = false;
                     break;
                 }
@@ -67,9 +134,36 @@ public class Author implements Similarity, Runnable {
                 partialgrade = (double) this.periods.get(s.key).Similarity(((Author) o).periods.get(s.key));
                 authorresult += s.key + " grade = " + partialgrade + " with weight= " + s.weight + "\n";
 
+
+                JsonObject temp = new JsonObject();
+                temp.add("grade", new JsonPrimitive(partialgrade));
+                temp.add("weight", new JsonPrimitive(s.weight));
+                JsonArray valuesA = new JsonArray();
+
+                for (Period r : this.periods.get(s.key).periods) {
+                    valuesA.add(new JsonPrimitive(r.value));
+                    if (s.identifier)
+                        identifier.add(new JsonPrimitive(r.value));
+
+                }
+                JsonArray valuesB = new JsonArray();
+                for (Period r : ((Author) o).periods.get(s.key).periods) {
+                    valuesB.add(new JsonPrimitive(r.value));
+                    if (s.identifier)
+                        identifier.add(new JsonPrimitive(r.value));
+                }
+
+                JsonObject values = new JsonObject();
+                values.add("valuesA", valuesA);
+                values.add("valuesB", valuesB);
+
+                temp.add("values", values);
+                params.add(s.key, temp);
+
+
                 weights += Double.parseDouble(s.weight);
                 gradewighted += (partialgrade * Double.parseDouble(s.weight));
-                if(partialgrade < Double.parseDouble(s.threshold)){
+                if (partialgrade < Double.parseDouble(s.threshold)) {
                     check = false;
                     break;
                 }
@@ -77,8 +171,23 @@ public class Author implements Similarity, Runnable {
         }
 
 
+        jsonObject.add("identifier", identifier);
+        jsonObject.add("params", params);
+        JsonObject finalvalue = new JsonObject();
+
+
         authorresult += "Similarity of Calculated SimilarityCascade " + (gradewighted / weights) + "\n";
-        return (gradewighted > 0.0) ? new Result(gradewighted / weights, authorresult, check) : new Result(0.0, authorresult,check);
+        Result result = new Result(gradewighted / weights, authorresult, check);
+        finalvalue.addProperty("grade", result.grade);
+        finalvalue.addProperty("sum_weights", weights);
+        finalvalue.addProperty("sum_grades", gradewighted);
+        finalvalue.addProperty("description", authorresult);
+        jsonObject.add("similarity", finalvalue);
+        result.output = jsonObject;
+        if (gradewighted < 0.0) {
+            result.grade = 0.0;
+        }
+        return result;
     }
 
     public void printAuthor() {

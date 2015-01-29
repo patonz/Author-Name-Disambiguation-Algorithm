@@ -1,7 +1,9 @@
 package core;
 
 import builder.model.Builder;
-import semantic.Key;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Leonardo on 14/01/2015.
@@ -14,7 +16,7 @@ public class Combination {
     private double weight;
     private double grade;
     private double finalgrade;
-
+    public Map<String, String> grades = new HashMap<>();
     public Combination(Builder a, Builder b, double weight){
         A = a;
         B = b;

@@ -2,8 +2,6 @@ package builder.model;
 
 import exception.SimilarTypeNotFoundException;
 
-import java.util.Date;
-
 /**
  * Created by Leonardo on 14/01/2015.
  */

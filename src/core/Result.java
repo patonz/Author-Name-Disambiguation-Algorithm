@@ -1,5 +1,7 @@
 package core;
 
+import com.google.gson.JsonObject;
+
 /**
  * Created by Leonardo on 20/01/2015.
  */
@@ -9,6 +11,7 @@ public class Result {
     public double grade;
     public String description;
     public boolean check = true;
+    public JsonObject output = new JsonObject();
 
 
     public Result(double grade, String description) {
@@ -17,7 +20,7 @@ public class Result {
 
     }
 
-    public Result(double grade, String description, boolean check){
+    public Result(double grade, String description, boolean check) {
         this.grade = grade;
         this.description = description;
         this.check = check;

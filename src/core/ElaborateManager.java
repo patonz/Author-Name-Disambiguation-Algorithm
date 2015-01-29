@@ -1,5 +1,11 @@
 package core;
 
+import builder.BuilderManager;
+import builder.model.Builder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import semantic.Author;
 
 import java.util.ArrayList;
@@ -11,9 +17,9 @@ import java.util.concurrent.Executors;
  */
 public class ElaborateManager {
     private static ElaborateManager ourInstance = new ElaborateManager();
-    private ArrayList<Search> searchlist = new ArrayList<Search>();
+    public JsonObject outputjson;
     public ArrayList<Result> results = new ArrayList<>();
-
+    private ArrayList<Search> searchlist = new ArrayList<Search>();
     private ArrayList<Author> authorlistelaborated;
 
     private ElaborateManager() {
@@ -65,6 +71,10 @@ public class ElaborateManager {
         int countCombination = 0;
         int maxsize = localauthorlist.size();
 
+        JsonObject output = new JsonObject();
+        JsonArray results = new JsonArray();
+
+
         for (int i = 0; i < maxsize; i++) {
 
             Author a = localauthorlist.get(0);
@@ -75,7 +85,7 @@ public class ElaborateManager {
                 //condizione di arresto.
                 break;
             }
-           // System.out.println(localauthorlist.size());
+            // System.out.println(localauthorlist.size());
             for (int k = 0; k < localauthorlist.size(); k++) {
 
 
@@ -87,6 +97,9 @@ public class ElaborateManager {
                 if (result.grade >= threshold && result.check) {
                     System.out.println("Author A n°" + i + " : Author B n°" + k);
                     System.out.println(result.description);
+
+                    results.add(result.output);
+                    // System.out.println(result.output.toString());
                     countCombination++;
                 }
 
@@ -103,7 +116,19 @@ public class ElaborateManager {
 
         }
 
-        System.out.println(countCombination+" of "+countResult+" match founds");
+        JsonObject metainfo = new JsonObject();
+        metainfo.addProperty("result_count", countResult);
+        metainfo.addProperty("max_count", countCombination);
+        metainfo.addProperty("identifier", BuilderManager.getInstance().settings.identifier.key);
+        output.add("meta_info", metainfo);
+        output.add("results", results);
+
+        this.outputjson = output;
+
+        System.out.println(countCombination + " of " + countResult + " match founds");
+
+
+        DataManager.getInstance().writeJson(this.outputjson);
     }
 
     public void elaborateDisambiguationOnDataWithThreadPool() {
