@@ -35,6 +35,14 @@
       "identifier":true
     },
     {
+      "key": "coauthors",
+      "type": "Resource",
+      "weight": "0",
+      "threshold":"0",
+      "delimiter": ";",
+      "identifier":false
+    },
+    {
       "key": "publications",
       "type": "Resource",
       "weight": "1",
