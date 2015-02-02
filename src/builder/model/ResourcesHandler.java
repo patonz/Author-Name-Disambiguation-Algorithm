@@ -50,7 +50,7 @@ public class ResourcesHandler extends BuildersHandler {
             }
         }
 
-        Double grade = (check * 100) / totalcheck;
+        Double grade = (check * 100) / (totalcheck + (min.size()-check));
 
         return (!Double.isNaN(grade)) ? grade : 0.0;
     }

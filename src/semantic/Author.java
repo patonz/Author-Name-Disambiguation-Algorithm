@@ -178,6 +178,7 @@ public class Author implements Similarity, Runnable {
 
         authorresult += "Similarity of Calculated SimilarityCascade " + (gradewighted / weights) + "\n";
         Result result = new Result(gradewighted / weights, authorresult, check);
+        result.shortoutput = identifier;
         finalvalue.addProperty("grade", result.grade);
         finalvalue.addProperty("sum_weights", weights);
         finalvalue.addProperty("sum_grades", gradewighted);

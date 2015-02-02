@@ -28,8 +28,11 @@ public class InformationsHandler extends BuildersHandler {
 
 
 
-        if(((InformationsHandler) obj).informations.isEmpty() || informations.isEmpty()){
+        if(((InformationsHandler) obj).informations.isEmpty() && informations.isEmpty()){
             return new Result(0.0,"information not avaiable");
+        }
+        if(((InformationsHandler) obj).informations.isEmpty() || informations.isEmpty()){
+            return new Result(100.0,"an author without information");
         }
         Information infomatchedA = informations.get(0);
         Information infomatchedB = ((InformationsHandler) obj).informations.get(0);

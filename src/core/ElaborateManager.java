@@ -71,6 +71,7 @@ public class ElaborateManager {
         int countCombination = 0;
         int maxsize = localauthorlist.size();
 
+        JsonArray shortoutputs = new JsonArray();
         JsonObject output = new JsonObject();
         JsonArray results = new JsonArray();
 
@@ -99,6 +100,7 @@ public class ElaborateManager {
                     System.out.println(result.description);
 
                     results.add(result.output);
+                    shortoutputs.add(result.shortoutput);
                     // System.out.println(result.output.toString());
                     countCombination++;
                 }
@@ -128,7 +130,8 @@ public class ElaborateManager {
         System.out.println(countCombination + " of " + countResult + " match founds");
 
 
-        DataManager.getInstance().writeJson(this.outputjson);
+        DataManager.getInstance().writeJson(this.outputjson, "result_full.json");
+        DataManager.getInstance().writeJson(shortoutputs,"result_short.json");
     }
 
     public void elaborateDisambiguationOnDataWithThreadPool() {

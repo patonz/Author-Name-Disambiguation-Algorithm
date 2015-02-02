@@ -4,6 +4,7 @@ package core;
 import builder.BuilderManager;
 import builder.model.*;
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.squareup.okhttp.Headers;
 import com.squareup.okhttp.OkHttpClient;
@@ -258,9 +259,9 @@ public class DataManager {
     }
 
 
-    public void writeJson(JsonObject json) {
+    public void writeJson(JsonElement json, String namefile) {
         try {
-            FileWriter file = new FileWriter("result.json");
+            FileWriter file = new FileWriter(namefile);
 
             file.write(json.toString());
             System.out.println("Successfully Copied JSON Object to File...");

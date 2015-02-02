@@ -28,28 +28,34 @@ public class Information extends Builder {
 
 
         String a = this.value.replace(".", "");
-        a = a.replaceAll("\\s","");
+        a = a.replaceAll("\\s", "");
         String b = ((Information) obj).value.replace(".", "");
-        b = b.replaceAll("\\s","");
+        b = b.replaceAll("\\s", "");
 
-        int distance = Levenshtein.distance(a, b);
-        int miss = Math.max(a.length(), b.length()) - Math.min(a.length(), b.length());
+        String max;
+        String min;
+        if (a.length() >= b.length()) {
+            max = a;
+            min = b;
+        } else {
+            max = b;
+            min = a;
+        }
+
+        //diminuitive check
+        if (max.length() > 1 && min.length() == 1) {
+            if (max.charAt(0) == min.charAt(0)) {
+                return 50.0; // F. of Fabio, can be the same name or not, just flip a coin.
+            } else return 0.0; // A. of Fabio cant be the same name.
+        }
+
+        int distance = Levenshtein.distance(min, max);
+        int miss = max.length() - min.length();
         int change = distance - miss;
-        double grade = 100.0 - (100.0 / (Math.max(a.length(), b.length())) * distance + change);
+        double grade = 100.0 - (100.0 / max.length() * (distance + change));
 
 
         return (grade >= 0 && grade != Double.NaN) ? grade : 0.0;
-    }
-
-
-    public String method(String str) {
-        if (this.value.charAt(this.value.length() - 1) == '.') {
-
-        }
-        if (str.length() > 0 && str.charAt(str.length() - 1) == 'x') {
-            str = str.substring(0, str.length() - 1);
-        }
-        return str;
     }
 
 
