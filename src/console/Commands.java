@@ -106,6 +106,10 @@ public class Commands {
         }
     }
 
+    public void pr(){
+        ElaborateManager.getInstance().precisionRecall();
+    }
+
     public void newSearch() {
         System.out.println("Insert the parameter");
         Scanner scan = new Scanner(System.in);

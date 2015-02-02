@@ -16,6 +16,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -261,13 +262,15 @@ public class DataManager {
 
     public void writeJson(JsonElement json, String namefile) {
         try {
+
             FileWriter file = new FileWriter(namefile);
 
-            file.write(json.toString());
-            System.out.println("Successfully Copied JSON Object to File...");
-            System.out.println("\nJSON Object: " + json);
-            file.flush();
-            file.close();
+            BufferedWriter bw = new BufferedWriter(file);
+            bw.write(json.toString());
+            System.out.println("Successfully Copied JSON Object to File "+namefile);
+            //System.out.println("\nJSON Object: " + json);
+          //  bw.flush();
+            bw.close();
 
         } catch (IOException e) {
             e.printStackTrace();

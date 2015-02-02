@@ -5,24 +5,24 @@
     {
       "key": "family_name",
       "type": "Information",
-      "weight": "3",
-      "threshold":"20",
+      "weight": "0",
+      "threshold":"60",
       "delimiter": "",
       "identifier":false
     },
     {
       "key": "given_name",
       "type": "Information",
-      "weight": "3",
-      "threshold":"20",
+      "weight": "0",
+      "threshold":"50",
       "delimiter": "",
       "identifier":false
     },
     {
       "key": "full_name",
       "type": "Information",
-      "weight": "4",
-      "threshold":"20",
+      "weight": "0",
+      "threshold":"60",
       "delimiter": "",
       "identifier":false
     },
@@ -37,15 +37,15 @@
     {
       "key": "publications",
       "type": "Resource",
-      "weight": "0",
-      "threshold":"50",
+      "weight": "1",
+      "threshold":"0",
       "delimiter": ";",
       "identifier":false
     },
     {
       "key": "publications_titles",
       "type": "Resource",
-      "weight": "0",
+      "weight": "1",
       "threshold":"0",
       "delimiter": "!|!",
       "identifier":false
@@ -53,7 +53,7 @@
     {
       "key": "publications_pub_years",
       "type": "Resource",
-      "weight": "0",
+      "weight": "1",
       "threshold":"0",
       "delimiter": ";",
       "identifier":false
@@ -61,7 +61,7 @@
     {
       "key": "publications_venues",
       "type": "Resource",
-      "weight": "0",
+      "weight": "1",
       "threshold":"0",
       "delimiter": "!|!",
       "identifier":false

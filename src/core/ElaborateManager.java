@@ -1,12 +1,11 @@
 package core;
 
 import builder.BuilderManager;
-import builder.model.Builder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.json.JSONArray;
-import org.json.JSONObject;
 import semantic.Author;
+import util.MathUtils;
 
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
@@ -97,7 +96,7 @@ public class ElaborateManager {
 
                 if (result.grade >= threshold && result.check) {
                     System.out.println("Author A n°" + i + " : Author B n°" + k);
-                    System.out.println(result.description);
+                   // System.out.println(result.description);
 
                     results.add(result.output);
                     shortoutputs.add(result.shortoutput);
@@ -131,7 +130,7 @@ public class ElaborateManager {
 
 
         DataManager.getInstance().writeJson(this.outputjson, "result_full.json");
-        DataManager.getInstance().writeJson(shortoutputs,"result_short.json");
+        DataManager.getInstance().writeJson(shortoutputs, "result_short.json");
     }
 
     public void elaborateDisambiguationOnDataWithThreadPool() {
@@ -177,5 +176,62 @@ public class ElaborateManager {
 
     }
 
+
+    public String precisionRecall() {
+
+
+        try {
+
+            JSONArray result = new JSONArray(DataManager.getInstance().loadFile("result_short.json"));
+            JSONArray answer = new JSONArray(DataManager.getInstance().loadFile("src/builder/debug/answers_dataset.json"));
+
+            int rilevantauthor = 0;
+            int retrievedauthor = result.length();
+            int intersection = 0;
+            for (int i = 0; i < answer.length(); i++) {
+                JSONArray ans = answer.getJSONArray(i);
+                rilevantauthor += MathUtils.binomial(ans.length(), 2);
+            }
+
+
+            for (int i = 0; i < result.length(); i++) {
+
+
+                JSONArray res = result.getJSONArray(i);
+                String idA = res.getString(0);
+                String idB = res.getString(1);
+
+
+                for (int k = 0; k < answer.length(); k++) {
+
+                    boolean checkA = false;
+                    boolean checkB = false;
+                    JSONArray ans = answer.getJSONArray(k);
+                    for (int j = 0; j < ans.length(); j++) {
+                        if (ans.get(j).equals(idA)) checkA = true;
+                        if (ans.get(j).equals(idB)) checkB = true;
+                    }
+
+                    if (checkA && checkB) intersection += 1;
+
+
+                }
+
+
+            }
+
+            double precision = (double)intersection / retrievedauthor;
+            double recall = (double)intersection / rilevantauthor;
+
+            System.out.println("retrievedeauthor = " + retrievedauthor + "\nrilevantauthor = " + rilevantauthor + "\nintersection = " + intersection + "\nprecision = " + precision + "\nrecall = " + recall);
+
+
+        } catch (Exception e) {
+            System.err.println("files not found or corrupted");
+        }
+
+
+        return "";
+    }
 
 }

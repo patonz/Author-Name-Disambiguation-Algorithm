@@ -2,18 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86e68b6c-a6b9-4782-9304-cc8d97a1080d" name="Default" comment="Second Commit">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/semantic/Author.java" afterPath="$PROJECT_DIR$/src/semantic/Author.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/util/MathUtils.java" />
+      <change type="DELETED" beforePath="C:\Users\Leonardo\Documents\SmartGit\Author-Name-Disambiguation-Algorithm\result_full.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Leonardo\Documents\SmartGit\Author-Name-Disambiguation-Algorithm\result_short.json" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/console/Commands.java" afterPath="$PROJECT_DIR$/src/console/Commands.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/DataManager.java" afterPath="$PROJECT_DIR$/src/core/DataManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/ElaborateManager.java" afterPath="$PROJECT_DIR$/src/core/ElaborateManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/builder/model/Information.java" afterPath="$PROJECT_DIR$/src/builder/model/Information.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/builder/model/InformationsHandler.java" afterPath="$PROJECT_DIR$/src/builder/model/InformationsHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/builder/model/ResourcesHandler.java" afterPath="$PROJECT_DIR$/src/builder/model/ResourcesHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/Result.java" afterPath="$PROJECT_DIR$/src/core/Result.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Author-Name-Disambiguation-Algorithm/builder/debug/answers_dataset.json" afterPath="$PROJECT_DIR$/out/production/Author-Name-Disambiguation-Algorithm/builder/debug/answers_dataset.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/builder/debug/answers_dataset.json" afterPath="$PROJECT_DIR$/src/builder/debug/answers_dataset.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Author-Name-Disambiguation-Algorithm/configuration/config.json" afterPath="$PROJECT_DIR$/out/production/Author-Name-Disambiguation-Algorithm/configuration/config.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/configuration/config.json" afterPath="$PROJECT_DIR$/src/configuration/config.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/result.json" afterPath="$PROJECT_DIR$/result.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Author-Name-Disambiguation-Algorithm.iws" />
@@ -45,40 +41,50 @@
       <file leaf-file-name="ElaborateManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/core/ElaborateManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2907">
-              <caret line="118" column="9" selection-start-line="118" selection-start-column="9" selection-end-line="118" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1085" max-vertical-offset="3876">
+              <caret line="98" column="21" selection-start-line="98" selection-start-column="21" selection-end-line="98" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Author.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/semantic/Author.java">
+      <file leaf-file-name="Commands.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/console/Commands.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2750" max-vertical-offset="4012">
-              <caret line="180" column="40" selection-start-line="180" selection-start-column="40" selection-end-line="180" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="987" max-vertical-offset="2720">
+              <caret line="109" column="57" selection-start-line="109" selection-start-column="57" selection-end-line="109" selection-end-column="57" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#411#412#0" expanded="false" />
+                <element signature="e#441#442#0" expanded="false" />
+                <element signature="e#467#468#0" expanded="false" />
+                <element signature="e#511#512#0" expanded="false" />
+                <element signature="e#544#545#0" expanded="false" />
+                <element signature="e#613#614#0" expanded="false" />
+                <element signature="e#949#950#0" expanded="false" />
+                <element signature="e#996#997#0" expanded="false" />
+                <element signature="e#4861#4862#0" expanded="false" />
+                <element signature="e#4910#4911#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Resource.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/builder/model/Resource.java">
+      <file leaf-file-name="Chronometer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/util/Chronometer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="81" max-vertical-offset="663">
-              <caret line="30" column="74" selection-start-line="30" selection-start-column="72" selection-end-line="30" selection-end-column="74" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="493">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResourcesHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/builder/model/ResourcesHandler.java">
+      <file leaf-file-name="MathUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/util/MathUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="437" max-vertical-offset="1071">
-              <caret line="35" column="53" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="697">
+              <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -87,58 +93,42 @@
       <file leaf-file-name="config.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/configuration/config.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-25.5" vertical-offset="0" max-vertical-offset="1411">
-              <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+            <state vertical-scroll-proportion="-13.730769" vertical-offset="51" max-vertical-offset="1411">
+              <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InformationsHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/builder/model/InformationsHandler.java">
+      <file leaf-file-name="BuildersHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/builder/model/BuildersHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="268" max-vertical-offset="1258">
-              <caret line="34" column="33" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="391">
+              <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="result_full.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/result_full.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="102">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="result_short.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/result_short.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="102">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Information.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Information.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/builder/model/Information.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6185567" vertical-offset="303" max-vertical-offset="1105">
-              <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="216" max-vertical-offset="1105">
+              <caret line="52" column="47" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#225#226#0" expanded="false" />
+                <element signature="e#253#254#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataManager.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DataManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/core/DataManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3821" max-vertical-offset="4403">
-              <caret line="261" column="37" selection-start-line="261" selection-start-column="37" selection-end-line="261" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.65008575" vertical-offset="3854" max-vertical-offset="4437">
+              <caret line="276" column="0" selection-start-line="276" selection-start-column="0" selection-end-line="276" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -158,8 +148,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/semantic/Creator.java" />
-        <option value="$PROJECT_DIR$/src/semantic/Coauthor.java" />
         <option value="$PROJECT_DIR$/src/semantic/Cites.java" />
         <option value="$PROJECT_DIR$/src/semantic/Person.java" />
         <option value="$PROJECT_DIR$/src/semantic/PublicationYear.java" />
@@ -192,7 +180,6 @@
         <option value="$PROJECT_DIR$/src/configuration/debugdata.json" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/exception/TypeNotFoundException.java" />
-        <option value="$PROJECT_DIR$/src/console/Commands.java" />
         <option value="$PROJECT_DIR$/src/core/Combination.java" />
         <option value="$PROJECT_DIR$/src/configuration/Setting.java" />
         <option value="$PROJECT_DIR$/src/configuration/Settings.java" />
@@ -203,12 +190,15 @@
         <option value="$PROJECT_DIR$/src/builder/debug/answers_dataset.json" />
         <option value="$PROJECT_DIR$/src/core/Result.java" />
         <option value="$PROJECT_DIR$/src/semantic/Author.java" />
-        <option value="$PROJECT_DIR$/src/core/DataManager.java" />
-        <option value="$PROJECT_DIR$/src/core/ElaborateManager.java" />
         <option value="$PROJECT_DIR$/src/configuration/output.json" />
         <option value="$PROJECT_DIR$/src/builder/model/InformationsHandler.java" />
-        <option value="$PROJECT_DIR$/src/configuration/config.json" />
         <option value="$PROJECT_DIR$/src/builder/model/Information.java" />
+        <option value="$PROJECT_DIR$/src/console/Commands.java" />
+        <option value="$PROJECT_DIR$/src/util/MathUtils.java" />
+        <option value="$PROJECT_DIR$/src/core/ElaborateManager.java" />
+        <option value="$PROJECT_DIR$/src/configuration/config.json" />
+        <option value="$PROJECT_DIR$/result_short.json" />
+        <option value="$PROJECT_DIR$/src/core/DataManager.java" />
       </list>
     </option>
   </component>
@@ -241,8 +231,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -276,6 +266,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Author-Name-Disambiguation-Algorithm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Author-Name-Disambiguation-Algorithm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -348,6 +356,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Author-Name-Disambiguation-Algorithm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Author-Name-Disambiguation-Algorithm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="console" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -712,7 +738,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -725,7 +751,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3176734" sideWeight="0.5861858" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3165548" sideWeight="0.5861858" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32997763" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25061125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -771,20 +797,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/DataLimited.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6336" max-vertical-offset="6868">
-          <caret line="116" column="5" selection-start-line="116" selection-start-column="5" selection-end-line="116" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
-          <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utility_files/describe.JournalArticle.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.65384614" vertical-offset="46801" max-vertical-offset="306680">
@@ -845,13 +857,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/builder/model/BuildersHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -974,13 +979,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/console/Commands.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="562" max-vertical-offset="2652">
-          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/builder/BuilderManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1613" max-vertical-offset="2873">
@@ -1020,7 +1018,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="569">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1044,7 +1041,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="102">
           <caret line="0" column="42309" selection-start-line="0" selection-start-column="42309" selection-end-line="0" selection-end-column="42309" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1053,7 +1049,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="612">
           <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1063,16 +1059,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="2750" max-vertical-offset="4012">
           <caret line="180" column="40" selection-start-line="180" selection-start-column="40" selection-end-line="180" selection-end-column="40" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/DataManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3821" max-vertical-offset="4403">
-          <caret line="261" column="37" selection-start-line="261" selection-start-column="37" selection-end-line="261" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1088,7 +1076,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
           <caret line="0" column="7831100" selection-start-line="0" selection-start-column="7831100" selection-end-line="0" selection-end-column="7831100" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1108,42 +1095,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/result_short.json">
+    <entry file="file://$PROJECT_DIR$/src/builder/model/Information.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="853">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="216" max-vertical-offset="1105">
+          <caret line="52" column="47" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#225#226#0" expanded="false" />
+            <element signature="e#253#254#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/builder/model/BuildersHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/result_full.json">
+    <entry file="file://$PROJECT_DIR$/src/util/Chronometer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="853">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/console/Commands.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="987" max-vertical-offset="2720">
+          <caret line="109" column="57" selection-start-line="109" selection-start-column="57" selection-end-line="109" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#411#412#0" expanded="false" />
+            <element signature="e#441#442#0" expanded="false" />
+            <element signature="e#467#468#0" expanded="false" />
+            <element signature="e#511#512#0" expanded="false" />
+            <element signature="e#544#545#0" expanded="false" />
+            <element signature="e#613#614#0" expanded="false" />
+            <element signature="e#949#950#0" expanded="false" />
+            <element signature="e#996#997#0" expanded="false" />
+            <element signature="e#4861#4862#0" expanded="false" />
+            <element signature="e#4910#4911#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/MathUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
+          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/ElaborateManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2907">
-          <caret line="118" column="9" selection-start-line="118" selection-start-column="9" selection-end-line="118" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1085" max-vertical-offset="3876">
+          <caret line="98" column="21" selection-start-line="98" selection-start-column="21" selection-end-line="98" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/configuration/config.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-25.5" vertical-offset="0" max-vertical-offset="1411">
-          <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+        <state vertical-scroll-proportion="-13.730769" vertical-offset="51" max-vertical-offset="1411">
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/builder/model/Information.java">
+    <entry file="file://$PROJECT_DIR$/src/core/DataManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6185567" vertical-offset="303" max-vertical-offset="1105">
-          <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.65008575" vertical-offset="3854" max-vertical-offset="4437">
+          <caret line="276" column="0" selection-start-line="276" selection-start-column="0" selection-end-line="276" selection-end-column="0" />
           <folding />
         </state>
       </provider>
