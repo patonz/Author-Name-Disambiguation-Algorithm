@@ -96,7 +96,7 @@ public class ElaborateManager {
 
                 if (result.grade >= threshold && result.check) {
                     System.out.println("Author A n°" + i + " : Author B n°" + k);
-                   // System.out.println(result.description);
+                    // System.out.println(result.description);
 
                     results.add(result.output);
                     shortoutputs.add(result.shortoutput);
@@ -206,22 +206,36 @@ public class ElaborateManager {
 
                     boolean checkA = false;
                     boolean checkB = false;
+                    String idAcheck = "";
+                    String idBcheck = "";
                     JSONArray ans = answer.getJSONArray(k);
                     for (int j = 0; j < ans.length(); j++) {
-                        if (ans.get(j).equals(idA)) checkA = true;
-                        if (ans.get(j).equals(idB)) checkB = true;
+                        if (ans.get(j).equals(idA)) {
+                            checkA = true;
+                            idAcheck = idA;
+                        }
+                        if (ans.get(j).equals(idB)) {
+                            checkB = true;
+
+                            idBcheck = idB;
+
+                        }
+
+                        if (checkA && checkB) {
+                            intersection += 1;
+                            checkA = false;
+                            checkB = false;
+                            System.out.println("intersection found in: " + idAcheck + " & " + idBcheck);
+                        }
+
                     }
-
-                    if (checkA && checkB) intersection += 1;
-
-
                 }
 
 
             }
 
-            double precision = (double)intersection / retrievedauthor;
-            double recall = (double)intersection / rilevantauthor;
+            double precision = (double) intersection / retrievedauthor;
+            double recall = (double) intersection / rilevantauthor;
 
             System.out.println("retrievedeauthor = " + retrievedauthor + "\nrilevantauthor = " + rilevantauthor + "\nintersection = " + intersection + "\nprecision = " + precision + "\nrecall = " + recall);
 
