@@ -71,8 +71,8 @@ public class Commands {
         }
 
 
-       // DataManager.getInstance().createDatasetFromEndpoint();
-         DataManager.getInstance().createDatasetFromFile("src/configuration/output.json");
+        // DataManager.getInstance().createDatasetFromEndpoint();
+        DataManager.getInstance().createDatasetFromFile("src/configuration/output.json");
 
 
         count();
@@ -107,7 +107,7 @@ public class Commands {
         }
     }
 
-    public void pr(){
+    public void pr() {
         ElaborateManager.getInstance().precisionRecall();
     }
 
@@ -118,10 +118,36 @@ public class Commands {
     }
 
 
-    public void ebl(){
+    public void ebl() {
         DataManager.getInstance().loadBaseLine(DataManager.getInstance().loadFile("src/configuration/output.json"));
-        ElaborateManager.getInstance().elaborateBaseLine();
+        System.out.println("Insert the Probability of False, (Must be a number between 0 and 100, \'[equals 0.0 and 1.0]\'");
+        Scanner scan = new Scanner(System.in);
+        String input = scan.nextLine();
+        System.out.println("Insert the Type of BaseLine to execute( ex: A, B, ..)");
+        String type = scan.nextLine();
+        try {
+            int threshold = Integer.parseInt(input);
+            if (threshold >= 0 && threshold <= 100) {
+                DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+                Date dateobj = new Date();
+
+                System.out.println(df.format(dateobj) + ": processing...");
+                Chronometer chronometer = new Chronometer();
+                chronometer.start();
+                ElaborateManager.getInstance().elaborateBaseLine(type,threshold);
+
+                chronometer.stop();
+                System.out.println(df.format(new Date()) + ": operation terminated in " + chronometer.getSeconds() + "sec | " + chronometer.getMinutes() + " min | " + chronometer.getHours() + "h");
+            } else {
+                System.out.println("the Threshold input must be a number between 0 and 100");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("the Threshold input must be a double");
+        }
+
     }
+
     public void elaborate() {
 
         System.out.println("Insert the Threshold( must be a Double number between 0 and 100");

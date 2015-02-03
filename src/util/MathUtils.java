@@ -29,6 +29,25 @@ public class MathUtils {
     }
 
 
+    public static boolean getBooleanFromProbability(int probability) {
+
+
+        Random rand = new Random();
+        int totalSum = 100;
+        boolean[] check = new boolean[]{true, false};
+        int[] prob = new int[]{(100 - probability), probability};
+
+        int index = rand.nextInt(totalSum);
+        int sum = 0;
+        int i = 0;
+        while (sum < index) {
+            sum = sum + prob[i++];
+        }
+
+
+        return check[Math.max(0, i - 1)];
+    }
+
     public static boolean getRandomBoolean() {
         Random rnd = new Random();
         return rnd.nextBoolean();

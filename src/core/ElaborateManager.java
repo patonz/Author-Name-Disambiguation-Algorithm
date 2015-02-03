@@ -9,9 +9,9 @@ import semantic.Author;
 import semantic.AuthorBaseLine;
 import util.MathUtils;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -66,11 +66,25 @@ public class ElaborateManager {
 
     }
 
-    public void elaborateBaseLine() {
+    public void elaborateBaseLine(String type, int prob) {
 
+        try {
+        Method method;
 
-        ArrayList<AuthorBaseLine> localauthorlist =(ArrayList<AuthorBaseLine>) DataManager.getInstance().dataAuthorBaseLine.bindings.clone();
+        ArrayList<AuthorBaseLine> localauthorlist = (ArrayList<AuthorBaseLine>) DataManager.getInstance().dataAuthorBaseLine.bindings.clone();
 
+        switch (type){
+            case "A":
+               method = AuthorBaseLine.class.getMethod("SimilarityA", Object.class, int.class);
+                break;
+            case "B":
+               method = AuthorBaseLine.class.getMethod("SimilarityB", Object.class, int.class);
+                break;
+            default:
+                System.err.print("BaseLine not found");
+                return;
+
+        }
 
         int maxsize = localauthorlist.size();
         JsonArray shortoutputs = new JsonArray();
@@ -88,10 +102,10 @@ public class ElaborateManager {
 
 
                 AuthorBaseLine b = localauthorlist.get(k);
+                method.invoke(a,b,prob);
 
-
-                if ((boolean) a.Similarity(b)) {
-                    System.out.println("AuthorBaseLine A n°" + i + " : AuthorBaseLine B n°" + (k+i));
+                if ((boolean)method.invoke(a,b,prob)) {
+                    System.out.println("AuthorBaseLine A n°" + i + " : AuthorBaseLine B n°" + (k + i));
                     JsonPrimitive aPrimitive = new JsonPrimitive(a.person.value);
                     JsonPrimitive bPrimitive = new JsonPrimitive(b.person.value);
                     JsonArray comb = new JsonArray();
@@ -108,7 +122,13 @@ public class ElaborateManager {
         }
 
         DataManager.getInstance().writeJson(shortoutputs, "result_short.json");
-
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -146,7 +166,7 @@ public class ElaborateManager {
                 Result result = (Result) a.Similarity(b);
 
                 if (result.grade >= threshold && result.check) {
-                    System.out.println("Author A n°" + i + " : Author B n°" + k);
+                    System.out.println("Author A n°" + i + " : Author B n°" + (i + k));
                     // System.out.println(result.description);
 
                     results.add(result.output);

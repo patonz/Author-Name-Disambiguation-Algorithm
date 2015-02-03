@@ -1,6 +1,7 @@
 package semantic;
 
-import Skelethon.Similarity;
+import Skelethon.SimilarityBaseLineA;
+import Skelethon.SimilarityBaseLineB;
 import builder.model.FamilyNameBaseLine;
 import builder.model.GivenNameBaseLine;
 import builder.model.PersonBaseLine;
@@ -10,7 +11,7 @@ import util.MathUtils;
 /**
  * Created by Leonardo on 03/02/2015.
  */
-public class AuthorBaseLine implements Similarity {
+public class AuthorBaseLine implements SimilarityBaseLineA, SimilarityBaseLineB {
 
     public FamilyNameBaseLine family_name;
     public GivenNameBaseLine given_name;
@@ -23,7 +24,7 @@ public class AuthorBaseLine implements Similarity {
     public FamilyNameBaseLine coauthors_list;
 
 
-    public AuthorBaseLine(){
+    public AuthorBaseLine() {
 
     }
 
@@ -31,13 +32,26 @@ public class AuthorBaseLine implements Similarity {
 
 
     @Override
-    public Object Similarity(Object o) {
+    public Object SimilarityA(Object o, int prob) {
         if (!(o instanceof AuthorBaseLine)) {
             throw new SimilarTypeNotFoundException();
         }
 
-        if ((boolean) family_name.Similarity(((AuthorBaseLine) o).family_name) && (boolean) given_name.Similarity(((AuthorBaseLine) o).given_name)) {
-            return MathUtils.getRandomBoolean(); //flip a coin.
+        if ((boolean) family_name.SimilarityA(((AuthorBaseLine) o).family_name,0) && (boolean) given_name.SimilarityA(((AuthorBaseLine) o).given_name,0)) {
+            return MathUtils.getBooleanFromProbability(prob); //flip a coin.
+        } else return false;
+
+
+    }
+
+    @Override
+    public Object SimilarityB(Object o, int prob) {
+        if (!(o instanceof AuthorBaseLine)) {
+            throw new SimilarTypeNotFoundException();
+        }
+
+        if ((boolean) family_name.SimilarityB(((AuthorBaseLine) o).family_name, 0) && (boolean) given_name.SimilarityB(((AuthorBaseLine) o).given_name, 0)) {
+            return MathUtils.getBooleanFromProbability(prob); //flip a coin.
         } else return false;
 
 
