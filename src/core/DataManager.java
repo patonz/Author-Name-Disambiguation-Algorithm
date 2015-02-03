@@ -5,7 +5,6 @@ import builder.BuilderManager;
 import builder.model.*;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.squareup.okhttp.Headers;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
@@ -35,6 +34,8 @@ public class DataManager {
     private final OkHttpClient client = new OkHttpClient();
     public semantic.Author[] author_list;
     public DataAuthor dataAuthor;
+    public DataAuthorBaseLine dataAuthorBaseLine;
+
 
     private JSONObject jsonAuthor;
     private JSONObject jsonJournalArticle;
@@ -267,9 +268,9 @@ public class DataManager {
 
             BufferedWriter bw = new BufferedWriter(file);
             bw.write(json.toString());
-            System.out.println("Successfully Copied JSON Object to File "+namefile);
+            System.out.println("Successfully Copied JSON Object to File " + namefile);
             //System.out.println("\nJSON Object: " + json);
-          //  bw.flush();
+            //  bw.flush();
             bw.close();
 
         } catch (IOException e) {
@@ -278,5 +279,23 @@ public class DataManager {
         }
     }
 
+
+    public void loadBaseLine(String string) {
+        if (string == null || string.isEmpty()) System.err.println("json empty");
+        JSONObject obj = new JSONObject(string);
+
+
+        Gson gson = new Gson();
+
+        JSONObject results = obj.getJSONObject("results");
+
+        this.dataAuthorBaseLine = gson.fromJson(results.toString(), DataAuthorBaseLine.class);
+
+        if (this.dataAuthorBaseLine == null) {
+            System.err.print("dataAuthor null");
+        }
+
+
+    }
 
 }

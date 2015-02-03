@@ -3,11 +3,15 @@ package core;
 import builder.BuilderManager;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 import org.json.JSONArray;
 import semantic.Author;
+import semantic.AuthorBaseLine;
 import util.MathUtils;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -61,6 +65,53 @@ public class ElaborateManager {
         searchlist.get(searchlist.size() - 1).printResult();
 
     }
+
+    public void elaborateBaseLine() {
+
+
+        ArrayList<AuthorBaseLine> localauthorlist =(ArrayList<AuthorBaseLine>) DataManager.getInstance().dataAuthorBaseLine.bindings.clone();
+
+
+        int maxsize = localauthorlist.size();
+        JsonArray shortoutputs = new JsonArray();
+        for (int i = 0; i < maxsize; i++) {
+
+            AuthorBaseLine a = localauthorlist.get(0);
+
+            localauthorlist.remove(0);
+            if (localauthorlist.size() == 0) {
+                //condizione di arresto.
+                break;
+            }
+
+            for (int k = 0; k < localauthorlist.size(); k++) {
+
+
+                AuthorBaseLine b = localauthorlist.get(k);
+
+
+                if ((boolean) a.Similarity(b)) {
+                    System.out.println("AuthorBaseLine A n°" + i + " : AuthorBaseLine B n°" + (k+i));
+                    JsonPrimitive aPrimitive = new JsonPrimitive(a.person.value);
+                    JsonPrimitive bPrimitive = new JsonPrimitive(b.person.value);
+                    JsonArray comb = new JsonArray();
+                    comb.add(aPrimitive);
+                    comb.add(bPrimitive);
+                    shortoutputs.add(comb);
+
+
+                }
+
+
+            }
+
+        }
+
+        DataManager.getInstance().writeJson(shortoutputs, "result_short.json");
+
+
+    }
+
 
     public void elaborateDisambiguationOnData(Double threshold) {
         ArrayList<Author> localauthorlist;

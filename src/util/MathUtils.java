@@ -1,6 +1,7 @@
 package util;
 
 import java.math.BigInteger;
+import java.util.Random;
 
 /**
  * Created by Leonardo on 02/02/2015.
@@ -19,17 +20,18 @@ public class MathUtils {
             fact = fact.multiply(inc);
             inc = inc.add(BigInteger.ONE);
         }
-
-
         return fact.intValue();
     }
 
 
     public static int binomial(int n, int k) {
-
         return factorial(n) / (factorial(n - k) * factorial(k));
+    }
 
 
+    public static boolean getRandomBoolean() {
+        Random rnd = new Random();
+        return rnd.nextBoolean();
     }
 
 }

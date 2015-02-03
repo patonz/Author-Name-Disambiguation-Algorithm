@@ -74,6 +74,7 @@ public class Commands {
        // DataManager.getInstance().createDatasetFromEndpoint();
          DataManager.getInstance().createDatasetFromFile("src/configuration/output.json");
 
+
         count();
     }
 
@@ -116,6 +117,11 @@ public class Commands {
         ElaborateManager.getInstance().newSearch(scan.nextLine());
     }
 
+
+    public void ebl(){
+        DataManager.getInstance().loadBaseLine(DataManager.getInstance().loadFile("src/configuration/output.json"));
+        ElaborateManager.getInstance().elaborateBaseLine();
+    }
     public void elaborate() {
 
         System.out.println("Insert the Threshold( must be a Double number between 0 and 100");
