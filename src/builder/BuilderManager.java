@@ -1,6 +1,7 @@
 package builder;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import configuration.Setting;
 import configuration.Settings;
 import javassist.*;
@@ -117,6 +118,9 @@ public class BuilderManager {
 
         settings = gson.fromJson(obj.toString(), Settings.class);
 
+        JsonElement jelem = gson.fromJson(obj.toString(), JsonElement.class);
+
+        settings.configuration = jelem.getAsJsonObject();
 
         try {
             settings.endpoint = obj.getString("endpoint");

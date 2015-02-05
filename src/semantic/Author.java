@@ -9,9 +9,8 @@ import com.google.gson.JsonPrimitive;
 import configuration.Setting;
 import core.Result;
 import exception.SimilarTypeNotFoundException;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,6 +38,7 @@ public class Author implements Similarity, Runnable {
             throw new SimilarTypeNotFoundException();
         }
         boolean check = true;
+        ArrayList<Boolean> global_check = new ArrayList<>();
         JsonObject jsonObject = new JsonObject();
 
         Double gradewighted = 0.0;
@@ -55,6 +55,17 @@ public class Author implements Similarity, Runnable {
             Double partialgrade = 0.0;
             if (this.resources.get(s.key) != null) {
                 partialgrade = (double) this.resources.get(s.key).Similarity(((Author) o).resources.get(s.key));
+
+                if (partialgrade < Double.parseDouble(s.threshold) || partialgrade > Double.parseDouble(s.limit)) {
+
+                    check = false;
+                    break;
+                }
+                if (Double.parseDouble(s.weight) > 0)
+                    if (partialgrade >= Double.parseDouble(BuilderManager.getInstance().settings.global_setting.global_threshold))
+                        global_check.add(true);
+                    else global_check.add(false);
+
 
                 authorresult += s.key + " grade = " + partialgrade + " with weight= " + s.weight + "\n";
                 JsonObject temp = new JsonObject();
@@ -87,13 +98,19 @@ public class Author implements Similarity, Runnable {
                 weights += Double.parseDouble(s.weight);
                 gradewighted += ((partialgrade * Double.parseDouble(s.weight)));
 
-                if (partialgrade < Double.parseDouble(s.threshold)) {
-                    check = false;
-                    break;
-                }
+
             } else if (this.informations.get(s.key) != null) {
                 Result result = (Result) this.informations.get(s.key).Similarity(((Author) o).informations.get(s.key));
                 partialgrade = result.grade;
+                if (partialgrade < Double.parseDouble(s.threshold) || partialgrade > Double.parseDouble(s.limit)) {
+
+                    check = false;
+                    break;
+                }
+                if (Double.parseDouble(s.weight) > 0)
+                    if (partialgrade >= Double.parseDouble(BuilderManager.getInstance().settings.global_setting.global_threshold))
+                        global_check.add(true);
+                    else global_check.add(false);
                 authorresult += s.key + " grade = " + partialgrade + " with weight= " + s.weight + " " + result.description + "\n";
 
 
@@ -126,12 +143,19 @@ public class Author implements Similarity, Runnable {
 
                 weights += Double.parseDouble(s.weight);
                 gradewighted += (partialgrade * Double.parseDouble(s.weight));
-                if (partialgrade < Double.parseDouble(s.threshold)) {
+
+            } else if (this.periods.get(s.key) != null) {
+                partialgrade = (double) this.periods.get(s.key).Similarity(((Author) o).periods.get(s.key));
+
+                if (partialgrade < Double.parseDouble(s.threshold) || partialgrade > Double.parseDouble(s.limit)) {
+
                     check = false;
                     break;
                 }
-            } else if (this.periods.get(s.key) != null) {
-                partialgrade = (double) this.periods.get(s.key).Similarity(((Author) o).periods.get(s.key));
+                if (Double.parseDouble(s.weight) > 0)
+                    if (partialgrade >= Double.parseDouble(BuilderManager.getInstance().settings.global_setting.global_threshold))
+                        global_check.add(true);
+                    else global_check.add(false);
                 authorresult += s.key + " grade = " + partialgrade + " with weight= " + s.weight + "\n";
 
 
@@ -163,14 +187,20 @@ public class Author implements Similarity, Runnable {
 
                 weights += Double.parseDouble(s.weight);
                 gradewighted += (partialgrade * Double.parseDouble(s.weight));
-                if (partialgrade < Double.parseDouble(s.threshold)) {
-                    check = false;
-                    break;
-                }
+
             }
         }
 
 
+        // global check condition
+        int checks = 0;
+        for (boolean bool : global_check) {
+            if (bool) checks++;
+        }
+
+        if ((double) ((global_check.size() / 100) * checks) >= Double.parseDouble(BuilderManager.getInstance().settings.global_setting.global_checks))
+            check = false;
+        ////
         jsonObject.add("identifier", identifier);
         jsonObject.add("params", params);
         JsonObject finalvalue = new JsonObject();

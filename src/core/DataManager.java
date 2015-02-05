@@ -20,10 +20,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Created by Leonardo on 07/01/2015.
@@ -264,11 +263,31 @@ public class DataManager {
     public void writeJson(JsonElement json, String namefile) {
         try {
 
-            FileWriter file = new FileWriter(namefile);
+            File dir = new File("output");
+            if (!dir.exists()) {
+                dir.mkdir();
+            }
+            DateFormat df = new SimpleDateFormat("dd-MM-yy_HH.mm.ss");
+            Date dateobj;
+
+
+            String ext = ".json";
+            String directory = "output/";
+            File f = new File(directory + namefile + ext);
+            if (f.exists()) {
+                f.setWritable(true);
+
+                dateobj = new Date(f.lastModified());
+                File newfile = new File(directory + namefile + "_" + df.format(dateobj) + ext);
+                if (!f.renameTo(newfile))
+                    System.err.println("File rename operation failed !");
+            }
+            FileWriter file = new FileWriter(directory + namefile + ext);
 
             BufferedWriter bw = new BufferedWriter(file);
             bw.write(json.toString());
-            System.out.println("Successfully Copied JSON Object to File " + namefile);
+            File newfile = new File(directory + namefile + ext);
+            System.out.println("Successfully Copied JSON Object to File " + newfile.getAbsolutePath());
             //System.out.println("\nJSON Object: " + json);
             //  bw.flush();
             bw.close();

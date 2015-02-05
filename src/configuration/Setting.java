@@ -9,6 +9,7 @@ public class Setting {
     public String type;
     public String weight;
     public String threshold;
+    public String limit;
     public String delimiter;
     public boolean identifier;
 

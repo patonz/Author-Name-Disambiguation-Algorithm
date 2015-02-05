@@ -1,86 +1,126 @@
 {
   "endpoint": "http://two.eelst.cs.unibo.it:8181/data",
   "query": "PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX pro: <http://purl.org/spar/pro/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX frbr: <http://purl.org/vocab/frbr/core#> PREFIX fabio: <http://purl.org/spar/fabio/> SELECT DISTINCT ?person (GROUP_CONCAT(DISTINCT ?label; separator = \" ; \") AS ?labelList) (GROUP_CONCAT(DISTINCT ?givenName; separator = \" ; \") AS ?givenNameList)(GROUP_CONCAT(DISTINCT ?familyName; separator = \" ; \") AS ?familyNameList) (GROUP_CONCAT(DISTINCT ?coauthor; separator = \" ; \") AS ?coauthorList) (GROUP_CONCAT(DISTINCT ?publicationYear; separator = \" ; \") AS ?publicationYearList) WHERE{ ?person a foaf:Person ;OPTIONAL { ?person foaf:givenName ?givenName } .OPTIONAL {?person foaf:familyName ?familyName } .OPTIONAL {?person rdfs:label ?label } .OPTIONAL { ?person pro:holdsRoleInTime ?role }  .OPTIONAL { ?role pro:relatesToDocument ?relate } .OPTIONAL {?relate frbr:realization ?realization } .OPTIONAL {?coauthor pro:relatesToDocument ?relate } .OPTIONAL {?realization a fabio:JournalArticle } .OPTIONAL {?realization fabio:hasPublicationYear ?publicationYear } .}GROUP BY ?person",
+  "global_setting":{
+    "global_threshold":"75",
+    "global_checks":"65"
+  },
   "param": [
-    {
-      "key": "family_name",
-      "type": "Information",
-      "weight": "0",
-      "threshold":"60",
-      "delimiter": "",
-      "identifier":false
-    },
-    {
-      "key": "given_name",
-      "type": "Information",
-      "weight": "0",
-      "threshold":"40",
-      "delimiter": "",
-      "identifier":false
-    },
-    {
-      "key": "full_name",
-      "type": "Information",
-      "weight": "5",
-      "threshold":"0",
-      "delimiter": "",
-      "identifier":false
-    },
     {
       "key": "person",
       "type": "Resource",
       "weight": "0",
-      "threshold":"0",
+      "threshold": "0",
+      "limit": "100",
       "delimiter": ";",
-      "identifier":true
+      "identifier": true
+    },
+    {
+      "key": "family_name",
+      "type": "Information",
+      "weight": "4",
+      "threshold": "80",
+      "limit": "100",
+      "delimiter": "",
+      "identifier": false
+    },
+    {
+      "key": "given_name",
+      "type": "Information",
+      "weight": "3",
+      "threshold": "50",
+      "limit": "100",
+      "delimiter": "",
+      "identifier": false,
+      "reserve": ["given_name_abbr"],
+      "options": {
+        "cor": "2",
+        "cfs": true,
+        "mwa": true,
+        "spaces": true,
+        "dots": true
+      }
+    },
+    {
+      "key": "full_name",
+      "type": "Information",
+      "weight": "3",
+      "threshold": "0",
+      "limit": "100",
+      "delimiter": "",
+      "identifier": false
+    },
+    {
+      "key": "family_name_abbr",
+      "type": "Information",
+      "weight": "0",
+      "threshold": "0",
+      "limit": "100",
+      "delimiter": "",
+      "identifier": false
+    },
+    {
+      "key": "given_name_abbr",
+      "type": "Information",
+      "weight": "0",
+      "threshold": "0",
+      "limit": "100",
+      "delimiter": "",
+      "identifier": false
     },
     {
       "key": "coauthors_list",
       "type": "Resource",
-      "weight": "4.5",
-      "threshold":"0",
+      "weight": "2",
+      "threshold": "0",
+      "limit": "100",
       "delimiter": ";",
-      "identifier":false
+      "identifier": false
     },
     {
       "key": "publications",
       "type": "Resource",
       "weight": "1",
-      "threshold":"0",
+      "threshold": "0",
+      "limit": "100",
       "delimiter": ";",
-      "identifier":false
+      "identifier": false
     },
     {
       "key": "publications_titles",
       "type": "Resource",
       "weight": "0",
-      "threshold":"0",
+      "threshold": "0",
+      "limit": "100",
       "delimiter": "!|!",
-      "identifier":false
+      "identifier": false
     },
     {
       "key": "publications_pub_years",
       "type": "Resource",
       "weight": "0.5",
-      "threshold":"0",
+      "threshold": "0",
+      "limit": "100",
       "delimiter": ";",
-      "identifier":false
+      "identifier": false
     },
     {
       "key": "publications_venues",
       "type": "Resource",
       "weight": "0",
-      "threshold":"0",
+      "threshold": "0",
+      "limit": "100",
       "delimiter": "!|!",
-      "identifier":false
+      "identifier": false
     },
     {
       "key": "publications_affiliations",
       "type": "Resource",
       "weight": "0",
-      "threshold":"0",
+      "threshold": "0",
+      "limit": "100",
       "delimiter": "!|!",
-      "identifier":false
+      "identifier": false
     }
   ]
 }

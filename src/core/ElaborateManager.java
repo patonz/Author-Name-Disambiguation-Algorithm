@@ -69,49 +69,52 @@ public class ElaborateManager {
     public void elaborateBaseLine(String type, int prob) {
 
         try {
-        Method method;
+            Method method;
 
-        ArrayList<AuthorBaseLine> localauthorlist = (ArrayList<AuthorBaseLine>) DataManager.getInstance().dataAuthorBaseLine.bindings.clone();
+            ArrayList<AuthorBaseLine> localauthorlist = (ArrayList<AuthorBaseLine>) DataManager.getInstance().dataAuthorBaseLine.bindings.clone();
 
-        switch (type){
-            case "A":
-               method = AuthorBaseLine.class.getMethod("SimilarityA", Object.class, int.class);
-                break;
-            case "B":
-               method = AuthorBaseLine.class.getMethod("SimilarityB", Object.class, int.class);
-                break;
-            default:
-                System.err.print("BaseLine not found");
-                return;
+            switch (type) {
+                case "A":
+                    method = AuthorBaseLine.class.getMethod("SimilarityA", Object.class, int.class);
+                    break;
+                case "B":
+                    method = AuthorBaseLine.class.getMethod("SimilarityB", Object.class, int.class);
+                    break;
+                default:
+                    System.err.print("BaseLine not found");
+                    return;
 
-        }
-
-        int maxsize = localauthorlist.size();
-        JsonArray shortoutputs = new JsonArray();
-        for (int i = 0; i < maxsize; i++) {
-
-            AuthorBaseLine a = localauthorlist.get(0);
-
-            localauthorlist.remove(0);
-            if (localauthorlist.size() == 0) {
-                //condizione di arresto.
-                break;
             }
 
-            for (int k = 0; k < localauthorlist.size(); k++) {
+            int maxsize = localauthorlist.size();
+            JsonArray shortoutputs = new JsonArray();
+            for (int i = 0; i < maxsize; i++) {
+
+                AuthorBaseLine a = localauthorlist.get(0);
+
+                localauthorlist.remove(0);
+                if (localauthorlist.size() == 0) {
+
+                    break;
+                }
+
+                for (int k = 0; k < localauthorlist.size(); k++) {
 
 
-                AuthorBaseLine b = localauthorlist.get(k);
-                method.invoke(a,b,prob);
+                    AuthorBaseLine b = localauthorlist.get(k);
+                    method.invoke(a, b, prob);
 
-                if ((boolean)method.invoke(a,b,prob)) {
-                    System.out.println("AuthorBaseLine A n°" + i + " : AuthorBaseLine B n°" + (k + i));
-                    JsonPrimitive aPrimitive = new JsonPrimitive(a.person.value);
-                    JsonPrimitive bPrimitive = new JsonPrimitive(b.person.value);
-                    JsonArray comb = new JsonArray();
-                    comb.add(aPrimitive);
-                    comb.add(bPrimitive);
-                    shortoutputs.add(comb);
+                    if ((boolean) method.invoke(a, b, prob)) {
+                        System.out.println("AuthorBaseLine A n°" + i + " : AuthorBaseLine B n°" + (k + i + 1));
+                        JsonPrimitive aPrimitive = new JsonPrimitive(a.person.value);
+                        JsonPrimitive bPrimitive = new JsonPrimitive(b.person.value);
+                        JsonArray comb = new JsonArray();
+                        comb.add(aPrimitive);
+                        comb.add(bPrimitive);
+                        shortoutputs.add(comb);
+
+
+                    }
 
 
                 }
@@ -119,9 +122,7 @@ public class ElaborateManager {
 
             }
 
-        }
-
-        DataManager.getInstance().writeJson(shortoutputs, "result_short.json");
+            DataManager.getInstance().writeJson(shortoutputs, "result_short.json");
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
@@ -153,10 +154,10 @@ public class ElaborateManager {
             localauthorlist.remove(0);
 
             if (localauthorlist.size() == 0) {
-                //condizione di arresto.
+
                 break;
             }
-            // System.out.println(localauthorlist.size());
+
             for (int k = 0; k < localauthorlist.size(); k++) {
 
 
@@ -165,32 +166,28 @@ public class ElaborateManager {
 
                 Result result = (Result) a.Similarity(b);
 
-                if (result.grade >= threshold && result.check) {
-                    System.out.println("Author A n°" + i + " : Author B n°" + (i + k));
-                    // System.out.println(result.description);
+                if (result.grade >= Double.parseDouble(BuilderManager.getInstance().settings.global_setting.global_threshold) && result.check) {
+                    System.out.println("Author A n°" + i + " : Author B n°" + (i + 1 + k));
+
 
                     results.add(result.output);
                     shortoutputs.add(result.shortoutput);
-                    // System.out.println(result.output.toString());
                     countCombination++;
                 }
 
 
-                //this.results.add(result);
                 countResult++;
 
 
             }
 
 
-            // ciclo solo un autore, testing
-
-
         }
 
         JsonObject metainfo = new JsonObject();
-        metainfo.addProperty("result_count", countResult);
-        metainfo.addProperty("max_count", countCombination);
+        metainfo.add("configuration", BuilderManager.getInstance().settings.configuration);
+        metainfo.addProperty("combination_count", countResult);
+        metainfo.addProperty("result_count", countCombination);
         metainfo.addProperty("identifier", BuilderManager.getInstance().settings.identifier.key);
         output.add("meta_info", metainfo);
         output.add("results", results);
@@ -200,8 +197,8 @@ public class ElaborateManager {
         System.out.println(countCombination + " of " + countResult + " match founds");
 
 
-        DataManager.getInstance().writeJson(this.outputjson, "result_full.json");
-        DataManager.getInstance().writeJson(shortoutputs, "result_short.json");
+        DataManager.getInstance().writeJson(this.outputjson, "result_full");
+        DataManager.getInstance().writeJson(shortoutputs, "result_short");
     }
 
     public void elaborateDisambiguationOnDataWithThreadPool() {
@@ -223,18 +220,7 @@ public class ElaborateManager {
                 a.setAuthorBrunnable(b);
                 executor.execute(a);
 
-               /* if (result.grade >= threshold) {
-                    System.out.println("Author A n°" + i + " : Author B n°" + k);
-                    System.out.println(result.description);
-                }*/
-
             }
-
-
-            // ciclo solo un autore, testing
-           /* if (i == 99) {
-                break;
-            }*/
 
         }
         executor.shutdown();
@@ -253,7 +239,7 @@ public class ElaborateManager {
 
         try {
 
-            JSONArray result = new JSONArray(DataManager.getInstance().loadFile("result_short.json"));
+            JSONArray result = new JSONArray(DataManager.getInstance().loadFile("output/result_short.json"));
             JSONArray answer = new JSONArray(DataManager.getInstance().loadFile("src/builder/debug/answers_dataset.json"));
 
             int rilevantauthor = 0;
@@ -296,7 +282,7 @@ public class ElaborateManager {
                             intersection += 1;
                             checkA = false;
                             checkB = false;
-                            System.out.println("intersection found in: " + idAcheck + " & " + idBcheck);
+                            System.out.println("A n°" + i + " : B n°" + k + "\nintersection found in: " + idAcheck + " & " + idBcheck);
                         }
 
                     }
