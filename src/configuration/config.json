@@ -19,10 +19,14 @@
       "key": "family_name",
       "type": "Information",
       "weight": "4",
-      "threshold": "90",
+      "threshold": "90.01",
       "limit": "100",
       "delimiter": "",
-      "identifier": false
+      "identifier": false,
+      "options": {
+        "spaces": true,
+        "dots": true
+      }
     },
     {
       "key": "given_name",
@@ -34,13 +38,8 @@
       "identifier": false,
       "reserve": ["given_name_abbr"],
       "options": {
-        "type_error": true,
-        "cor": 2.0,
-        "cfs": true,
-        "mwa": true,
         "spaces": true,
-        "dots": true,
-        "arw": false
+        "dots": true
       }
     },
     {
@@ -50,7 +49,11 @@
       "threshold": "0",
       "limit": "100",
       "delimiter": "",
-      "identifier": false
+      "identifier": false,
+      "options": {
+        "spaces": true,
+        "dots": true
+      }
     },
     {
       "key": "family_name_abbr",
@@ -74,12 +77,12 @@
       "key": "coauthors_list",
       "type": "Resource",
       "weight": "0",
-      "threshold": "0",
+      "threshold": "0.01",
       "limit": "100",
       "delimiter": ";",
       "identifier": false,
       "options": {
-        "arw": false
+        "arw": true
       }
     },
     {

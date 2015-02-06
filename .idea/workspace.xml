@@ -2,17 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86e68b6c-a6b9-4782-9304-cc8d97a1080d" name="Default" comment="Second Commit">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/util/Monomial.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/util/Neightboring.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/configuration/Option.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/semantic/Author.java" afterPath="$PROJECT_DIR$/src/semantic/Author.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/builder/model/Builder.java" afterPath="$PROJECT_DIR$/src/builder/model/Builder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/builder/BuilderManager.java" afterPath="$PROJECT_DIR$/src/builder/BuilderManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/DataManager.java" afterPath="$PROJECT_DIR$/src/core/DataManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/builder/model/Information.java" afterPath="$PROJECT_DIR$/src/builder/model/Information.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/MathUtils.java" afterPath="$PROJECT_DIR$/src/util/MathUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/builder/model/Period.java" afterPath="$PROJECT_DIR$/src/builder/model/Period.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/configuration/Setting.java" afterPath="$PROJECT_DIR$/src/configuration/Setting.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Author-Name-Disambiguation-Algorithm/configuration/config.json" afterPath="$PROJECT_DIR$/out/production/Author-Name-Disambiguation-Algorithm/configuration/config.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/configuration/config.json" afterPath="$PROJECT_DIR$/src/configuration/config.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/result_full.json" afterPath="$PROJECT_DIR$/output/result_full.json" />
@@ -58,8 +47,8 @@
       <file leaf-file-name="config.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/configuration/config.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5046382" vertical-offset="102" max-vertical-offset="2363">
-              <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+            <state vertical-scroll-proportion="2.6808906" vertical-offset="187" max-vertical-offset="2414">
+              <caret line="96" column="19" selection-start-line="96" selection-start-column="19" selection-end-line="96" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -774,7 +763,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32214764" sideWeight="0.5861858" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32214764" sideWeight="0.5861858" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32997763" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1256,8 +1245,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/configuration/config.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5046382" vertical-offset="102" max-vertical-offset="2363">
-          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+        <state vertical-scroll-proportion="2.6808906" vertical-offset="187" max-vertical-offset="2414">
+          <caret line="96" column="19" selection-start-line="96" selection-start-column="19" selection-end-line="96" selection-end-column="19" />
           <folding />
         </state>
       </provider>
