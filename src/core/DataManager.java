@@ -160,7 +160,9 @@ public class DataManager {
                             ArrayList<String> stringresources = SplitUsingTokenizer(res, setting);
 
                             for (String s : stringresources) {
-                                resourceslist.add(new Resource(s));
+                                Resource r = new Resource(s);
+                                r.setOption(setting.options);
+                                resourceslist.add(r);
                             }
                         }
                         a.resources.put(setting.key, new ResourcesHandler(resourceslist, Double.parseDouble(setting.weight)));
@@ -174,7 +176,9 @@ public class DataManager {
                             ArrayList<String> stringinformation = SplitUsingTokenizer(info, setting);
 
                             for (String s : stringinformation) {
-                                informationlist.add(new Information(s));
+                                Information in = new Information(s);
+                                in.setOption(setting.options);
+                                informationlist.add(in);
                             }
                         }
                         a.informations.put(setting.key, new InformationsHandler(informationlist, Double.parseDouble(setting.weight)));
@@ -188,7 +192,9 @@ public class DataManager {
                             ArrayList<String> stringperiod = SplitUsingTokenizer(per, setting);
 
                             for (String s : stringperiod) {
-                                periodlist.add(new Period(s));
+                                Period p = new Period(s);
+                                p.setOption(setting.options);
+                                periodlist.add(p);
                             }
                         }
                         a.periods.put(setting.key, new PeriodsHandler(periodlist, Double.parseDouble(setting.weight)));

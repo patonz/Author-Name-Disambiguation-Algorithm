@@ -135,11 +135,10 @@ public class BuilderManager {
             String id = "";
             if (settings.param.get(i).identifier)
                 id = " as Identifier";
-            System.out.println("key: " + settings.param.get(i).key + id);
 
 
-            // NON CREO PIU CLASSI DINAMICHE
-            //  injectionNewParam(settings.configuration.get(i));
+            System.out.println("key: " + settings.param.get(i).key + id + " " + settings.param.get(i).options.toString());
+
 
         }
 

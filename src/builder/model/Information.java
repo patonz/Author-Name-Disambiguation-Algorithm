@@ -11,6 +11,7 @@ public class Information extends Builder {
 
     public Information(String value) {
         super(value);
+
     }
 
 
@@ -25,12 +26,16 @@ public class Information extends Builder {
         if (!(obj instanceof Information)) {
             throw new SimilarTypeNotFoundException();
         }
-
-
-        String a = this.value.replace(".", "");
-        a = a.replaceAll("\\s", "");
-        String b = ((Information) obj).value.replace(".", "");
-        b = b.replaceAll("\\s", "");
+        String a = this.value;
+        String b = ((Information) obj).value;
+        if (option.dots) {
+            a = a.replace(".", "");
+            b = b.replace(".", "");
+        }
+        if (option.spaces) {
+            a = a.replaceAll("\\s", "");
+            b = b.replaceAll("\\s", "");
+        }
 
         String max;
         String min;

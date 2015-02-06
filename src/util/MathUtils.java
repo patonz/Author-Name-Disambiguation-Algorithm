@@ -1,6 +1,7 @@
 package util;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -51,6 +52,26 @@ public class MathUtils {
     public static boolean getRandomBoolean() {
         Random rnd = new Random();
         return rnd.nextBoolean();
+    }
+
+
+    public static double getDynamicWeight(ArrayList<Monomial> polinomial, Monomial x, double result) {
+
+        double numerator = 0.0;
+        double denominator = 0.0;
+
+
+        for (Monomial monomial : polinomial) {
+          //  System.out.println(monomial.constant + " " + monomial.variable);
+            numerator += monomial.getProduct();
+            denominator += monomial.variable;
+        }
+       // System.out.println("constant x :" + x.constant);
+       // System.out.println("result: " + (numerator - (result * denominator)) / (result - x.constant));
+        double weight = (numerator - (result * denominator)) / (result - 0);
+        return (weight >= 0.0)? weight : 0.0;
+
+
     }
 
 }

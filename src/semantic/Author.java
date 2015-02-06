@@ -9,6 +9,8 @@ import com.google.gson.JsonPrimitive;
 import configuration.Setting;
 import core.Result;
 import exception.SimilarTypeNotFoundException;
+import util.MathUtils;
+import util.Monomial;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,6 +39,9 @@ public class Author implements Similarity, Runnable {
         if (!(o instanceof Author)) {
             throw new SimilarTypeNotFoundException();
         }
+
+        ArrayList<Monomial> polinomial = new ArrayList<>();
+        Monomial x = null;
         boolean check = true;
         ArrayList<Boolean> global_check = new ArrayList<>();
         JsonObject jsonObject = new JsonObject();
@@ -95,9 +100,17 @@ public class Author implements Similarity, Runnable {
 
 
                 params.add(s.key, temp);
+                if (s.options.arw) {
+                    x = new Monomial(Double.parseDouble(s.weight), partialgrade);
+
+                } else {
+
+                    polinomial.add(new Monomial(Double.parseDouble(s.weight), partialgrade));
+
+                }
+
                 weights += Double.parseDouble(s.weight);
                 gradewighted += ((partialgrade * Double.parseDouble(s.weight)));
-
 
             } else if (this.informations.get(s.key) != null) {
                 Result result = (Result) this.informations.get(s.key).Similarity(((Author) o).informations.get(s.key));
@@ -140,6 +153,14 @@ public class Author implements Similarity, Runnable {
 
                 temp.add("values", values);
                 params.add(s.key, temp);
+                if (s.options.arw) {
+                    x = new Monomial(Double.parseDouble(s.weight), partialgrade);
+
+                } else {
+
+                    polinomial.add(new Monomial(Double.parseDouble(s.weight), partialgrade));
+
+                }
 
                 weights += Double.parseDouble(s.weight);
                 gradewighted += (partialgrade * Double.parseDouble(s.weight));
@@ -184,6 +205,14 @@ public class Author implements Similarity, Runnable {
                 temp.add("values", values);
                 params.add(s.key, temp);
 
+                if (s.options.arw) {
+                    x = new Monomial(Double.parseDouble(s.weight), partialgrade);
+
+                } else {
+
+                    polinomial.add(new Monomial(Double.parseDouble(s.weight), partialgrade));
+
+                }
 
                 weights += Double.parseDouble(s.weight);
                 gradewighted += (partialgrade * Double.parseDouble(s.weight));
@@ -191,6 +220,15 @@ public class Author implements Similarity, Runnable {
             }
         }
 
+
+        if (x != null) {
+            weights = weights - x.variable;
+            gradewighted = gradewighted - x.getProduct();
+            x.variable = MathUtils.getDynamicWeight(polinomial,x,Double.parseDouble(BuilderManager.getInstance().settings.global_setting.global_threshold)-0.01);
+            weights = weights +x.variable;
+            gradewighted = gradewighted + x.getProduct();
+
+        }
 
         // global check condition
         int checks = 0;

@@ -19,7 +19,7 @@
       "key": "family_name",
       "type": "Information",
       "weight": "4",
-      "threshold": "80",
+      "threshold": "90",
       "limit": "100",
       "delimiter": "",
       "identifier": false
@@ -35,11 +35,12 @@
       "reserve": ["given_name_abbr"],
       "options": {
         "type_error": true,
-        "cor": "2",
+        "cor": 2.0,
         "cfs": true,
         "mwa": true,
         "spaces": true,
-        "dots": true
+        "dots": true,
+        "arw": false
       }
     },
     {
@@ -72,20 +73,26 @@
     {
       "key": "coauthors_list",
       "type": "Resource",
-      "weight": "2",
+      "weight": "0",
       "threshold": "0",
       "limit": "100",
       "delimiter": ";",
-      "identifier": false
+      "identifier": false,
+      "options": {
+        "arw": false
+      }
     },
     {
       "key": "publications",
       "type": "Resource",
-      "weight": "1",
+      "weight": "0",
       "threshold": "0",
       "limit": "100",
       "delimiter": ";",
-      "identifier": false
+      "identifier": false,
+      "options": {
+        "arw": true
+      }
     },
     {
       "key": "publications_titles",
@@ -99,7 +106,7 @@
     {
       "key": "publications_pub_years",
       "type": "Resource",
-      "weight": "0.5",
+      "weight": "0",
       "threshold": "0",
       "limit": "100",
       "delimiter": ";",
