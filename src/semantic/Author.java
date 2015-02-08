@@ -43,7 +43,9 @@ public class Author implements Similarity, Runnable {
         ArrayList<Monomial> polinomial = new ArrayList<>();
         Monomial x = null;
         boolean check = true;
-        ArrayList<Boolean> global_check = new ArrayList<>();
+        //ArrayList<Boolean> global_check = new ArrayList<>();
+        int countglobalcheck = 0;
+        int maxglobalcheck = 0;
         JsonObject jsonObject = new JsonObject();
 
         Double gradewighted = 0.0;
@@ -66,10 +68,12 @@ public class Author implements Similarity, Runnable {
                     check = false;
                     break;
                 }
-                if (Double.parseDouble(s.weight) > 0)
+                if (Double.parseDouble(s.weight) > 0) {
+
+                    maxglobalcheck = maxglobalcheck + 1;
                     if (partialgrade >= Double.parseDouble(BuilderManager.getInstance().settings.global_setting.global_threshold))
-                        global_check.add(true);
-                    else global_check.add(false);
+                        countglobalcheck = countglobalcheck + 1;
+                }
 
 
                 authorresult += s.key + " grade = " + partialgrade + " with weight= " + s.weight + "\n";
@@ -120,10 +124,12 @@ public class Author implements Similarity, Runnable {
                     check = false;
                     break;
                 }
-                if (Double.parseDouble(s.weight) > 0)
+                if (Double.parseDouble(s.weight) > 0) {
+
+                    maxglobalcheck = maxglobalcheck + 1;
                     if (partialgrade >= Double.parseDouble(BuilderManager.getInstance().settings.global_setting.global_threshold))
-                        global_check.add(true);
-                    else global_check.add(false);
+                        countglobalcheck = countglobalcheck + 1;
+                }
                 authorresult += s.key + " grade = " + partialgrade + " with weight= " + s.weight + " " + result.description + "\n";
 
 
@@ -173,10 +179,12 @@ public class Author implements Similarity, Runnable {
                     check = false;
                     break;
                 }
-                if (Double.parseDouble(s.weight) > 0)
+                if (Double.parseDouble(s.weight) > 0) {
+
+                    maxglobalcheck = maxglobalcheck + 1;
                     if (partialgrade >= Double.parseDouble(BuilderManager.getInstance().settings.global_setting.global_threshold))
-                        global_check.add(true);
-                    else global_check.add(false);
+                        countglobalcheck = countglobalcheck + 1;
+                }
                 authorresult += s.key + " grade = " + partialgrade + " with weight= " + s.weight + "\n";
 
 
@@ -224,20 +232,22 @@ public class Author implements Similarity, Runnable {
         if (x != null) {
             weights = weights - x.variable;
             gradewighted = gradewighted - x.getProduct();
-            x.variable = MathUtils.getDynamicWeight(polinomial,x,Double.parseDouble(BuilderManager.getInstance().settings.global_setting.global_threshold)-0.01);
-            weights = weights +x.variable;
+            x.variable = MathUtils.getDynamicWeight(polinomial, x, Double.parseDouble(BuilderManager.getInstance().settings.global_setting.global_threshold) - 0.01);
+            weights = weights + x.variable;
             gradewighted = gradewighted + x.getProduct();
 
         }
 
         // global check condition
-        int checks = 0;
-        for (boolean bool : global_check) {
-            if (bool) checks++;
+
+
+
+
+        if (maxglobalcheck> 0 &&((100 / maxglobalcheck) * countglobalcheck) < Double.parseDouble(BuilderManager.getInstance().settings.global_setting.global_checks)) {
+
+            check = false;
         }
 
-        if ((double) ((global_check.size() / 100) * checks) >= Double.parseDouble(BuilderManager.getInstance().settings.global_setting.global_checks))
-            check = false;
         ////
         jsonObject.add("identifier", identifier);
         jsonObject.add("params", params);
