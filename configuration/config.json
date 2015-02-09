@@ -305,6 +305,92 @@
           "identifier": false
         }
       ]
+    },
+    {
+      "global_setting": {
+        "global_checks": "0",
+        "global_threshold": "75"
+      },
+      "param": [
+        {
+          "identifier": true,
+          "delimiter": ";",
+          "limit": "100",
+          "weight": "0",
+          "threshold": "0",
+          "type": "Resource",
+          "key": "person"
+        },
+        {
+          "identifier": false,
+          "delimiter": "",
+          "limit": "100",
+          "options": {
+            "dots": true,
+            "spaces": true
+          },
+          "weight": "4",
+          "threshold": "100",
+          "type": "Information",
+          "key": "family_name"
+        },
+        {
+          "identifier": false,
+          "delimiter": "",
+          "limit": "100",
+          "reserve": ["given_name_abbr"],
+          "options": {
+            "dots": true,
+            "spaces": true
+          },
+          "weight": "3",
+          "threshold": "100",
+          "type": "Information",
+          "key": "given_name"
+        },
+        {
+          "identifier": false,
+          "delimiter": "",
+          "limit": "100",
+          "options": {
+            "dots": true,
+            "spaces": true
+          },
+          "weight": "3",
+          "threshold": "0",
+          "type": "Information",
+          "key": "full_name"
+        },
+        {
+          "identifier": false,
+          "delimiter": ";",
+          "limit": "100",
+          "options": {"arw": false},
+          "weight": "3.335111348",
+          "threshold": "0",
+          "type": "Resource",
+          "key": "coauthors_list"
+        },
+        {
+          "identifier": false,
+          "delimiter": ";",
+          "limit": "100",
+          "options": {"arw": false},
+          "weight": "0",
+          "threshold": "0",
+          "type": "Resource",
+          "key": "publications"
+        },
+        {
+          "identifier": false,
+          "delimiter": ";",
+          "limit": "100",
+          "weight": "0",
+          "threshold": "0",
+          "type": "Resource",
+          "key": "publications_pub_years"
+        }
+      ]
     }
   ]
 }

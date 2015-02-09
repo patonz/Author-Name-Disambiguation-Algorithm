@@ -171,16 +171,15 @@ public class ElaborateManager {
 
                 for (Result res : resultlist) {
                     if (res.check) {
-                        if (i != authorA || (k + 1 + i) != authorB) {
+                        if (i != authorA || (i+1+k) != authorB) {
                             System.out.println("Author A n°" + i + " : Author B n°" + (i + 1 + k));
 
 
                             results.add(res.output);
                             shortoutputs.add(res.shortoutput);
                             authorA = i;
-                            authorB = k + 1 + i;
+                            authorB = i + 1 + k;
                             countCombination++;
-                            break;
                         }
                     }
 

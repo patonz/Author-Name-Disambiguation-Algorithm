@@ -40,8 +40,8 @@
       <file leaf-file-name="ElaborateManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/core/ElaborateManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2569" max-vertical-offset="5219">
-              <caret line="182" column="34" selection-start-line="182" selection-start-column="34" selection-end-line="182" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2297" max-vertical-offset="5202">
+              <caret line="173" column="40" selection-start-line="173" selection-start-column="33" selection-end-line="173" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -50,8 +50,8 @@
       <file leaf-file-name="config.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/configuration/config.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.345454" vertical-offset="4743" max-vertical-offset="5355">
-              <caret line="306" column="7" selection-start-line="306" selection-start-column="7" selection-end-line="306" selection-end-column="7" />
+            <state vertical-scroll-proportion="-24.363636" vertical-offset="5307" max-vertical-offset="6817">
+              <caret line="391" column="9" selection-start-line="391" selection-start-column="9" selection-end-line="391" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -60,8 +60,8 @@
       <file leaf-file-name="configAlone.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/configuration/configAlone.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.5" vertical-offset="1734" max-vertical-offset="2414">
-              <caret line="115" column="24" selection-start-line="115" selection-start-column="24" selection-end-line="115" selection-end-column="24" />
+            <state vertical-scroll-proportion="-13.076923" vertical-offset="1683" max-vertical-offset="2414">
+              <caret line="119" column="30" selection-start-line="119" selection-start-column="30" selection-end-line="119" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -77,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Commands.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Commands.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/console/Commands.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="409" max-vertical-offset="3230">
-              <caret line="68" column="31" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.7292035" vertical-offset="472" max-vertical-offset="3230">
+              <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -97,11 +97,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Author.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Author.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/semantic/Author.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8584071" vertical-offset="654" max-vertical-offset="5644">
-              <caret line="67" column="42" selection-start-line="67" selection-start-column="42" selection-end-line="67" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="603" max-vertical-offset="5661">
+              <caret line="53" column="53" selection-start-line="53" selection-start-column="53" selection-end-line="53" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -203,10 +203,10 @@
         <option value="$PROJECT_DIR$/src/builder/model/ResourcesHandler.java" />
         <option value="$PROJECT_DIR$/src/builder/BuilderManager.java" />
         <option value="$PROJECT_DIR$/src/core/ElaborateManager.java" />
+        <option value="$PROJECT_DIR$/src/semantic/Author.java" />
+        <option value="$PROJECT_DIR$/configuration/configAlone.json" />
         <option value="$PROJECT_DIR$/configuration/config.json" />
         <option value="$PROJECT_DIR$/src/console/Commands.java" />
-        <option value="$PROJECT_DIR$/configuration/configAlone.json" />
-        <option value="$PROJECT_DIR$/src/semantic/Author.java" />
       </list>
     </option>
   </component>
@@ -1127,45 +1127,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/semantic/Author.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="603" max-vertical-offset="5661">
+          <caret line="53" column="53" selection-start-line="53" selection-start-column="53" selection-end-line="53" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/core/ElaborateManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2314" max-vertical-offset="5219">
-          <caret line="182" column="34" selection-start-line="182" selection-start-column="34" selection-end-line="182" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/configuration/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.345454" vertical-offset="4743" max-vertical-offset="5355">
-          <caret line="306" column="7" selection-start-line="306" selection-start-column="7" selection-end-line="306" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/console/Commands.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="409" max-vertical-offset="3230">
-          <caret line="68" column="31" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2297" max-vertical-offset="5202">
+          <caret line="173" column="40" selection-start-line="173" selection-start-column="33" selection-end-line="173" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/configuration/configAlone.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.5" vertical-offset="1734" max-vertical-offset="2414">
-          <caret line="115" column="24" selection-start-line="115" selection-start-column="24" selection-end-line="115" selection-end-column="24" />
+        <state vertical-scroll-proportion="-13.076923" vertical-offset="1683" max-vertical-offset="2414">
+          <caret line="119" column="30" selection-start-line="119" selection-start-column="30" selection-end-line="119" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/semantic/Author.java">
+    <entry file="file://$PROJECT_DIR$/configuration/config.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8584071" vertical-offset="654" max-vertical-offset="5644">
-          <caret line="67" column="42" selection-start-line="67" selection-start-column="42" selection-end-line="67" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-24.363636" vertical-offset="5307" max-vertical-offset="6817">
+          <caret line="391" column="9" selection-start-line="391" selection-start-column="9" selection-end-line="391" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/console/Commands.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7292035" vertical-offset="472" max-vertical-offset="3230">
+          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

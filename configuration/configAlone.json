@@ -101,7 +101,7 @@
         {
           "key": "coauthors_list",
           "type": "Resource",
-          "weight": "2.5",
+          "weight": "3.335111348",
           "threshold": "0",
           "limit": "100",
           "delimiter": ";",
@@ -113,7 +113,7 @@
         {
           "key": "publications",
           "type": "Resource",
-          "weight": "0.5",
+          "weight": "0",
           "threshold": "0",
           "limit": "100",
           "delimiter": ";",

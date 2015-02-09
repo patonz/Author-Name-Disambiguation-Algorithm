@@ -44,15 +44,16 @@ public class Author implements Similarity, Runnable {
 
         //ArrayList<Boolean> global_check = new ArrayList<>();
 
-        JsonObject jsonObject = new JsonObject();
+
 
 
         ArrayList<Result> results = new ArrayList<>();
-        JsonArray identifier = new JsonArray();
-        JsonObject params = new JsonObject();
+
 
         for (Settings set : BuilderManager.getInstance().settings) {
-
+            JsonObject jsonObject = new JsonObject();
+            JsonArray identifier = new JsonArray();
+            JsonObject params = new JsonObject();
             Double gradewighted = 0.0;
             Double weights = 0.0;
             String authorresult = "";
