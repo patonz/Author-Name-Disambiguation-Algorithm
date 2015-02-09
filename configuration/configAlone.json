@@ -21,13 +21,31 @@
         "weight": "3",
         "delimiter": "",
         "identifier": false
+      },
+      {
+        "key": "coauthors_list",
+        "type": "Resource",
+        "delimiter": ";",
+        "identifier": false
+      },
+      {
+        "key": "publications",
+        "type": "Resource",
+        "delimiter": ";",
+        "identifier": false
+      },
+      {
+        "key": "publications_pub_years",
+        "type": "Resource",
+        "delimiter": ";",
+        "identifier": false
       }
     ]
   },
   "settings": [
     {
       "global_setting": {
-        "global_threshold": "95",
+        "global_threshold": "75",
         "global_checks": "0"
       },
       "param": [
@@ -44,8 +62,8 @@
           "key": "family_name",
           "type": "Information",
           "weight": "4",
-          "threshold": "95",
-          "limit": "99.9",
+          "threshold": "100",
+          "limit": "100",
           "delimiter": "",
           "identifier": false,
           "options": {
@@ -56,8 +74,8 @@
         {
           "key": "given_name",
           "type": "Information",
-          "weight": "0",
-          "threshold": "0",
+          "weight": "3",
+          "threshold": "100",
           "limit": "100",
           "delimiter": "",
           "identifier": false,
@@ -66,6 +84,52 @@
             "spaces": true,
             "dots": true
           }
+        },
+        {
+          "key": "full_name",
+          "type": "Information",
+          "weight": "3",
+          "threshold": "0",
+          "limit": "100",
+          "delimiter": "",
+          "identifier": false,
+          "options": {
+            "spaces": true,
+            "dots": true
+          }
+        },
+        {
+          "key": "coauthors_list",
+          "type": "Resource",
+          "weight": "2.5",
+          "threshold": "0",
+          "limit": "100",
+          "delimiter": ";",
+          "identifier": false,
+          "options": {
+            "arw": false
+          }
+        },
+        {
+          "key": "publications",
+          "type": "Resource",
+          "weight": "0.5",
+          "threshold": "0",
+          "limit": "100",
+          "delimiter": ";",
+          "identifier": false,
+          "options": {
+            "arw": false
+          }
+        },
+        {
+          "key": "publications_pub_years",
+          "type": "Resource",
+          "weight": "0.5",
+          "threshold": "0",
+          "limit": "100",
+          "delimiter": ";",
+          "identifier": false
         }
       ]
     }

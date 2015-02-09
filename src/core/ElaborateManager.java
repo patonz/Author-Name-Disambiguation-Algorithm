@@ -180,6 +180,7 @@ public class ElaborateManager {
                             authorA = i;
                             authorB = k + 1 + i;
                             countCombination++;
+                            break;
                         }
                     }
 

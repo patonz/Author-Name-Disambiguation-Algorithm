@@ -41,23 +41,28 @@ public class Author implements Similarity, Runnable {
             throw new SimilarTypeNotFoundException();
         }
 
-        ArrayList<Monomial> polinomial = new ArrayList<>();
-        Monomial x = null;
-        boolean check = true;
+
         //ArrayList<Boolean> global_check = new ArrayList<>();
-        int countglobalcheck = 0;
-        int maxglobalcheck = 0;
+
         JsonObject jsonObject = new JsonObject();
 
-        Double gradewighted = 0.0;
-        Double weights = 0.0;
-        String authorresult = "";
 
         ArrayList<Result> results = new ArrayList<>();
         JsonArray identifier = new JsonArray();
         JsonObject params = new JsonObject();
 
         for (Settings set : BuilderManager.getInstance().settings) {
+
+            Double gradewighted = 0.0;
+            Double weights = 0.0;
+            String authorresult = "";
+
+            boolean check = true;
+            ArrayList<Monomial> polinomial = new ArrayList<>();
+            Monomial x = null;
+            int countglobalcheck = 0;
+            int maxglobalcheck = 0;
+
             for (Setting s : set.param) {
 
                 Double partialgrade = 0.0;

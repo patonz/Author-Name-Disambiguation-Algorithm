@@ -64,7 +64,7 @@ public class Commands {
 
     public void setup() {
         try {
-            BuilderManager.getInstance().createDynamicClassFromConfig("configuration/config.json");
+            BuilderManager.getInstance().createDynamicClassFromConfig("configuration/configAlone.json");
 
         } catch (Exception e) {
             System.err.println("config.json file missing / corrupted");
