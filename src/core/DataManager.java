@@ -9,7 +9,7 @@ import com.squareup.okhttp.Headers;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
-import configuration.Setting;
+import configuration.DataStructure;
 import exception.TypeNotFoundException;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,7 +22,10 @@ import java.io.IOException;
 import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Scanner;
+import java.util.StringTokenizer;
 
 /**
  * Created by Leonardo on 07/01/2015.
@@ -53,8 +56,8 @@ public class DataManager {
 
         System.out.println("reading from endpoint...");
 
-        String endpoint = BuilderManager.getInstance().settings.endpoint;
-        String query = URLEncoder.encode(BuilderManager.getInstance().settings.query, "UTF-8");
+        String endpoint = BuilderManager.getInstance().configuration.endpoint;
+        String query = URLEncoder.encode(BuilderManager.getInstance().configuration.query, "UTF-8");
         String uri = endpoint + "/query?query=" + query + "&output=json&stylesheet=";
 
 
@@ -99,13 +102,13 @@ public class DataManager {
     }
 
     public void loadDataFromJsonDebug(String string) {
-
+ /*
         JSONObject obj = new JSONObject(string);
         JSONObject objconverted = new JSONObject();
         Gson gson = new Gson();
 
         JSONArray vars = new JSONArray();
-        for (Setting s : BuilderManager.getInstance().settings.param)
+        for (Setting s : set.param)
             vars.put(s.key);
 
 
@@ -128,6 +131,7 @@ public class DataManager {
                 System.err.println("problem with jsoniterator");
             }
         }
+        */
     }
 
     public void loadDataFromJson(String string) {
@@ -145,62 +149,59 @@ public class DataManager {
         for (int i = 0; i < jarray.length(); i++) {
             JSONObject temp = (JSONObject) jarray.get(i);
             semantic.Author a = new semantic.Author();
-            for (Setting setting : BuilderManager.getInstance().settings.param) {
+            for (DataStructure structure : BuilderManager.getInstance().configuration.data_structure) {
 
-                switch (setting.type) {
+                switch (structure.type) {
 
 
                     case "Resource":
 
                         ArrayList<Resource> resourceslist = new ArrayList<>();
-                        if (temp.has(setting.key)) {
-
-
-                            Resource res = gson.fromJson(temp.get(setting.key).toString(), Resource.class);
-                            ArrayList<String> stringresources = SplitUsingTokenizer(res, setting);
+                        if (temp.has(structure.key)) {
+                            Resource res = gson.fromJson(temp.get(structure.key).toString(), Resource.class);
+                            ArrayList<String> stringresources = SplitUsingTokenizer(res, structure);
 
                             for (String s : stringresources) {
                                 Resource r = new Resource(s);
-                                r.setOption(setting.options);
+
                                 resourceslist.add(r);
                             }
                         }
-                        a.resources.put(setting.key, new ResourcesHandler(resourceslist, Double.parseDouble(setting.weight)));
+                        a.resources.put(structure.key, new ResourcesHandler(resourceslist));
 
 
                         break;
                     case "Information":
                         ArrayList<Information> informationlist = new ArrayList<>();
-                        if (temp.has(setting.key)) {
-                            Information info = gson.fromJson(temp.get(setting.key).toString(), Information.class);
-                            ArrayList<String> stringinformation = SplitUsingTokenizer(info, setting);
+                        if (temp.has(structure.key)) {
+                            Information info = gson.fromJson(temp.get(structure.key).toString(), Information.class);
+                            ArrayList<String> stringinformation = SplitUsingTokenizer(info, structure);
 
                             for (String s : stringinformation) {
                                 Information in = new Information(s);
-                                in.setOption(setting.options);
+
                                 informationlist.add(in);
                             }
                         }
-                        a.informations.put(setting.key, new InformationsHandler(informationlist, Double.parseDouble(setting.weight)));
+                        a.informations.put(structure.key, new InformationsHandler(informationlist));
                         break;
                     case "Period":
                         ArrayList<Period> periodlist = new ArrayList<>();
-                        if (temp.has(setting.key)) {
+                        if (temp.has(structure.key)) {
 
 
-                            Period per = gson.fromJson(temp.get(setting.key).toString(), Period.class);
-                            ArrayList<String> stringperiod = SplitUsingTokenizer(per, setting);
+                            Period per = gson.fromJson(temp.get(structure.key).toString(), Period.class);
+                            ArrayList<String> stringperiod = SplitUsingTokenizer(per, structure);
 
                             for (String s : stringperiod) {
                                 Period p = new Period(s);
-                                p.setOption(setting.options);
                                 periodlist.add(p);
                             }
                         }
-                        a.periods.put(setting.key, new PeriodsHandler(periodlist, Double.parseDouble(setting.weight)));
+                        a.periods.put(structure.key, new PeriodsHandler(periodlist));
                         break;
                     default:
-                        throw new TypeNotFoundException(setting.key);
+                        throw new TypeNotFoundException(structure.key);
 
 
                 }
@@ -239,9 +240,9 @@ public class DataManager {
     }
 
 
-    public ArrayList<String> SplitUsingTokenizer(Builder builder, Setting setting) {
+    public ArrayList<String> SplitUsingTokenizer(Builder builder, DataStructure structure) {
 
-        StringTokenizer strTkn = new StringTokenizer(builder.value, setting.delimiter);
+        StringTokenizer strTkn = new StringTokenizer(builder.value, structure.delimiter);
         ArrayList<String> arrLis = new ArrayList<>();
 
 

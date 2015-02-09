@@ -4,6 +4,7 @@ import builder.BuilderManager;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import configuration.Settings;
 import org.json.JSONArray;
 import semantic.Author;
 import semantic.AuthorBaseLine;
@@ -141,6 +142,8 @@ public class ElaborateManager {
         int countResult = 0;
         int countCombination = 0;
         int maxsize = localauthorlist.size();
+        int authorA = -1;
+        int authorB = -1;
 
         JsonArray shortoutputs = new JsonArray();
         JsonObject output = new JsonObject();
@@ -164,31 +167,40 @@ public class ElaborateManager {
                 Author b = localauthorlist.get(k);
 
 
-                Result result = (Result) a.Similarity(b);
+                ArrayList<Result> resultlist = (ArrayList<Result>) a.Similarity(b);
 
-                if (result.grade >= Double.parseDouble(BuilderManager.getInstance().settings.global_setting.global_threshold) && result.check) {
-                    System.out.println("Author A n°" + i + " : Author B n°" + (i + 1 + k));
+                for (Result res : resultlist) {
+                    if (res.check) {
+                        if (i != authorA || (k + 1 + i) != authorB) {
+                            System.out.println("Author A n°" + i + " : Author B n°" + (i + 1 + k));
 
 
-                    results.add(result.output);
-                    shortoutputs.add(result.shortoutput);
-                    countCombination++;
+                            results.add(res.output);
+                            shortoutputs.add(res.shortoutput);
+                            authorA = i;
+                            authorB = k + 1 + i;
+                            countCombination++;
+                        }
+                    }
+
+
+                    countResult++;
+
                 }
-
-
-                countResult++;
-
-
             }
 
 
         }
 
         JsonObject metainfo = new JsonObject();
-        metainfo.add("configuration", BuilderManager.getInstance().settings.configuration);
+        JsonArray settingsjson = new JsonArray();
+        for (Settings settings : BuilderManager.getInstance().settings) {
+            settingsjson.add(settings.configuration);
+        }
+        metainfo.add("configuration", settingsjson);
         metainfo.addProperty("combination_count", countResult);
         metainfo.addProperty("result_count", countCombination);
-        metainfo.addProperty("identifier", BuilderManager.getInstance().settings.identifier.key);
+        metainfo.addProperty("identifier", BuilderManager.getInstance().configuration.identifier);
         output.add("meta_info", metainfo);
         output.add("results", results);
 

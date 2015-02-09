@@ -2,14 +2,15 @@ package builder;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import configuration.Configuration;
 import configuration.Setting;
 import configuration.Settings;
 import javassist.*;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -20,7 +21,10 @@ import java.util.Scanner;
 public class BuilderManager {
 
     private static BuilderManager ourInstance = new BuilderManager();
-    public Settings settings;
+    public ArrayList<Settings> settings = new ArrayList<>();
+    public Configuration configuration;
+
+
     public ArrayList<Class> mypool = new ArrayList<Class>();
 
     private BuilderManager() {
@@ -109,35 +113,39 @@ public class BuilderManager {
         } catch (IOException e) {
             System.out.println(e.toString());
         }
-
-        JSONObject obj = new JSONObject(str);
-
-
         Gson gson = new Gson();
 
+        JSONObject config = new JSONObject(str);
+        this.configuration = gson.fromJson(config.get("configuration").toString(), Configuration.class);
 
-        settings = gson.fromJson(obj.toString(), Settings.class);
+        JSONArray arrayj = config.getJSONArray("settings");
 
-        JsonElement jelem = gson.fromJson(obj.toString(), JsonElement.class);
 
-        settings.configuration = jelem.getAsJsonObject();
+        for (int i = 0; i < arrayj.length(); i++) {
+            JSONObject obj = (JSONObject) arrayj.get(i);
 
-        try {
-            settings.endpoint = obj.getString("endpoint");
-            settings.query = obj.getString("query");
-        } catch (Exception e) {
-            e.printStackTrace();
+            Gson gsonfoset = new Gson();
+            Settings set = gsonfoset.fromJson(obj.toString(), Settings.class);
+
+
+            JsonElement jelem = gsonfoset.fromJson(obj.toString(), JsonElement.class);
+
+            set.configuration = jelem.getAsJsonObject();
+
+
+            settings.add(set);
+
+
         }
 
-        settings.checkIdentifier();
-        for (int i = 0; i < settings.param.size(); i++) {
+        configuration.checkIdentifier();
+        for (int k = 0; k < configuration.data_structure.size(); k++) {
 
             String id = "";
-            if (settings.param.get(i).identifier)
+            if (configuration.data_structure.get(k).identifier)
                 id = " as Identifier";
 
-
-            System.out.println("key: " + settings.param.get(i).key + id + " " + settings.param.get(i).options.toString());
+            System.out.println("key: " + configuration.data_structure.get(k).key + id);
 
 
         }
@@ -146,34 +154,4 @@ public class BuilderManager {
     }
 
 
-    public Object getField(Object a, String field) throws NotFoundException {
-        ClassPool pool = new ClassPool();
-        pool.appendClassPath("src\\builder\\debug");
-
-        Object value = new Object();
-        try {
-          /*  CtClass cc = pool.getCtClass("semantic.Author");
-            System.out.println(cc.toString());
-            for(CtMethod m : cc.getDeclaredMethods()){
-                System.out.println(m.getName());
-            }*/
-
-            for (Method m : a.getClass().getDeclaredMethods()) {
-                System.out.println(m.getName());
-
-                if (m.getName() == "getPerson") {
-                    Method method = m;
-                    value = method.invoke(a);
-                }
-            }
-
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-
-
-        return value;
-    }
 }

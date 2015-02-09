@@ -1,5 +1,6 @@
 package builder.model;
 
+import configuration.Option;
 import exception.SimilarTypeNotFoundException;
 
 import java.util.ArrayList;
@@ -12,11 +13,17 @@ public class PeriodsHandler extends BuildersHandler {
     public ArrayList<Period> periods;
 
 
-    public PeriodsHandler(ArrayList periods, Double weight) {
+    public PeriodsHandler(ArrayList periods) {
         this.periods = periods;
-        this.weight = weight;
+
     }
 
+    @Override
+    public void setOption(Option opt) {
+        for(Period per : periods){
+            per.option = opt;
+        }
+    }
 
     @Override
     public Object Similarity(Object obj) {

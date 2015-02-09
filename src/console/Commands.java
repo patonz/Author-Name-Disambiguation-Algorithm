@@ -64,7 +64,7 @@ public class Commands {
 
     public void setup() {
         try {
-            BuilderManager.getInstance().createDynamicClassFromConfig("src/configuration/config.json");
+            BuilderManager.getInstance().createDynamicClassFromConfig("configuration/config.json");
 
         } catch (Exception e) {
             System.err.println("config.json file missing / corrupted");
@@ -134,7 +134,7 @@ public class Commands {
                 System.out.println(df.format(dateobj) + ": processing...");
                 Chronometer chronometer = new Chronometer();
                 chronometer.start();
-                ElaborateManager.getInstance().elaborateBaseLine(type,threshold);
+                ElaborateManager.getInstance().elaborateBaseLine(type, threshold);
 
                 chronometer.stop();
                 System.out.println(df.format(new Date()) + ": operation terminated in " + chronometer.getSeconds() + "sec | " + chronometer.getMinutes() + " min | " + chronometer.getHours() + "h");

@@ -1,5 +1,6 @@
 package builder.model;
 
+import configuration.Option;
 import exception.SimilarTypeNotFoundException;
 
 import java.util.ArrayList;
@@ -13,11 +14,17 @@ public class ResourcesHandler extends BuildersHandler {
     public ArrayList<Resource> resources;
 
 
-    public ResourcesHandler(ArrayList resources, Double weight) {
+    public ResourcesHandler(ArrayList resources) {
         this.resources = resources;
-        this.weight = weight;
+
     }
 
+    @Override
+    public void setOption(Option opt) {
+        for(Resource res : resources){
+            res.option = opt;
+        }
+    }
 
     @Override
     public Object Similarity(Object obj) {
@@ -50,7 +57,7 @@ public class ResourcesHandler extends BuildersHandler {
             }
         }
 
-        Double grade = (check * 100) / (totalcheck + (min.size()-check));
+        Double grade = (check * 100) / (totalcheck + (min.size() - check));
 
         return (!Double.isNaN(grade)) ? grade : 0.0;
     }

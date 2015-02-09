@@ -32,7 +32,7 @@
       "key": "given_name",
       "type": "Information",
       "weight": "3",
-      "threshold": "50",
+      "threshold": "50.01",
       "limit": "100",
       "delimiter": "",
       "identifier": false,
@@ -82,7 +82,7 @@
       "delimiter": ";",
       "identifier": false,
       "options": {
-        "arw": true
+        "arw": false
       }
     },
     {
