@@ -72,7 +72,7 @@ public class ElaborateManager {
         try {
             Method method;
 
-            ArrayList<AuthorBaseLine> localauthorlist = (ArrayList<AuthorBaseLine>) DataManager.getInstance().dataAuthorBaseLine.bindings.clone();
+            ArrayList<AuthorBaseLine> localauthorlist =  DataManager.getInstance().dataAuthorBaseLine.bindings;
 
             switch (type) {
                 case "A":
@@ -91,22 +91,19 @@ public class ElaborateManager {
             JsonArray shortoutputs = new JsonArray();
             for (int i = 0; i < maxsize; i++) {
 
-                AuthorBaseLine a = localauthorlist.get(0);
+                AuthorBaseLine a = localauthorlist.get(i);
 
-                localauthorlist.remove(0);
-                if (localauthorlist.size() == 0) {
 
-                    break;
-                }
 
-                for (int k = 0; k < localauthorlist.size(); k++) {
+
+                for (int k = i+1; k < localauthorlist.size(); k++) {
 
 
                     AuthorBaseLine b = localauthorlist.get(k);
                     method.invoke(a, b, prob);
 
                     if ((boolean) method.invoke(a, b, prob)) {
-                        System.out.println("AuthorBaseLine A n°" + i + " : AuthorBaseLine B n°" + (k + i + 1));
+                        System.out.println("AuthorBaseLine A n°" + i + " : AuthorBaseLine B n°" + (k));
                         JsonPrimitive aPrimitive = new JsonPrimitive(a.person.value);
                         JsonPrimitive bPrimitive = new JsonPrimitive(b.person.value);
                         JsonArray comb = new JsonArray();
@@ -123,7 +120,7 @@ public class ElaborateManager {
 
             }
 
-            DataManager.getInstance().writeJson(shortoutputs, "result_short.json");
+            DataManager.getInstance().writeJson(shortoutputs, "result_short");
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
@@ -294,7 +291,7 @@ public class ElaborateManager {
                             intersection += 1;
                             checkA = false;
                             checkB = false;
-                            System.out.println("A n°" + i + " : B n°" + k + "\nintersection found in: " + idAcheck + " & " + idBcheck);
+                            System.out.println("A n°" + k + " : B n°" + j + "\nintersection found in: " + idAcheck + " & " + idBcheck);
                         }
 
                     }

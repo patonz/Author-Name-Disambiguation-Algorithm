@@ -34,19 +34,17 @@ public class MathUtils {
 
 
         Random rand = new Random();
+        boolean[] check = new boolean[100];
         int totalSum = 100;
-        boolean[] check = new boolean[]{true, false};
-        int[] prob = new int[]{(100 - probability), probability};
-
-        int index = rand.nextInt(totalSum);
-        int sum = 0;
-        int i = 0;
-        while (sum < index) {
-            sum = sum + prob[i++];
+        for (int i = 0; i < 100 - probability; i++) {
+            check[i] = true;
         }
 
 
-        return check[Math.max(0, i - 1)];
+        int index = rand.nextInt(totalSum);
+
+
+        return check[index];
     }
 
     public static boolean getRandomBoolean() {
@@ -62,14 +60,14 @@ public class MathUtils {
 
 
         for (Monomial monomial : polinomial) {
-          //  System.out.println(monomial.constant + " " + monomial.variable);
+            //  System.out.println(monomial.constant + " " + monomial.variable);
             numerator += monomial.getProduct();
             denominator += monomial.variable;
         }
-       // System.out.println("constant x :" + x.constant);
-       // System.out.println("result: " + (numerator - (result * denominator)) / (result - x.constant));
+        // System.out.println("constant x :" + x.constant);
+        // System.out.println("result: " + (numerator - (result * denominator)) / (result - x.constant));
         double weight = (numerator - (result * denominator)) / (result - 0);
-        return (weight >= 0.0)? weight : 0.0;
+        return (weight >= 0.0) ? weight : 0.0;
 
 
     }

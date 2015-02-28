@@ -54,7 +54,7 @@
           "type": "Resource",
           "weight": "0",
           "threshold": "0",
-          "limit": "100",
+          "limit": "-1",
           "delimiter": ";",
           "identifier": true
         },

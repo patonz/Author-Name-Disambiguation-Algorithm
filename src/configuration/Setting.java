@@ -10,10 +10,7 @@ public class Setting {
     public String weight;
     public String threshold;
     public String limit;
-    public String delimiter;
 
     public Option options = new Option();
-
-
 
 }

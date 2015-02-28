@@ -5,9 +5,7 @@ package configuration;
  */
 public class GlobalSetting {
 
-
     public String global_threshold;
     public String global_checks;
-
 
 }
