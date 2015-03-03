@@ -1,4 +1,4 @@
-package core;
+package util;
 
 /**
  * Created by Leonardo on 14/01/2015.
