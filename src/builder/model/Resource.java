@@ -1,6 +1,6 @@
 package builder.model;
 
-import core.Levenshtein;
+import util.Levenshtein;
 import exception.SimilarTypeNotFoundException;
 
 /**

@@ -1,7 +1,8 @@
 package builder.model;
 
-import core.Levenshtein;
+import util.Levenshtein;
 import exception.SimilarTypeNotFoundException;
+import util.MultipleWordsAnalyzer;
 
 /**
  * Created by Leonardo on 14/01/2015.
@@ -28,10 +29,25 @@ public class Information extends Builder {
         }
         String a = this.value;
         String b = ((Information) obj).value;
+
+
+        if(option.mwa){
+            int words = MultipleWordsAnalyzer.mwa(a,b);
+            if(words>0){
+                return 50.0;
+
+            }else return 0.0;
+        }
+
+
         if (option.dots) {
             a = a.replace(".", "");
             b = b.replace(".", "");
         }
+
+
+
+
         if (option.spaces) {
             a = a.replaceAll("\\s", "");
             b = b.replaceAll("\\s", "");
@@ -47,10 +63,13 @@ public class Information extends Builder {
             min = a;
         }
 
+
+
+
         //diminuitive check
         if (max.length() > 1 && min.length() == 1) {
             if (max.charAt(0) == min.charAt(0)) {
-                return 50.0; // F. of Fabio, can be the same name or not, just flip a coin.
+                return 50.0; // F. of Fabio, can be the same name or not.
             } else return 0.0; // A. of Fabio cant be the same name.
         }
 

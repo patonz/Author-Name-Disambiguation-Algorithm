@@ -163,6 +163,7 @@
           "limit": "50",
           "options": {
             "diminutive":"50",
+            "mwa": true,
             "spaces": true,
             "dots": true
           }

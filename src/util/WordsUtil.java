@@ -10,4 +10,11 @@ public class WordsUtil {
         a = a.replace(".", "");
         return a;
     }
+
+    public static String removeSpaces(String a) {
+
+        a = a.replaceAll("\\s", "");
+
+        return a;
+    }
 }

@@ -72,7 +72,7 @@ public class ElaborateManager {
         try {
             Method method;
 
-            ArrayList<AuthorBaseLine> localauthorlist =  DataManager.getInstance().dataAuthorBaseLine.bindings;
+            ArrayList<AuthorBaseLine> localauthorlist = DataManager.getInstance().dataAuthorBaseLine.bindings;
 
             switch (type) {
                 case "A":
@@ -94,9 +94,7 @@ public class ElaborateManager {
                 AuthorBaseLine a = localauthorlist.get(i);
 
 
-
-
-                for (int k = i+1; k < localauthorlist.size(); k++) {
+                for (int k = i + 1; k < localauthorlist.size(); k++) {
 
 
                     AuthorBaseLine b = localauthorlist.get(k);
@@ -168,7 +166,7 @@ public class ElaborateManager {
 
                 for (Result res : resultlist) {
                     if (res.check) {
-                        if (i != authorA || (i+1+k) != authorB) {
+                        if (i != authorA || (i + 1 + k) != authorB) {
                             System.out.println("Author A n°" + i + " : Author B n°" + (i + 1 + k));
 
 
