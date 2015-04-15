@@ -1,4 +1,4 @@
-Author-Name-Disambiguation-Algorithm
+Hodor: Author-Name-Disambiguation-Tool
 ====================================
 
-Author Name Disambiguation Algorithm implemented for University of Bologna
+Author Name Disambiguation Tool implemented for University of Bologna
