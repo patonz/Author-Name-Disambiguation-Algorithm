@@ -3,7 +3,7 @@ package util;
 /**
  * Created by Leonardo on 06/02/2015.
  */
-public class Neightboring {
+public class Neighboring {
 
 
     static String charsENG = "1234567890-=qwertyuiop[]asdfghjkl;'\\\\zxcvbnm,./";
